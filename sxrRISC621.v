@@ -54,7 +54,7 @@ output [7:0] Display_pin;	// 8 LEDs
 //----------------------------------------------------------------------------
 //-- Declare internal signals
 //----------------------------------------------------------------------------
-	reg	[11:0]	R [2:0];
+	reg	[11:0]	R [7:0];
 	reg				WR_DM;
 	reg	[1:0]		MC;
 	reg	[11:0]	PC, IR, MAB, MAX, MAeff, SP, DM_in, IPDR;
@@ -88,13 +88,13 @@ output [7:0] Display_pin;	// 8 LEDs
 // Instantiating only 1KWord memories to save resources
 //----------------------------------------------------------------------------
 
-		sxrRISC621_rom1	my_rom	(PC[11:0], Clock_not, PM_out);
+		my_rom	sxrRISC621_rom		(PC[11:0], Clock_not, PM_out);
 		
-		sxrRISC621_ram1	my_ram	(MAeff[11:0], Clock_not, DM_in, WR_DM, DM_out);
+		my_ram	sxrRISC621_ram		(MAeff[11:0], Clock_not, DM_in, WR_DM, DM_out);
 		
-		sxrRISC621_mult	my_mult	(TA, TB, Mul_out);
+		my_mult	sxrRISC621_mult	(TA, TB, Mul_out);
 		
-		sxrRISC621_div		my_div	(TA, TB, Div_out);
+		my_div	sxrRISC621_div		(TA, TB, Div_out);
 
 //----------------------------------------------------------------------------
 //	Behavioral section of the code.  Assignments are evaluated in order, i.e.
@@ -193,7 +193,7 @@ always@(posedge Clock_pin)
 										TB = {9'b000000000, IR[2:0]};
 									end
 									
-							MULC_IC, SUBC_IC:
+							MULC_IC, DIVC_IC:
 									begin
 										TA = R[Ri];
 										TB = {9'b000000000, IR[2:0]};
@@ -222,7 +222,7 @@ always@(posedge Clock_pin)
 
 						MC2:	begin
 
-						case (IR[15:12])
+						case (IR[11:6])
 
 						LD_IC, JMP_IC:
 									begin
@@ -235,7 +235,7 @@ always@(posedge Clock_pin)
 
 						ST_IC:
 									begin
-										if (MAeff[15:4] != 12'hFFF)
+										if (MAeff[11:4] != 12'hFFF)
 											begin
 												MAeff = MAB + MAX;
 												WR_DM = 1'b1;
@@ -291,7 +291,7 @@ always@(posedge Clock_pin)
 									
 						MUL_IC, MULC_IC:
 									begin
-										TALUout = Mul_Out;
+										TALUout = Mul_out;
 										TSR[11] = TALUout[12]; // Carry
 										TSR[10] = TALUout[11]; // Negative
 										TSR[9] = ((TA[11] ~^ TB[11]) & TA[11]) ^ (TALUout[11] & (TA[11] ~^ TB[11])); // Overflow
@@ -306,7 +306,7 @@ always@(posedge Clock_pin)
 									
 						DIV_IC, DIVC_IC:
 									begin
-										TALUout = Div_Out;
+										TALUout = Div_out;
 
 										TSR[11] = 0 ; 			  // Carry
 
@@ -475,16 +475,16 @@ always@(posedge Clock_pin)
 												end
 											1:
 												begin
-													TALUH[15]=TSR[11]; TALUH[14:0]=TA[15:1]; TSR[11] = TA[0];
+													TALUH[11]=TSR[11]; TALUH[10:0]=TA[11:1]; TSR[11] = TA[0];
 												end
 											2:
 												begin
-													TALUH[15]=TA[0]; TALUH[14]=TSR[11]; TALUH[13:0]=TA[15:2]; TSR[11] = TA[1];
+													TALUH[11]=TA[0]; TALUH[10]=TSR[11]; TALUH[9:0]=TA[11:2]; TSR[11] = TA[1];
 												end
 											3:
 												begin
-													TALUH[15]=TA[1]; TALUH[14]=TA[0]; TALUH[13]=TSR[11]; 
-													TALUH[12:0]=TA[15:3]; TSR[11] = TA[2];
+													TALUH[11]=TA[1]; TALUH[10]=TA[0]; TALUH[9]=TSR[11]; 
+													TALUH[8:0]=TA[11:3]; TSR[11] = TA[2];
 												end
 										endcase
 									end
@@ -498,10 +498,10 @@ always@(posedge Clock_pin)
 					end
 //----------------------------------------------------------------------------
 						 MC3:	begin
-							case (IR[15:12])
+							case (IR[11:6])
 								 LD_IC:
 									begin
-										if (MAeff[15:4] == 12'hFFF)
+										if (MAeff[11:4] == 12'hFFF)
 											if (MAeff[3:0] == 4'hF)
 												R[IR[9:8]] = SP;
 											else
@@ -511,7 +511,7 @@ always@(posedge Clock_pin)
 									end
 								 ST_IC:
 									begin
-										if (MAeff[15:4] == 12'hFFF)
+										if (MAeff[11:4] == 12'hFFF)
 											if (MAeff[3:0] == 4'hF)
 												SP = R[IR[9:8]];
 											else

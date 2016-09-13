@@ -1,0 +1,7 @@
+
+State Machine - |sxrRISC621|MC
+Name MC.MC3 MC.MC2 MC.MC1 MC.MC0 
+MC.MC0 0 0 0 0 
+MC.MC1 0 0 1 1 
+MC.MC2 0 1 0 1 
+MC.MC3 1 0 0 1 
