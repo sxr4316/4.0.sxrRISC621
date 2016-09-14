@@ -1,5 +1,5 @@
 Flow report for sxrRISC621
-Tue Sep 13 07:38:13 2016
+Tue Sep 13 23:44:46 2016
 Quartus Prime Version 16.0.0 Build 211 04/27/2016 SJ Standard Edition
 
 
@@ -41,7 +41,7 @@ agreement for further details.
 +-----------------------------------------------------------------------------------+
 ; Flow Summary                                                                      ;
 +---------------------------------+-------------------------------------------------+
-; Flow Status                     ; Successful - Tue Sep 13 07:38:13 2016           ;
+; Flow Status                     ; Successful - Tue Sep 13 23:44:46 2016           ;
 ; Quartus Prime Version           ; 16.0.0 Build 211 04/27/2016 SJ Standard Edition ;
 ; Revision Name                   ; sxrRISC621                                      ;
 ; Top-level Entity Name           ; sxrRISC621                                      ;
@@ -68,7 +68,7 @@ agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 09/13/2016 07:36:19 ;
+; Start date & time ; 09/13/2016 23:42:52 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; sxrRISC621          ;
 +-------------------+---------------------+
@@ -79,23 +79,20 @@ agreement for further details.
 +-------------------------------------+---------------------------------+---------------+-------------+----------------+
 ; Assignment Name                     ; Value                           ; Default Value ; Entity Name ; Section Id     ;
 +-------------------------------------+---------------------------------+---------------+-------------+----------------+
-; COMPILER_SIGNATURE_ID               ; 106018697890712.147376657905536 ; --            ; --          ; --             ;
+; COMPILER_SIGNATURE_ID               ; 106018697890712.147382457107040 ; --            ; --          ; --             ;
 ; EDA_OUTPUT_DATA_FORMAT              ; Verilog Hdl                     ; --            ; --          ; eda_simulation ;
 ; EDA_SIMULATION_TOOL                 ; ModelSim-Altera (Verilog)       ; <None>        ; --          ; --             ;
+; EDA_TIME_SCALE                      ; 1 ps                            ; --            ; --          ; eda_simulation ;
 ; MAX_CORE_JUNCTION_TEMP              ; 85                              ; --            ; --          ; --             ;
 ; MIN_CORE_JUNCTION_TEMP              ; 0                               ; --            ; --          ; --             ;
-; MISC_FILE                           ; my_rom.bsf                      ; --            ; --          ; --             ;
-; MISC_FILE                           ; my_rom_bb.v                     ; --            ; --          ; --             ;
-; MISC_FILE                           ; my_rom.cmp                      ; --            ; --          ; --             ;
-; MISC_FILE                           ; my_ram.bsf                      ; --            ; --          ; --             ;
-; MISC_FILE                           ; my_ram_bb.v                     ; --            ; --          ; --             ;
-; MISC_FILE                           ; my_ram.cmp                      ; --            ; --          ; --             ;
-; MISC_FILE                           ; my_mult.bsf                     ; --            ; --          ; --             ;
-; MISC_FILE                           ; my_mult_bb.v                    ; --            ; --          ; --             ;
-; MISC_FILE                           ; my_mult.cmp                     ; --            ; --          ; --             ;
-; MISC_FILE                           ; my_div.bsf                      ; --            ; --          ; --             ;
-; MISC_FILE                           ; my_div_bb.v                     ; --            ; --          ; --             ;
-; MISC_FILE                           ; my_div.cmp                      ; --            ; --          ; --             ;
+; MISC_FILE                           ; sxrRISC621_rom.bsf              ; --            ; --          ; --             ;
+; MISC_FILE                           ; sxrRISC621_rom_bb.v             ; --            ; --          ; --             ;
+; MISC_FILE                           ; sxrRISC621_ram.bsf              ; --            ; --          ; --             ;
+; MISC_FILE                           ; sxrRISC621_ram_bb.v             ; --            ; --          ; --             ;
+; MISC_FILE                           ; sxrRISC621_mult.bsf             ; --            ; --          ; --             ;
+; MISC_FILE                           ; sxrRISC621_mult_bb.v            ; --            ; --          ; --             ;
+; MISC_FILE                           ; sxrRISC621_div.bsf              ; --            ; --          ; --             ;
+; MISC_FILE                           ; sxrRISC621_div_bb.v             ; --            ; --          ; --             ;
 ; PARTITION_COLOR                     ; 16764057                        ; --            ; --          ; Top            ;
 ; PARTITION_FITTER_PRESERVATION_LEVEL ; PLACEMENT_AND_ROUTING           ; --            ; --          ; Top            ;
 ; PARTITION_NETLIST_TYPE              ; SOURCE                          ; --            ; --          ; Top            ;
@@ -108,12 +105,12 @@ agreement for further details.
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis      ; 00:00:32     ; 1.0                     ; 900 MB              ; 00:00:55                           ;
-; Fitter                    ; 00:00:41     ; 1.0                     ; 1946 MB             ; 00:00:48                           ;
+; Analysis & Synthesis      ; 00:00:36     ; 1.0                     ; 906 MB              ; 00:00:59                           ;
+; Fitter                    ; 00:00:53     ; 1.0                     ; 1963 MB             ; 00:00:52                           ;
 ; Assembler                 ; 00:00:03     ; 1.0                     ; 804 MB              ; 00:00:02                           ;
-; TimeQuest Timing Analyzer ; 00:00:19     ; 1.0                     ; 1093 MB             ; 00:00:09                           ;
-; EDA Netlist Writer        ; 00:00:04     ; 1.0                     ; 802 MB              ; 00:00:03                           ;
-; Total                     ; 00:01:39     ; --                      ; --                  ; 00:01:57                           ;
+; TimeQuest Timing Analyzer ; 00:00:09     ; 1.0                     ; 1094 MB             ; 00:00:08                           ;
+; EDA Netlist Writer        ; 00:00:02     ; 1.0                     ; 802 MB              ; 00:00:02                           ;
+; Total                     ; 00:01:43     ; --                      ; --                  ; 00:02:03                           ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

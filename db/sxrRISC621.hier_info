@@ -598,7 +598,7 @@ Display_pin[6] <= <GND>
 Display_pin[7] <= <GND>
 
 
-|sxrRISC621|my_rom:sxrRISC621_rom
+|sxrRISC621|sxrRISC621_rom:my_rom
 address[0] => address[0].IN1
 address[1] => address[1].IN1
 address[2] => address[2].IN1
@@ -626,7 +626,7 @@ q[10] <= altsyncram:altsyncram_component.q_a
 q[11] <= altsyncram:altsyncram_component.q_a
 
 
-|sxrRISC621|my_rom:sxrRISC621_rom|altsyncram:altsyncram_component
+|sxrRISC621|sxrRISC621_rom:my_rom|altsyncram:altsyncram_component
 wren_a => ~NO_FANOUT~
 rden_a => ~NO_FANOUT~
 wren_b => ~NO_FANOUT~
@@ -644,22 +644,22 @@ data_a[9] => ~NO_FANOUT~
 data_a[10] => ~NO_FANOUT~
 data_a[11] => ~NO_FANOUT~
 data_b[0] => ~NO_FANOUT~
-address_a[0] => altsyncram_kcg1:auto_generated.address_a[0]
-address_a[1] => altsyncram_kcg1:auto_generated.address_a[1]
-address_a[2] => altsyncram_kcg1:auto_generated.address_a[2]
-address_a[3] => altsyncram_kcg1:auto_generated.address_a[3]
-address_a[4] => altsyncram_kcg1:auto_generated.address_a[4]
-address_a[5] => altsyncram_kcg1:auto_generated.address_a[5]
-address_a[6] => altsyncram_kcg1:auto_generated.address_a[6]
-address_a[7] => altsyncram_kcg1:auto_generated.address_a[7]
-address_a[8] => altsyncram_kcg1:auto_generated.address_a[8]
-address_a[9] => altsyncram_kcg1:auto_generated.address_a[9]
-address_a[10] => altsyncram_kcg1:auto_generated.address_a[10]
-address_a[11] => altsyncram_kcg1:auto_generated.address_a[11]
+address_a[0] => altsyncram_fjf1:auto_generated.address_a[0]
+address_a[1] => altsyncram_fjf1:auto_generated.address_a[1]
+address_a[2] => altsyncram_fjf1:auto_generated.address_a[2]
+address_a[3] => altsyncram_fjf1:auto_generated.address_a[3]
+address_a[4] => altsyncram_fjf1:auto_generated.address_a[4]
+address_a[5] => altsyncram_fjf1:auto_generated.address_a[5]
+address_a[6] => altsyncram_fjf1:auto_generated.address_a[6]
+address_a[7] => altsyncram_fjf1:auto_generated.address_a[7]
+address_a[8] => altsyncram_fjf1:auto_generated.address_a[8]
+address_a[9] => altsyncram_fjf1:auto_generated.address_a[9]
+address_a[10] => altsyncram_fjf1:auto_generated.address_a[10]
+address_a[11] => altsyncram_fjf1:auto_generated.address_a[11]
 address_b[0] => ~NO_FANOUT~
 addressstall_a => ~NO_FANOUT~
 addressstall_b => ~NO_FANOUT~
-clock0 => altsyncram_kcg1:auto_generated.clock0
+clock0 => altsyncram_fjf1:auto_generated.clock0
 clock1 => ~NO_FANOUT~
 clocken0 => ~NO_FANOUT~
 clocken1 => ~NO_FANOUT~
@@ -669,25 +669,25 @@ aclr0 => ~NO_FANOUT~
 aclr1 => ~NO_FANOUT~
 byteena_a[0] => ~NO_FANOUT~
 byteena_b[0] => ~NO_FANOUT~
-q_a[0] <= altsyncram_kcg1:auto_generated.q_a[0]
-q_a[1] <= altsyncram_kcg1:auto_generated.q_a[1]
-q_a[2] <= altsyncram_kcg1:auto_generated.q_a[2]
-q_a[3] <= altsyncram_kcg1:auto_generated.q_a[3]
-q_a[4] <= altsyncram_kcg1:auto_generated.q_a[4]
-q_a[5] <= altsyncram_kcg1:auto_generated.q_a[5]
-q_a[6] <= altsyncram_kcg1:auto_generated.q_a[6]
-q_a[7] <= altsyncram_kcg1:auto_generated.q_a[7]
-q_a[8] <= altsyncram_kcg1:auto_generated.q_a[8]
-q_a[9] <= altsyncram_kcg1:auto_generated.q_a[9]
-q_a[10] <= altsyncram_kcg1:auto_generated.q_a[10]
-q_a[11] <= altsyncram_kcg1:auto_generated.q_a[11]
+q_a[0] <= altsyncram_fjf1:auto_generated.q_a[0]
+q_a[1] <= altsyncram_fjf1:auto_generated.q_a[1]
+q_a[2] <= altsyncram_fjf1:auto_generated.q_a[2]
+q_a[3] <= altsyncram_fjf1:auto_generated.q_a[3]
+q_a[4] <= altsyncram_fjf1:auto_generated.q_a[4]
+q_a[5] <= altsyncram_fjf1:auto_generated.q_a[5]
+q_a[6] <= altsyncram_fjf1:auto_generated.q_a[6]
+q_a[7] <= altsyncram_fjf1:auto_generated.q_a[7]
+q_a[8] <= altsyncram_fjf1:auto_generated.q_a[8]
+q_a[9] <= altsyncram_fjf1:auto_generated.q_a[9]
+q_a[10] <= altsyncram_fjf1:auto_generated.q_a[10]
+q_a[11] <= altsyncram_fjf1:auto_generated.q_a[11]
 q_b[0] <= <GND>
 eccstatus[0] <= <GND>
 eccstatus[1] <= <GND>
 eccstatus[2] <= <GND>
 
 
-|sxrRISC621|my_rom:sxrRISC621_rom|altsyncram:altsyncram_component|altsyncram_kcg1:auto_generated
+|sxrRISC621|sxrRISC621_rom:my_rom|altsyncram:altsyncram_component|altsyncram_fjf1:auto_generated
 address_a[0] => ram_block1a0.PORTAADDR
 address_a[0] => ram_block1a1.PORTAADDR
 address_a[0] => ram_block1a2.PORTAADDR
@@ -858,7 +858,7 @@ q_a[10] <= ram_block1a10.PORTADATAOUT
 q_a[11] <= ram_block1a11.PORTADATAOUT
 
 
-|sxrRISC621|my_ram:sxrRISC621_ram
+|sxrRISC621|sxrRISC621_ram:my_ram
 address[0] => address[0].IN1
 address[1] => address[1].IN1
 address[2] => address[2].IN1
@@ -899,7 +899,7 @@ q[10] <= altsyncram:altsyncram_component.q_a
 q[11] <= altsyncram:altsyncram_component.q_a
 
 
-|sxrRISC621|my_ram:sxrRISC621_ram|altsyncram:altsyncram_component
+|sxrRISC621|sxrRISC621_ram:my_ram|altsyncram:altsyncram_component
 wren_a => altsyncram_epl1:auto_generated.wren_a
 rden_a => ~NO_FANOUT~
 wren_b => ~NO_FANOUT~
@@ -960,7 +960,7 @@ eccstatus[1] <= <GND>
 eccstatus[2] <= <GND>
 
 
-|sxrRISC621|my_ram:sxrRISC621_ram|altsyncram:altsyncram_component|altsyncram_epl1:auto_generated
+|sxrRISC621|sxrRISC621_ram:my_ram|altsyncram:altsyncram_component|altsyncram_epl1:auto_generated
 address_a[0] => ram_block1a0.PORTAADDR
 address_a[0] => ram_block1a1.PORTAADDR
 address_a[0] => ram_block1a2.PORTAADDR
@@ -1155,7 +1155,7 @@ wren_a => ram_block1a10.PORTAWE
 wren_a => ram_block1a11.PORTAWE
 
 
-|sxrRISC621|my_mult:sxrRISC621_mult
+|sxrRISC621|sxrRISC621_mult:my_mult
 dataa[0] => dataa[0].IN1
 dataa[1] => dataa[1].IN1
 dataa[2] => dataa[2].IN1
@@ -1195,7 +1195,7 @@ result[11] <= lpm_mult:lpm_mult_component.result
 result[12] <= lpm_mult:lpm_mult_component.result
 
 
-|sxrRISC621|my_mult:sxrRISC621_mult|lpm_mult:lpm_mult_component
+|sxrRISC621|sxrRISC621_mult:my_mult|lpm_mult:lpm_mult_component
 dataa[0] => mult_u0n:auto_generated.dataa[0]
 dataa[1] => mult_u0n:auto_generated.dataa[1]
 dataa[2] => mult_u0n:auto_generated.dataa[2]
@@ -1240,7 +1240,7 @@ result[11] <= mult_u0n:auto_generated.result[11]
 result[12] <= mult_u0n:auto_generated.result[12]
 
 
-|sxrRISC621|my_mult:sxrRISC621_mult|lpm_mult:lpm_mult_component|mult_u0n:auto_generated
+|sxrRISC621|sxrRISC621_mult:my_mult|lpm_mult:lpm_mult_component|mult_u0n:auto_generated
 dataa[0] => Mult0.IN11
 dataa[1] => Mult0.IN10
 dataa[2] => Mult0.IN9
@@ -1280,7 +1280,7 @@ result[11] <= Mult0.DB_MAX_OUTPUT_PORT_TYPE
 result[12] <= Mult0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|sxrRISC621|my_div:sxrRISC621_div
+|sxrRISC621|sxrRISC621_div:my_div
 denom[0] => denom[0].IN1
 denom[1] => denom[1].IN1
 denom[2] => denom[2].IN1
@@ -1331,7 +1331,7 @@ remain[10] <= lpm_divide:LPM_DIVIDE_component.remain
 remain[11] <= lpm_divide:LPM_DIVIDE_component.remain
 
 
-|sxrRISC621|my_div:sxrRISC621_div|lpm_divide:LPM_DIVIDE_component
+|sxrRISC621|sxrRISC621_div:my_div|lpm_divide:LPM_DIVIDE_component
 numer[0] => lpm_divide_f5s:auto_generated.numer[0]
 numer[1] => lpm_divide_f5s:auto_generated.numer[1]
 numer[2] => lpm_divide_f5s:auto_generated.numer[2]
@@ -1385,7 +1385,7 @@ remain[10] <= lpm_divide_f5s:auto_generated.remain[10]
 remain[11] <= lpm_divide_f5s:auto_generated.remain[11]
 
 
-|sxrRISC621|my_div:sxrRISC621_div|lpm_divide:LPM_DIVIDE_component|lpm_divide_f5s:auto_generated
+|sxrRISC621|sxrRISC621_div:my_div|lpm_divide:LPM_DIVIDE_component|lpm_divide_f5s:auto_generated
 aclr => ~NO_FANOUT~
 clken => ~NO_FANOUT~
 clock => ~NO_FANOUT~
@@ -1439,7 +1439,7 @@ remain[10] <= abs_divider_0dg:divider.remainder[10]
 remain[11] <= abs_divider_0dg:divider.remainder[11]
 
 
-|sxrRISC621|my_div:sxrRISC621_div|lpm_divide:LPM_DIVIDE_component|lpm_divide_f5s:auto_generated|abs_divider_0dg:divider
+|sxrRISC621|sxrRISC621_div:my_div|lpm_divide:LPM_DIVIDE_component|lpm_divide_f5s:auto_generated|abs_divider_0dg:divider
 denominator[0] => lpm_abs_2p9:my_abs_den.data[0]
 denominator[1] => lpm_abs_2p9:my_abs_den.data[1]
 denominator[2] => lpm_abs_2p9:my_abs_den.data[2]
@@ -1505,7 +1505,7 @@ remainder[10] <= remainder[10].DB_MAX_OUTPUT_PORT_TYPE
 remainder[11] <= remainder[11].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|sxrRISC621|my_div:sxrRISC621_div|lpm_divide:LPM_DIVIDE_component|lpm_divide_f5s:auto_generated|abs_divider_0dg:divider|alt_u_div_g2f:divider
+|sxrRISC621|sxrRISC621_div:my_div|lpm_divide:LPM_DIVIDE_component|lpm_divide_f5s:auto_generated|abs_divider_0dg:divider|alt_u_div_g2f:divider
 denominator[0] => op_1.IN4
 denominator[0] => op_2.IN6
 denominator[0] => op_5.IN8
@@ -1777,7 +1777,7 @@ remainder[10] <= StageOut[142].DB_MAX_OUTPUT_PORT_TYPE
 remainder[11] <= StageOut[143].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|sxrRISC621|my_div:sxrRISC621_div|lpm_divide:LPM_DIVIDE_component|lpm_divide_f5s:auto_generated|abs_divider_0dg:divider|lpm_abs_2p9:my_abs_den
+|sxrRISC621|sxrRISC621_div:my_div|lpm_divide:LPM_DIVIDE_component|lpm_divide_f5s:auto_generated|abs_divider_0dg:divider|lpm_abs_2p9:my_abs_den
 data[0] => adder_dataa[0].IN0
 data[1] => adder_dataa[1].IN0
 data[2] => adder_dataa[2].IN0
@@ -1818,7 +1818,7 @@ result[10] <= op_1.DB_MAX_OUTPUT_PORT_TYPE
 result[11] <= op_1.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|sxrRISC621|my_div:sxrRISC621_div|lpm_divide:LPM_DIVIDE_component|lpm_divide_f5s:auto_generated|abs_divider_0dg:divider|lpm_abs_2p9:my_abs_num
+|sxrRISC621|sxrRISC621_div:my_div|lpm_divide:LPM_DIVIDE_component|lpm_divide_f5s:auto_generated|abs_divider_0dg:divider|lpm_abs_2p9:my_abs_num
 data[0] => adder_dataa[0].IN0
 data[1] => adder_dataa[1].IN0
 data[2] => adder_dataa[2].IN0

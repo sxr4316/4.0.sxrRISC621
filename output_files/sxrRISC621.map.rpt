@@ -1,5 +1,5 @@
 Analysis & Synthesis report for sxrRISC621
-Tue Sep 13 07:36:52 2016
+Tue Sep 13 23:43:26 2016
 Quartus Prime Version 16.0.0 Build 211 04/27/2016 SJ Standard Edition
 
 
@@ -18,16 +18,16 @@ Quartus Prime Version 16.0.0 Build 211 04/27/2016 SJ Standard Edition
  10. Registers Removed During Synthesis
  11. Removed Registers Triggering Further Register Optimizations
  12. General Register Statistics
- 13. Source assignments for my_rom:sxrRISC621_rom|altsyncram:altsyncram_component|altsyncram_kcg1:auto_generated
- 14. Source assignments for my_ram:sxrRISC621_ram|altsyncram:altsyncram_component|altsyncram_epl1:auto_generated
+ 13. Source assignments for sxrRISC621_rom:my_rom|altsyncram:altsyncram_component|altsyncram_fjf1:auto_generated
+ 14. Source assignments for sxrRISC621_ram:my_ram|altsyncram:altsyncram_component|altsyncram_epl1:auto_generated
  15. Parameter Settings for User Entity Instance: Top-level Entity: |sxrRISC621
- 16. Parameter Settings for User Entity Instance: my_rom:sxrRISC621_rom|altsyncram:altsyncram_component
- 17. Parameter Settings for User Entity Instance: my_ram:sxrRISC621_ram|altsyncram:altsyncram_component
- 18. Parameter Settings for User Entity Instance: my_mult:sxrRISC621_mult|lpm_mult:lpm_mult_component
- 19. Parameter Settings for User Entity Instance: my_div:sxrRISC621_div|lpm_divide:LPM_DIVIDE_component
+ 16. Parameter Settings for User Entity Instance: sxrRISC621_rom:my_rom|altsyncram:altsyncram_component
+ 17. Parameter Settings for User Entity Instance: sxrRISC621_ram:my_ram|altsyncram:altsyncram_component
+ 18. Parameter Settings for User Entity Instance: sxrRISC621_mult:my_mult|lpm_mult:lpm_mult_component
+ 19. Parameter Settings for User Entity Instance: sxrRISC621_div:my_div|lpm_divide:LPM_DIVIDE_component
  20. altsyncram Parameter Settings by Entity Instance
  21. lpm_mult Parameter Settings by Entity Instance
- 22. Port Connectivity Checks: "my_div:sxrRISC621_div"
+ 22. Port Connectivity Checks: "sxrRISC621_div:my_div"
  23. Post-Synthesis Netlist Statistics for Top Partition
  24. Elapsed Time Per Partition
  25. Analysis & Synthesis Messages
@@ -57,7 +57,7 @@ agreement for further details.
 +-----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                      ;
 +---------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Tue Sep 13 07:36:51 2016           ;
+; Analysis & Synthesis Status     ; Successful - Tue Sep 13 23:43:26 2016           ;
 ; Quartus Prime Version           ; 16.0.0 Build 211 04/27/2016 SJ Standard Edition ;
 ; Revision Name                   ; sxrRISC621                                      ;
 ; Top-level Entity Name           ; sxrRISC621                                      ;
@@ -181,42 +181,42 @@ agreement for further details.
 +----------------------------+-------------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                 ;
-+----------------------------------+-----------------+----------------------------------+----------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type                        ; File Name with Absolute Path                                         ; Library ;
-+----------------------------------+-----------------+----------------------------------+----------------------------------------------------------------------+---------+
-; sxrRISC621.v                     ; yes             ; User Verilog HDL File            ; I:/sxrRISC621/sxrRISC621.v                                           ;         ;
-; my_rom.v                         ; yes             ; User Wizard-Generated File       ; I:/sxrRISC621/my_rom.v                                               ;         ;
-; my_ram.v                         ; yes             ; User Wizard-Generated File       ; I:/sxrRISC621/my_ram.v                                               ;         ;
-; my_mult.v                        ; yes             ; User Wizard-Generated File       ; I:/sxrRISC621/my_mult.v                                              ;         ;
-; my_div.v                         ; yes             ; User Wizard-Generated File       ; I:/sxrRISC621/my_div.v                                               ;         ;
-; memory/my_rom.mif                ; yes             ; User Memory Initialization File  ; I:/sxrRISC621/memory/my_rom.mif                                      ;         ;
-; altsyncram.tdf                   ; yes             ; Megafunction                     ; c:/altera/16.0/quartus/libraries/megafunctions/altsyncram.tdf        ;         ;
-; stratix_ram_block.inc            ; yes             ; Megafunction                     ; c:/altera/16.0/quartus/libraries/megafunctions/stratix_ram_block.inc ;         ;
-; lpm_mux.inc                      ; yes             ; Megafunction                     ; c:/altera/16.0/quartus/libraries/megafunctions/lpm_mux.inc           ;         ;
-; lpm_decode.inc                   ; yes             ; Megafunction                     ; c:/altera/16.0/quartus/libraries/megafunctions/lpm_decode.inc        ;         ;
-; aglobal160.inc                   ; yes             ; Megafunction                     ; c:/altera/16.0/quartus/libraries/megafunctions/aglobal160.inc        ;         ;
-; a_rdenreg.inc                    ; yes             ; Megafunction                     ; c:/altera/16.0/quartus/libraries/megafunctions/a_rdenreg.inc         ;         ;
-; altrom.inc                       ; yes             ; Megafunction                     ; c:/altera/16.0/quartus/libraries/megafunctions/altrom.inc            ;         ;
-; altram.inc                       ; yes             ; Megafunction                     ; c:/altera/16.0/quartus/libraries/megafunctions/altram.inc            ;         ;
-; altdpram.inc                     ; yes             ; Megafunction                     ; c:/altera/16.0/quartus/libraries/megafunctions/altdpram.inc          ;         ;
-; db/altsyncram_kcg1.tdf           ; yes             ; Auto-Generated Megafunction      ; I:/sxrRISC621/db/altsyncram_kcg1.tdf                                 ;         ;
-; db/altsyncram_epl1.tdf           ; yes             ; Auto-Generated Megafunction      ; I:/sxrRISC621/db/altsyncram_epl1.tdf                                 ;         ;
-; lpm_mult.tdf                     ; yes             ; Megafunction                     ; c:/altera/16.0/quartus/libraries/megafunctions/lpm_mult.tdf          ;         ;
-; lpm_add_sub.inc                  ; yes             ; Megafunction                     ; c:/altera/16.0/quartus/libraries/megafunctions/lpm_add_sub.inc       ;         ;
-; multcore.inc                     ; yes             ; Megafunction                     ; c:/altera/16.0/quartus/libraries/megafunctions/multcore.inc          ;         ;
-; bypassff.inc                     ; yes             ; Megafunction                     ; c:/altera/16.0/quartus/libraries/megafunctions/bypassff.inc          ;         ;
-; altshift.inc                     ; yes             ; Megafunction                     ; c:/altera/16.0/quartus/libraries/megafunctions/altshift.inc          ;         ;
-; db/mult_u0n.v                    ; yes             ; Auto-Generated Megafunction      ; I:/sxrRISC621/db/mult_u0n.v                                          ;         ;
-; lpm_divide.tdf                   ; yes             ; Megafunction                     ; c:/altera/16.0/quartus/libraries/megafunctions/lpm_divide.tdf        ;         ;
-; abs_divider.inc                  ; yes             ; Megafunction                     ; c:/altera/16.0/quartus/libraries/megafunctions/abs_divider.inc       ;         ;
-; sign_div_unsign.inc              ; yes             ; Megafunction                     ; c:/altera/16.0/quartus/libraries/megafunctions/sign_div_unsign.inc   ;         ;
-; db/lpm_divide_f5s.tdf            ; yes             ; Auto-Generated Megafunction      ; I:/sxrRISC621/db/lpm_divide_f5s.tdf                                  ;         ;
-; db/abs_divider_0dg.tdf           ; yes             ; Auto-Generated Megafunction      ; I:/sxrRISC621/db/abs_divider_0dg.tdf                                 ;         ;
-; db/alt_u_div_g2f.tdf             ; yes             ; Auto-Generated Megafunction      ; I:/sxrRISC621/db/alt_u_div_g2f.tdf                                   ;         ;
-; db/lpm_abs_2p9.tdf               ; yes             ; Auto-Generated Megafunction      ; I:/sxrRISC621/db/lpm_abs_2p9.tdf                                     ;         ;
-+----------------------------------+-----------------+----------------------------------+----------------------------------------------------------------------+---------+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                       ;
++----------------------------------+-----------------+----------------------------------------+----------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                              ; File Name with Absolute Path                                         ; Library ;
++----------------------------------+-----------------+----------------------------------------+----------------------------------------------------------------------+---------+
+; sxrRISC621.v                     ; yes             ; User Verilog HDL File                  ; D:/sxrRISC621/sxrRISC621.v                                           ;         ;
+; sxrRISC621_rom.v                 ; yes             ; User Wizard-Generated File             ; D:/sxrRISC621/sxrRISC621_rom.v                                       ;         ;
+; sxrRISC621_ram.v                 ; yes             ; User Wizard-Generated File             ; D:/sxrRISC621/sxrRISC621_ram.v                                       ;         ;
+; sxrRISC621_mult.v                ; yes             ; User Wizard-Generated File             ; D:/sxrRISC621/sxrRISC621_mult.v                                      ;         ;
+; sxrRISC621_div.v                 ; yes             ; User Wizard-Generated File             ; D:/sxrRISC621/sxrRISC621_div.v                                       ;         ;
+; altsyncram.tdf                   ; yes             ; Megafunction                           ; c:/altera/16.0/quartus/libraries/megafunctions/altsyncram.tdf        ;         ;
+; stratix_ram_block.inc            ; yes             ; Megafunction                           ; c:/altera/16.0/quartus/libraries/megafunctions/stratix_ram_block.inc ;         ;
+; lpm_mux.inc                      ; yes             ; Megafunction                           ; c:/altera/16.0/quartus/libraries/megafunctions/lpm_mux.inc           ;         ;
+; lpm_decode.inc                   ; yes             ; Megafunction                           ; c:/altera/16.0/quartus/libraries/megafunctions/lpm_decode.inc        ;         ;
+; aglobal160.inc                   ; yes             ; Megafunction                           ; c:/altera/16.0/quartus/libraries/megafunctions/aglobal160.inc        ;         ;
+; a_rdenreg.inc                    ; yes             ; Megafunction                           ; c:/altera/16.0/quartus/libraries/megafunctions/a_rdenreg.inc         ;         ;
+; altrom.inc                       ; yes             ; Megafunction                           ; c:/altera/16.0/quartus/libraries/megafunctions/altrom.inc            ;         ;
+; altram.inc                       ; yes             ; Megafunction                           ; c:/altera/16.0/quartus/libraries/megafunctions/altram.inc            ;         ;
+; altdpram.inc                     ; yes             ; Megafunction                           ; c:/altera/16.0/quartus/libraries/megafunctions/altdpram.inc          ;         ;
+; db/altsyncram_fjf1.tdf           ; yes             ; Auto-Generated Megafunction            ; D:/sxrRISC621/db/altsyncram_fjf1.tdf                                 ;         ;
+; my_rom.mif                       ; yes             ; Auto-Found Memory Initialization File  ; D:/sxrRISC621/my_rom.mif                                             ;         ;
+; db/altsyncram_epl1.tdf           ; yes             ; Auto-Generated Megafunction            ; D:/sxrRISC621/db/altsyncram_epl1.tdf                                 ;         ;
+; lpm_mult.tdf                     ; yes             ; Megafunction                           ; c:/altera/16.0/quartus/libraries/megafunctions/lpm_mult.tdf          ;         ;
+; lpm_add_sub.inc                  ; yes             ; Megafunction                           ; c:/altera/16.0/quartus/libraries/megafunctions/lpm_add_sub.inc       ;         ;
+; multcore.inc                     ; yes             ; Megafunction                           ; c:/altera/16.0/quartus/libraries/megafunctions/multcore.inc          ;         ;
+; bypassff.inc                     ; yes             ; Megafunction                           ; c:/altera/16.0/quartus/libraries/megafunctions/bypassff.inc          ;         ;
+; altshift.inc                     ; yes             ; Megafunction                           ; c:/altera/16.0/quartus/libraries/megafunctions/altshift.inc          ;         ;
+; db/mult_u0n.v                    ; yes             ; Auto-Generated Megafunction            ; D:/sxrRISC621/db/mult_u0n.v                                          ;         ;
+; lpm_divide.tdf                   ; yes             ; Megafunction                           ; c:/altera/16.0/quartus/libraries/megafunctions/lpm_divide.tdf        ;         ;
+; abs_divider.inc                  ; yes             ; Megafunction                           ; c:/altera/16.0/quartus/libraries/megafunctions/abs_divider.inc       ;         ;
+; sign_div_unsign.inc              ; yes             ; Megafunction                           ; c:/altera/16.0/quartus/libraries/megafunctions/sign_div_unsign.inc   ;         ;
+; db/lpm_divide_f5s.tdf            ; yes             ; Auto-Generated Megafunction            ; D:/sxrRISC621/db/lpm_divide_f5s.tdf                                  ;         ;
+; db/abs_divider_0dg.tdf           ; yes             ; Auto-Generated Megafunction            ; D:/sxrRISC621/db/abs_divider_0dg.tdf                                 ;         ;
+; db/alt_u_div_g2f.tdf             ; yes             ; Auto-Generated Megafunction            ; D:/sxrRISC621/db/alt_u_div_g2f.tdf                                   ;         ;
+; db/lpm_abs_2p9.tdf               ; yes             ; Auto-Generated Megafunction            ; D:/sxrRISC621/db/lpm_abs_2p9.tdf                                     ;         ;
++----------------------------------+-----------------+----------------------------------------+----------------------------------------------------------------------+---------+
 
 
 +---------------------------------------------------------+
@@ -256,16 +256,16 @@ agreement for further details.
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
-+-----------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis IP Cores Summary                                                                                 ;
-+--------+--------------+---------+--------------+--------------+-------------------------------------+-----------------+
-; Vendor ; IP Core Name ; Version ; Release Date ; License Type ; Entity Instance                     ; IP Include File ;
-+--------+--------------+---------+--------------+--------------+-------------------------------------+-----------------+
-; Altera ; LPM_DIVIDE   ; 16.0    ; N/A          ; N/A          ; |sxrRISC621|my_div:sxrRISC621_div   ; my_div.v        ;
-; Altera ; LPM_MULT     ; 16.0    ; N/A          ; N/A          ; |sxrRISC621|my_mult:sxrRISC621_mult ; my_mult.v       ;
-; Altera ; RAM: 1-PORT  ; 16.0    ; N/A          ; N/A          ; |sxrRISC621|my_ram:sxrRISC621_ram   ; my_ram.v        ;
-; Altera ; ROM: 1-PORT  ; 16.0    ; N/A          ; N/A          ; |sxrRISC621|my_rom:sxrRISC621_rom   ; my_rom.v        ;
-+--------+--------------+---------+--------------+--------------+-------------------------------------+-----------------+
++-------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis IP Cores Summary                                                                                   ;
++--------+--------------+---------+--------------+--------------+-------------------------------------+-------------------+
+; Vendor ; IP Core Name ; Version ; Release Date ; License Type ; Entity Instance                     ; IP Include File   ;
++--------+--------------+---------+--------------+--------------+-------------------------------------+-------------------+
+; Altera ; LPM_DIVIDE   ; 16.0    ; N/A          ; N/A          ; |sxrRISC621|sxrRISC621_div:my_div   ; sxrRISC621_div.v  ;
+; Altera ; LPM_MULT     ; 16.0    ; N/A          ; N/A          ; |sxrRISC621|sxrRISC621_mult:my_mult ; sxrRISC621_mult.v ;
+; Altera ; RAM: 1-PORT  ; 16.0    ; N/A          ; N/A          ; |sxrRISC621|sxrRISC621_ram:my_ram   ; sxrRISC621_ram.v  ;
+; Altera ; ROM: 1-PORT  ; 16.0    ; N/A          ; N/A          ; |sxrRISC621|sxrRISC621_rom:my_rom   ; sxrRISC621_rom.v  ;
++--------+--------------+---------+--------------+--------------+-------------------------------------+-------------------+
 
 
 Encoding Type:  One-Hot
@@ -286,7 +286,7 @@ Encoding Type:  One-Hot
 +-----------------------------------------+--------------------+
 ; Register name                           ; Reason for Removal ;
 +-----------------------------------------+--------------------+
-; TB[0..11]                               ; Lost fanout        ;
+; TB[0..3]                                ; Lost fanout        ;
 ; MAB[0..11]                              ; Lost fanout        ;
 ; MAX[0..11]                              ; Lost fanout        ;
 ; TALUH[0..11]                            ; Lost fanout        ;
@@ -300,6 +300,7 @@ Encoding Type:  One-Hot
 ; TSR[8]                                  ; Lost fanout        ;
 ; SR[8]                                   ; Lost fanout        ;
 ; MAeff[7..11]                            ; Lost fanout        ;
+; TB[4..11]                               ; Lost fanout        ;
 ; TA[0..11]                               ; Lost fanout        ;
 ; WR_DM                                   ; Lost fanout        ;
 ; Ri[0..31]                               ; Lost fanout        ;
@@ -438,7 +439,7 @@ Encoding Type:  One-Hot
 
 
 +-------------------------------------------------------------------------------------------------------------+
-; Source assignments for my_rom:sxrRISC621_rom|altsyncram:altsyncram_component|altsyncram_kcg1:auto_generated ;
+; Source assignments for sxrRISC621_rom:my_rom|altsyncram:altsyncram_component|altsyncram_fjf1:auto_generated ;
 +---------------------------------+--------------------+------+-----------------------------------------------+
 ; Assignment                      ; Value              ; From ; To                                            ;
 +---------------------------------+--------------------+------+-----------------------------------------------+
@@ -447,7 +448,7 @@ Encoding Type:  One-Hot
 
 
 +-------------------------------------------------------------------------------------------------------------+
-; Source assignments for my_ram:sxrRISC621_ram|altsyncram:altsyncram_component|altsyncram_epl1:auto_generated ;
+; Source assignments for sxrRISC621_ram:my_ram|altsyncram:altsyncram_component|altsyncram_epl1:auto_generated ;
 +---------------------------------+--------------------+------+-----------------------------------------------+
 ; Assignment                      ; Value              ; From ; To                                            ;
 +---------------------------------+--------------------+------+-----------------------------------------------+
@@ -490,6 +491,7 @@ Encoding Type:  One-Hot
 ; ROTL_IC        ; 110000 ; Unsigned Binary                                  ;
 ; ROTR_IC        ; 110001 ; Unsigned Binary                                  ;
 ; RTLC_IC        ; 110010 ; Unsigned Binary                                  ;
+; RTRC_IC        ; 110011 ; Unsigned Binary                                  ;
 ; JU             ; 0000   ; Unsigned Binary                                  ;
 ; JC1            ; 1000   ; Unsigned Binary                                  ;
 ; JN1            ; 0100   ; Unsigned Binary                                  ;
@@ -504,7 +506,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 
 
 +----------------------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: my_rom:sxrRISC621_rom|altsyncram:altsyncram_component ;
+; Parameter Settings for User Entity Instance: sxrRISC621_rom:my_rom|altsyncram:altsyncram_component ;
 +------------------------------------+----------------------+----------------------------------------+
 ; Parameter Name                     ; Value                ; Type                                   ;
 +------------------------------------+----------------------+----------------------------------------+
@@ -546,7 +548,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE            ; Untyped                                ;
 ; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped                                ;
 ; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped                                ;
-; INIT_FILE                          ; ./memory/my_rom.mif  ; Untyped                                ;
+; INIT_FILE                          ; my_rom.mif           ; Untyped                                ;
 ; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped                                ;
 ; MAXIMUM_DEPTH                      ; 0                    ; Untyped                                ;
 ; CLOCK_ENABLE_INPUT_A               ; BYPASS               ; Untyped                                ;
@@ -559,13 +561,13 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped                                ;
 ; WIDTH_ECCSTATUS                    ; 3                    ; Untyped                                ;
 ; DEVICE_FAMILY                      ; Cyclone V            ; Untyped                                ;
-; CBXI_PARAMETER                     ; altsyncram_kcg1      ; Untyped                                ;
+; CBXI_PARAMETER                     ; altsyncram_fjf1      ; Untyped                                ;
 +------------------------------------+----------------------+----------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
 +----------------------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: my_ram:sxrRISC621_ram|altsyncram:altsyncram_component ;
+; Parameter Settings for User Entity Instance: sxrRISC621_ram:my_ram|altsyncram:altsyncram_component ;
 +------------------------------------+----------------------+----------------------------------------+
 ; Parameter Name                     ; Value                ; Type                                   ;
 +------------------------------------+----------------------+----------------------------------------+
@@ -626,7 +628,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 
 
 +--------------------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: my_mult:sxrRISC621_mult|lpm_mult:lpm_mult_component ;
+; Parameter Settings for User Entity Instance: sxrRISC621_mult:my_mult|lpm_mult:lpm_mult_component ;
 +------------------------------------------------+-----------+-------------------------------------+
 ; Parameter Name                                 ; Value     ; Type                                ;
 +------------------------------------------------+-----------+-------------------------------------+
@@ -661,7 +663,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 
 
 +----------------------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: my_div:sxrRISC621_div|lpm_divide:LPM_DIVIDE_component ;
+; Parameter Settings for User Entity Instance: sxrRISC621_div:my_div|lpm_divide:LPM_DIVIDE_component ;
 +------------------------+----------------+----------------------------------------------------------+
 ; Parameter Name         ; Value          ; Type                                                     ;
 +------------------------+----------------+----------------------------------------------------------+
@@ -689,7 +691,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; Name                                      ; Value                                                 ;
 +-------------------------------------------+-------------------------------------------------------+
 ; Number of entity instances                ; 2                                                     ;
-; Entity Instance                           ; my_rom:sxrRISC621_rom|altsyncram:altsyncram_component ;
+; Entity Instance                           ; sxrRISC621_rom:my_rom|altsyncram:altsyncram_component ;
 ;     -- OPERATION_MODE                     ; ROM                                                   ;
 ;     -- WIDTH_A                            ; 12                                                    ;
 ;     -- NUMWORDS_A                         ; 4096                                                  ;
@@ -700,7 +702,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 ;     -- OUTDATA_REG_B                      ; UNREGISTERED                                          ;
 ;     -- RAM_BLOCK_TYPE                     ; AUTO                                                  ;
 ;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                             ;
-; Entity Instance                           ; my_ram:sxrRISC621_ram|altsyncram:altsyncram_component ;
+; Entity Instance                           ; sxrRISC621_ram:my_ram|altsyncram:altsyncram_component ;
 ;     -- OPERATION_MODE                     ; SINGLE_PORT                                           ;
 ;     -- WIDTH_A                            ; 12                                                    ;
 ;     -- NUMWORDS_A                         ; 4096                                                  ;
@@ -720,7 +722,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; Name                                  ; Value                                               ;
 +---------------------------------------+-----------------------------------------------------+
 ; Number of entity instances            ; 1                                                   ;
-; Entity Instance                       ; my_mult:sxrRISC621_mult|lpm_mult:lpm_mult_component ;
+; Entity Instance                       ; sxrRISC621_mult:my_mult|lpm_mult:lpm_mult_component ;
 ;     -- LPM_WIDTHA                     ; 12                                                  ;
 ;     -- LPM_WIDTHB                     ; 12                                                  ;
 ;     -- LPM_WIDTHP                     ; 13                                                  ;
@@ -734,14 +736,13 @@ Note: In order to hide this table in the UI and the text report file, please set
 +---------------------------------------+-----------------------------------------------------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "my_div:sxrRISC621_div"                                                                                                                                                      ;
-+----------+--------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port     ; Type   ; Severity ; Details                                                                                                                                                                 ;
-+----------+--------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; quotient ; Output ; Warning  ; Output or bidir port (12 bits) is smaller than the port expression (13 bits) it drives.  The 1 most-significant bit(s) in the port expression will be connected to GND. ;
-; remain   ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed.                                                                ;
-+----------+--------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
++------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "sxrRISC621_div:my_div"                                                                ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; Port   ; Type   ; Severity ; Details                                                                             ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; remain ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
 
 
 +-----------------------------------------------------+
@@ -774,38 +775,47 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 16.0.0 Build 211 04/27/2016 SJ Standard Edition
-    Info: Processing started: Tue Sep 13 07:36:17 2016
+    Info: Processing started: Tue Sep 13 23:42:49 2016
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off sxrRISC621 -c sxrRISC621
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
 Info (12021): Found 1 design units, including 1 entities, in source file sxrrisc621.v
-    Info (12023): Found entity 1: sxrRISC621 File: I:/sxrRISC621/sxrRISC621.v Line: 1
-Info (12021): Found 1 design units, including 1 entities, in source file my_rom.v
-    Info (12023): Found entity 1: my_rom File: I:/sxrRISC621/my_rom.v Line: 40
-Info (12021): Found 1 design units, including 1 entities, in source file my_ram.v
-    Info (12023): Found entity 1: my_ram File: I:/sxrRISC621/my_ram.v Line: 40
-Info (12021): Found 1 design units, including 1 entities, in source file my_mult.v
-    Info (12023): Found entity 1: my_mult File: I:/sxrRISC621/my_mult.v Line: 40
-Info (12021): Found 1 design units, including 1 entities, in source file my_div.v
-    Info (12023): Found entity 1: my_div File: I:/sxrRISC621/my_div.v Line: 40
+    Info (12023): Found entity 1: sxrRISC621 File: D:/sxrRISC621/sxrRISC621.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file sxrrisc621_rom.v
+    Info (12023): Found entity 1: sxrRISC621_rom File: D:/sxrRISC621/sxrRISC621_rom.v Line: 40
+Info (12021): Found 1 design units, including 1 entities, in source file sxrrisc621_ram.v
+    Info (12023): Found entity 1: sxrRISC621_ram File: D:/sxrRISC621/sxrRISC621_ram.v Line: 40
+Info (12021): Found 1 design units, including 1 entities, in source file sxrrisc621_mult.v
+    Info (12023): Found entity 1: sxrRISC621_mult File: D:/sxrRISC621/sxrRISC621_mult.v Line: 40
+Info (12021): Found 1 design units, including 1 entities, in source file sxrrisc621_div.v
+    Info (12023): Found entity 1: sxrRISC621_div File: D:/sxrRISC621/sxrRISC621_div.v Line: 40
 Info (12127): Elaborating entity "sxrRISC621" for the top level hierarchy
-Warning (10230): Verilog HDL assignment warning at sxrRISC621.v(150): truncated value with size 16 to match size of target (12) File: I:/sxrRISC621/sxrRISC621.v Line: 150
-Warning (10230): Verilog HDL assignment warning at sxrRISC621.v(171): truncated value with size 16 to match size of target (12) File: I:/sxrRISC621/sxrRISC621.v Line: 171
-Warning (10230): Verilog HDL assignment warning at sxrRISC621.v(182): truncated value with size 16 to match size of target (12) File: I:/sxrRISC621/sxrRISC621.v Line: 182
-Warning (10762): Verilog HDL Case Statement warning at sxrRISC621.v(368): can't check case statement for completeness because the case expression has too many possible states File: I:/sxrRISC621/sxrRISC621.v Line: 368
-Warning (10762): Verilog HDL Case Statement warning at sxrRISC621.v(407): can't check case statement for completeness because the case expression has too many possible states File: I:/sxrRISC621/sxrRISC621.v Line: 407
-Warning (10762): Verilog HDL Case Statement warning at sxrRISC621.v(429): can't check case statement for completeness because the case expression has too many possible states File: I:/sxrRISC621/sxrRISC621.v Line: 429
-Warning (10762): Verilog HDL Case Statement warning at sxrRISC621.v(452): can't check case statement for completeness because the case expression has too many possible states File: I:/sxrRISC621/sxrRISC621.v Line: 452
-Warning (10762): Verilog HDL Case Statement warning at sxrRISC621.v(471): can't check case statement for completeness because the case expression has too many possible states File: I:/sxrRISC621/sxrRISC621.v Line: 471
-Warning (10034): Output port "Display_pin" at sxrRISC621.v(7) has no driver File: I:/sxrRISC621/sxrRISC621.v Line: 7
-Info (12128): Elaborating entity "my_rom" for hierarchy "my_rom:sxrRISC621_rom" File: I:/sxrRISC621/sxrRISC621.v Line: 91
-Info (12128): Elaborating entity "altsyncram" for hierarchy "my_rom:sxrRISC621_rom|altsyncram:altsyncram_component" File: I:/sxrRISC621/my_rom.v Line: 82
-Info (12130): Elaborated megafunction instantiation "my_rom:sxrRISC621_rom|altsyncram:altsyncram_component" File: I:/sxrRISC621/my_rom.v Line: 82
-Info (12133): Instantiated megafunction "my_rom:sxrRISC621_rom|altsyncram:altsyncram_component" with the following parameter: File: I:/sxrRISC621/my_rom.v Line: 82
+Warning (10230): Verilog HDL assignment warning at sxrRISC621.v(152): truncated value with size 16 to match size of target (12) File: D:/sxrRISC621/sxrRISC621.v Line: 152
+Warning (10230): Verilog HDL assignment warning at sxrRISC621.v(173): truncated value with size 16 to match size of target (12) File: D:/sxrRISC621/sxrRISC621.v Line: 173
+Warning (10230): Verilog HDL assignment warning at sxrRISC621.v(184): truncated value with size 16 to match size of target (12) File: D:/sxrRISC621/sxrRISC621.v Line: 184
+Warning (10762): Verilog HDL Case Statement warning at sxrRISC621.v(373): can't check case statement for completeness because the case expression has too many possible states File: D:/sxrRISC621/sxrRISC621.v Line: 373
+Warning (10762): Verilog HDL Case Statement warning at sxrRISC621.v(395): can't check case statement for completeness because the case expression has too many possible states File: D:/sxrRISC621/sxrRISC621.v Line: 395
+Warning (10762): Verilog HDL Case Statement warning at sxrRISC621.v(417): can't check case statement for completeness because the case expression has too many possible states File: D:/sxrRISC621/sxrRISC621.v Line: 417
+Warning (10762): Verilog HDL Case Statement warning at sxrRISC621.v(438): can't check case statement for completeness because the case expression has too many possible states File: D:/sxrRISC621/sxrRISC621.v Line: 438
+Warning (10762): Verilog HDL Case Statement warning at sxrRISC621.v(457): can't check case statement for completeness because the case expression has too many possible states File: D:/sxrRISC621/sxrRISC621.v Line: 457
+Warning (10762): Verilog HDL Case Statement warning at sxrRISC621.v(478): can't check case statement for completeness because the case expression has too many possible states File: D:/sxrRISC621/sxrRISC621.v Line: 478
+Warning (10230): Verilog HDL assignment warning at sxrRISC621.v(504): truncated value with size 16 to match size of target (12) File: D:/sxrRISC621/sxrRISC621.v Line: 504
+Warning (10230): Verilog HDL assignment warning at sxrRISC621.v(506): truncated value with size 16 to match size of target (12) File: D:/sxrRISC621/sxrRISC621.v Line: 506
+Warning (10230): Verilog HDL assignment warning at sxrRISC621.v(508): truncated value with size 16 to match size of target (12) File: D:/sxrRISC621/sxrRISC621.v Line: 508
+Warning (10230): Verilog HDL assignment warning at sxrRISC621.v(510): truncated value with size 16 to match size of target (12) File: D:/sxrRISC621/sxrRISC621.v Line: 510
+Warning (10230): Verilog HDL assignment warning at sxrRISC621.v(512): truncated value with size 16 to match size of target (12) File: D:/sxrRISC621/sxrRISC621.v Line: 512
+Warning (10230): Verilog HDL assignment warning at sxrRISC621.v(514): truncated value with size 16 to match size of target (12) File: D:/sxrRISC621/sxrRISC621.v Line: 514
+Warning (10762): Verilog HDL Case Statement warning at sxrRISC621.v(499): can't check case statement for completeness because the case expression has too many possible states File: D:/sxrRISC621/sxrRISC621.v Line: 499
+Warning (10762): Verilog HDL Case Statement warning at sxrRISC621.v(520): can't check case statement for completeness because the case expression has too many possible states File: D:/sxrRISC621/sxrRISC621.v Line: 520
+Warning (10034): Output port "Display_pin" at sxrRISC621.v(7) has no driver File: D:/sxrRISC621/sxrRISC621.v Line: 7
+Info (12128): Elaborating entity "sxrRISC621_rom" for hierarchy "sxrRISC621_rom:my_rom" File: D:/sxrRISC621/sxrRISC621.v Line: 93
+Info (12128): Elaborating entity "altsyncram" for hierarchy "sxrRISC621_rom:my_rom|altsyncram:altsyncram_component" File: D:/sxrRISC621/sxrRISC621_rom.v Line: 82
+Info (12130): Elaborated megafunction instantiation "sxrRISC621_rom:my_rom|altsyncram:altsyncram_component" File: D:/sxrRISC621/sxrRISC621_rom.v Line: 82
+Info (12133): Instantiated megafunction "sxrRISC621_rom:my_rom|altsyncram:altsyncram_component" with the following parameter: File: D:/sxrRISC621/sxrRISC621_rom.v Line: 82
     Info (12134): Parameter "address_aclr_a" = "NONE"
     Info (12134): Parameter "clock_enable_input_a" = "BYPASS"
     Info (12134): Parameter "clock_enable_output_a" = "BYPASS"
-    Info (12134): Parameter "init_file" = "./memory/my_rom.mif"
+    Info (12134): Parameter "init_file" = "my_rom.mif"
     Info (12134): Parameter "intended_device_family" = "Cyclone V"
     Info (12134): Parameter "lpm_hint" = "ENABLE_RUNTIME_MOD=NO"
     Info (12134): Parameter "lpm_type" = "altsyncram"
@@ -816,13 +826,13 @@ Info (12133): Instantiated megafunction "my_rom:sxrRISC621_rom|altsyncram:altsyn
     Info (12134): Parameter "widthad_a" = "12"
     Info (12134): Parameter "width_a" = "12"
     Info (12134): Parameter "width_byteena_a" = "1"
-Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_kcg1.tdf
-    Info (12023): Found entity 1: altsyncram_kcg1 File: I:/sxrRISC621/db/altsyncram_kcg1.tdf Line: 28
-Info (12128): Elaborating entity "altsyncram_kcg1" for hierarchy "my_rom:sxrRISC621_rom|altsyncram:altsyncram_component|altsyncram_kcg1:auto_generated" File: c:/altera/16.0/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
-Info (12128): Elaborating entity "my_ram" for hierarchy "my_ram:sxrRISC621_ram" File: I:/sxrRISC621/sxrRISC621.v Line: 93
-Info (12128): Elaborating entity "altsyncram" for hierarchy "my_ram:sxrRISC621_ram|altsyncram:altsyncram_component" File: I:/sxrRISC621/my_ram.v Line: 86
-Info (12130): Elaborated megafunction instantiation "my_ram:sxrRISC621_ram|altsyncram:altsyncram_component" File: I:/sxrRISC621/my_ram.v Line: 86
-Info (12133): Instantiated megafunction "my_ram:sxrRISC621_ram|altsyncram:altsyncram_component" with the following parameter: File: I:/sxrRISC621/my_ram.v Line: 86
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_fjf1.tdf
+    Info (12023): Found entity 1: altsyncram_fjf1 File: D:/sxrRISC621/db/altsyncram_fjf1.tdf Line: 28
+Info (12128): Elaborating entity "altsyncram_fjf1" for hierarchy "sxrRISC621_rom:my_rom|altsyncram:altsyncram_component|altsyncram_fjf1:auto_generated" File: c:/altera/16.0/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
+Info (12128): Elaborating entity "sxrRISC621_ram" for hierarchy "sxrRISC621_ram:my_ram" File: D:/sxrRISC621/sxrRISC621.v Line: 95
+Info (12128): Elaborating entity "altsyncram" for hierarchy "sxrRISC621_ram:my_ram|altsyncram:altsyncram_component" File: D:/sxrRISC621/sxrRISC621_ram.v Line: 86
+Info (12130): Elaborated megafunction instantiation "sxrRISC621_ram:my_ram|altsyncram:altsyncram_component" File: D:/sxrRISC621/sxrRISC621_ram.v Line: 86
+Info (12133): Instantiated megafunction "sxrRISC621_ram:my_ram|altsyncram:altsyncram_component" with the following parameter: File: D:/sxrRISC621/sxrRISC621_ram.v Line: 86
     Info (12134): Parameter "clock_enable_input_a" = "BYPASS"
     Info (12134): Parameter "clock_enable_output_a" = "BYPASS"
     Info (12134): Parameter "intended_device_family" = "Cyclone V"
@@ -838,12 +848,12 @@ Info (12133): Instantiated megafunction "my_ram:sxrRISC621_ram|altsyncram:altsyn
     Info (12134): Parameter "width_a" = "12"
     Info (12134): Parameter "width_byteena_a" = "1"
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_epl1.tdf
-    Info (12023): Found entity 1: altsyncram_epl1 File: I:/sxrRISC621/db/altsyncram_epl1.tdf Line: 28
-Info (12128): Elaborating entity "altsyncram_epl1" for hierarchy "my_ram:sxrRISC621_ram|altsyncram:altsyncram_component|altsyncram_epl1:auto_generated" File: c:/altera/16.0/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
-Info (12128): Elaborating entity "my_mult" for hierarchy "my_mult:sxrRISC621_mult" File: I:/sxrRISC621/sxrRISC621.v Line: 95
-Info (12128): Elaborating entity "lpm_mult" for hierarchy "my_mult:sxrRISC621_mult|lpm_mult:lpm_mult_component" File: I:/sxrRISC621/my_mult.v Line: 60
-Info (12130): Elaborated megafunction instantiation "my_mult:sxrRISC621_mult|lpm_mult:lpm_mult_component" File: I:/sxrRISC621/my_mult.v Line: 60
-Info (12133): Instantiated megafunction "my_mult:sxrRISC621_mult|lpm_mult:lpm_mult_component" with the following parameter: File: I:/sxrRISC621/my_mult.v Line: 60
+    Info (12023): Found entity 1: altsyncram_epl1 File: D:/sxrRISC621/db/altsyncram_epl1.tdf Line: 28
+Info (12128): Elaborating entity "altsyncram_epl1" for hierarchy "sxrRISC621_ram:my_ram|altsyncram:altsyncram_component|altsyncram_epl1:auto_generated" File: c:/altera/16.0/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
+Info (12128): Elaborating entity "sxrRISC621_mult" for hierarchy "sxrRISC621_mult:my_mult" File: D:/sxrRISC621/sxrRISC621.v Line: 97
+Info (12128): Elaborating entity "lpm_mult" for hierarchy "sxrRISC621_mult:my_mult|lpm_mult:lpm_mult_component" File: D:/sxrRISC621/sxrRISC621_mult.v Line: 60
+Info (12130): Elaborated megafunction instantiation "sxrRISC621_mult:my_mult|lpm_mult:lpm_mult_component" File: D:/sxrRISC621/sxrRISC621_mult.v Line: 60
+Info (12133): Instantiated megafunction "sxrRISC621_mult:my_mult|lpm_mult:lpm_mult_component" with the following parameter: File: D:/sxrRISC621/sxrRISC621_mult.v Line: 60
     Info (12134): Parameter "lpm_hint" = "MAXIMIZE_SPEED=5"
     Info (12134): Parameter "lpm_representation" = "SIGNED"
     Info (12134): Parameter "lpm_type" = "LPM_MULT"
@@ -851,12 +861,12 @@ Info (12133): Instantiated megafunction "my_mult:sxrRISC621_mult|lpm_mult:lpm_mu
     Info (12134): Parameter "lpm_widthb" = "12"
     Info (12134): Parameter "lpm_widthp" = "13"
 Info (12021): Found 1 design units, including 1 entities, in source file db/mult_u0n.v
-    Info (12023): Found entity 1: mult_u0n File: I:/sxrRISC621/db/mult_u0n.v Line: 29
-Info (12128): Elaborating entity "mult_u0n" for hierarchy "my_mult:sxrRISC621_mult|lpm_mult:lpm_mult_component|mult_u0n:auto_generated" File: c:/altera/16.0/quartus/libraries/megafunctions/lpm_mult.tdf Line: 377
-Info (12128): Elaborating entity "my_div" for hierarchy "my_div:sxrRISC621_div" File: I:/sxrRISC621/sxrRISC621.v Line: 97
-Info (12128): Elaborating entity "lpm_divide" for hierarchy "my_div:sxrRISC621_div|lpm_divide:LPM_DIVIDE_component" File: I:/sxrRISC621/my_div.v Line: 63
-Info (12130): Elaborated megafunction instantiation "my_div:sxrRISC621_div|lpm_divide:LPM_DIVIDE_component" File: I:/sxrRISC621/my_div.v Line: 63
-Info (12133): Instantiated megafunction "my_div:sxrRISC621_div|lpm_divide:LPM_DIVIDE_component" with the following parameter: File: I:/sxrRISC621/my_div.v Line: 63
+    Info (12023): Found entity 1: mult_u0n File: D:/sxrRISC621/db/mult_u0n.v Line: 29
+Info (12128): Elaborating entity "mult_u0n" for hierarchy "sxrRISC621_mult:my_mult|lpm_mult:lpm_mult_component|mult_u0n:auto_generated" File: c:/altera/16.0/quartus/libraries/megafunctions/lpm_mult.tdf Line: 377
+Info (12128): Elaborating entity "sxrRISC621_div" for hierarchy "sxrRISC621_div:my_div" File: D:/sxrRISC621/sxrRISC621.v Line: 99
+Info (12128): Elaborating entity "lpm_divide" for hierarchy "sxrRISC621_div:my_div|lpm_divide:LPM_DIVIDE_component" File: D:/sxrRISC621/sxrRISC621_div.v Line: 63
+Info (12130): Elaborated megafunction instantiation "sxrRISC621_div:my_div|lpm_divide:LPM_DIVIDE_component" File: D:/sxrRISC621/sxrRISC621_div.v Line: 63
+Info (12133): Instantiated megafunction "sxrRISC621_div:my_div|lpm_divide:LPM_DIVIDE_component" with the following parameter: File: D:/sxrRISC621/sxrRISC621_div.v Line: 63
     Info (12134): Parameter "lpm_drepresentation" = "SIGNED"
     Info (12134): Parameter "lpm_hint" = "LPM_REMAINDERPOSITIVE=FALSE"
     Info (12134): Parameter "lpm_nrepresentation" = "SIGNED"
@@ -864,71 +874,70 @@ Info (12133): Instantiated megafunction "my_div:sxrRISC621_div|lpm_divide:LPM_DI
     Info (12134): Parameter "lpm_widthd" = "12"
     Info (12134): Parameter "lpm_widthn" = "12"
 Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_f5s.tdf
-    Info (12023): Found entity 1: lpm_divide_f5s File: I:/sxrRISC621/db/lpm_divide_f5s.tdf Line: 25
-Info (12128): Elaborating entity "lpm_divide_f5s" for hierarchy "my_div:sxrRISC621_div|lpm_divide:LPM_DIVIDE_component|lpm_divide_f5s:auto_generated" File: c:/altera/16.0/quartus/libraries/megafunctions/lpm_divide.tdf Line: 148
+    Info (12023): Found entity 1: lpm_divide_f5s File: D:/sxrRISC621/db/lpm_divide_f5s.tdf Line: 25
+Info (12128): Elaborating entity "lpm_divide_f5s" for hierarchy "sxrRISC621_div:my_div|lpm_divide:LPM_DIVIDE_component|lpm_divide_f5s:auto_generated" File: c:/altera/16.0/quartus/libraries/megafunctions/lpm_divide.tdf Line: 148
 Info (12021): Found 1 design units, including 1 entities, in source file db/abs_divider_0dg.tdf
-    Info (12023): Found entity 1: abs_divider_0dg File: I:/sxrRISC621/db/abs_divider_0dg.tdf Line: 27
-Info (12128): Elaborating entity "abs_divider_0dg" for hierarchy "my_div:sxrRISC621_div|lpm_divide:LPM_DIVIDE_component|lpm_divide_f5s:auto_generated|abs_divider_0dg:divider" File: I:/sxrRISC621/db/lpm_divide_f5s.tdf Line: 36
+    Info (12023): Found entity 1: abs_divider_0dg File: D:/sxrRISC621/db/abs_divider_0dg.tdf Line: 27
+Info (12128): Elaborating entity "abs_divider_0dg" for hierarchy "sxrRISC621_div:my_div|lpm_divide:LPM_DIVIDE_component|lpm_divide_f5s:auto_generated|abs_divider_0dg:divider" File: D:/sxrRISC621/db/lpm_divide_f5s.tdf Line: 36
 Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_g2f.tdf
-    Info (12023): Found entity 1: alt_u_div_g2f File: I:/sxrRISC621/db/alt_u_div_g2f.tdf Line: 23
-Info (12128): Elaborating entity "alt_u_div_g2f" for hierarchy "my_div:sxrRISC621_div|lpm_divide:LPM_DIVIDE_component|lpm_divide_f5s:auto_generated|abs_divider_0dg:divider|alt_u_div_g2f:divider" File: I:/sxrRISC621/db/abs_divider_0dg.tdf Line: 35
+    Info (12023): Found entity 1: alt_u_div_g2f File: D:/sxrRISC621/db/alt_u_div_g2f.tdf Line: 23
+Info (12128): Elaborating entity "alt_u_div_g2f" for hierarchy "sxrRISC621_div:my_div|lpm_divide:LPM_DIVIDE_component|lpm_divide_f5s:auto_generated|abs_divider_0dg:divider|alt_u_div_g2f:divider" File: D:/sxrRISC621/db/abs_divider_0dg.tdf Line: 35
 Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_abs_2p9.tdf
-    Info (12023): Found entity 1: lpm_abs_2p9 File: I:/sxrRISC621/db/lpm_abs_2p9.tdf Line: 23
-Info (12128): Elaborating entity "lpm_abs_2p9" for hierarchy "my_div:sxrRISC621_div|lpm_divide:LPM_DIVIDE_component|lpm_divide_f5s:auto_generated|abs_divider_0dg:divider|lpm_abs_2p9:my_abs_den" File: I:/sxrRISC621/db/abs_divider_0dg.tdf Line: 36
+    Info (12023): Found entity 1: lpm_abs_2p9 File: D:/sxrRISC621/db/lpm_abs_2p9.tdf Line: 23
+Info (12128): Elaborating entity "lpm_abs_2p9" for hierarchy "sxrRISC621_div:my_div|lpm_divide:LPM_DIVIDE_component|lpm_divide_f5s:auto_generated|abs_divider_0dg:divider|lpm_abs_2p9:my_abs_den" File: D:/sxrRISC621/db/abs_divider_0dg.tdf Line: 36
 Warning (14284): Synthesized away the following node(s):
     Warning (14285): Synthesized away the following RAM node(s):
-        Warning (14320): Synthesized away node "my_ram:sxrRISC621_ram|altsyncram:altsyncram_component|altsyncram_epl1:auto_generated|q_a[0]" File: I:/sxrRISC621/db/altsyncram_epl1.tdf Line: 37
-        Warning (14320): Synthesized away node "my_ram:sxrRISC621_ram|altsyncram:altsyncram_component|altsyncram_epl1:auto_generated|q_a[1]" File: I:/sxrRISC621/db/altsyncram_epl1.tdf Line: 60
-        Warning (14320): Synthesized away node "my_ram:sxrRISC621_ram|altsyncram:altsyncram_component|altsyncram_epl1:auto_generated|q_a[2]" File: I:/sxrRISC621/db/altsyncram_epl1.tdf Line: 83
-        Warning (14320): Synthesized away node "my_ram:sxrRISC621_ram|altsyncram:altsyncram_component|altsyncram_epl1:auto_generated|q_a[3]" File: I:/sxrRISC621/db/altsyncram_epl1.tdf Line: 106
-        Warning (14320): Synthesized away node "my_ram:sxrRISC621_ram|altsyncram:altsyncram_component|altsyncram_epl1:auto_generated|q_a[4]" File: I:/sxrRISC621/db/altsyncram_epl1.tdf Line: 129
-        Warning (14320): Synthesized away node "my_ram:sxrRISC621_ram|altsyncram:altsyncram_component|altsyncram_epl1:auto_generated|q_a[5]" File: I:/sxrRISC621/db/altsyncram_epl1.tdf Line: 152
-        Warning (14320): Synthesized away node "my_ram:sxrRISC621_ram|altsyncram:altsyncram_component|altsyncram_epl1:auto_generated|q_a[6]" File: I:/sxrRISC621/db/altsyncram_epl1.tdf Line: 175
-        Warning (14320): Synthesized away node "my_ram:sxrRISC621_ram|altsyncram:altsyncram_component|altsyncram_epl1:auto_generated|q_a[7]" File: I:/sxrRISC621/db/altsyncram_epl1.tdf Line: 198
-        Warning (14320): Synthesized away node "my_ram:sxrRISC621_ram|altsyncram:altsyncram_component|altsyncram_epl1:auto_generated|q_a[8]" File: I:/sxrRISC621/db/altsyncram_epl1.tdf Line: 221
-        Warning (14320): Synthesized away node "my_ram:sxrRISC621_ram|altsyncram:altsyncram_component|altsyncram_epl1:auto_generated|q_a[9]" File: I:/sxrRISC621/db/altsyncram_epl1.tdf Line: 244
-        Warning (14320): Synthesized away node "my_ram:sxrRISC621_ram|altsyncram:altsyncram_component|altsyncram_epl1:auto_generated|q_a[10]" File: I:/sxrRISC621/db/altsyncram_epl1.tdf Line: 267
-        Warning (14320): Synthesized away node "my_ram:sxrRISC621_ram|altsyncram:altsyncram_component|altsyncram_epl1:auto_generated|q_a[11]" File: I:/sxrRISC621/db/altsyncram_epl1.tdf Line: 290
-        Warning (14320): Synthesized away node "my_rom:sxrRISC621_rom|altsyncram:altsyncram_component|altsyncram_kcg1:auto_generated|q_a[0]" File: I:/sxrRISC621/db/altsyncram_kcg1.tdf Line: 35
-        Warning (14320): Synthesized away node "my_rom:sxrRISC621_rom|altsyncram:altsyncram_component|altsyncram_kcg1:auto_generated|q_a[1]" File: I:/sxrRISC621/db/altsyncram_kcg1.tdf Line: 57
-        Warning (14320): Synthesized away node "my_rom:sxrRISC621_rom|altsyncram:altsyncram_component|altsyncram_kcg1:auto_generated|q_a[2]" File: I:/sxrRISC621/db/altsyncram_kcg1.tdf Line: 79
-        Warning (14320): Synthesized away node "my_rom:sxrRISC621_rom|altsyncram:altsyncram_component|altsyncram_kcg1:auto_generated|q_a[3]" File: I:/sxrRISC621/db/altsyncram_kcg1.tdf Line: 101
-        Warning (14320): Synthesized away node "my_rom:sxrRISC621_rom|altsyncram:altsyncram_component|altsyncram_kcg1:auto_generated|q_a[4]" File: I:/sxrRISC621/db/altsyncram_kcg1.tdf Line: 123
-        Warning (14320): Synthesized away node "my_rom:sxrRISC621_rom|altsyncram:altsyncram_component|altsyncram_kcg1:auto_generated|q_a[5]" File: I:/sxrRISC621/db/altsyncram_kcg1.tdf Line: 145
-        Warning (14320): Synthesized away node "my_rom:sxrRISC621_rom|altsyncram:altsyncram_component|altsyncram_kcg1:auto_generated|q_a[6]" File: I:/sxrRISC621/db/altsyncram_kcg1.tdf Line: 167
-        Warning (14320): Synthesized away node "my_rom:sxrRISC621_rom|altsyncram:altsyncram_component|altsyncram_kcg1:auto_generated|q_a[7]" File: I:/sxrRISC621/db/altsyncram_kcg1.tdf Line: 189
-        Warning (14320): Synthesized away node "my_rom:sxrRISC621_rom|altsyncram:altsyncram_component|altsyncram_kcg1:auto_generated|q_a[8]" File: I:/sxrRISC621/db/altsyncram_kcg1.tdf Line: 211
-        Warning (14320): Synthesized away node "my_rom:sxrRISC621_rom|altsyncram:altsyncram_component|altsyncram_kcg1:auto_generated|q_a[9]" File: I:/sxrRISC621/db/altsyncram_kcg1.tdf Line: 233
-        Warning (14320): Synthesized away node "my_rom:sxrRISC621_rom|altsyncram:altsyncram_component|altsyncram_kcg1:auto_generated|q_a[10]" File: I:/sxrRISC621/db/altsyncram_kcg1.tdf Line: 255
-        Warning (14320): Synthesized away node "my_rom:sxrRISC621_rom|altsyncram:altsyncram_component|altsyncram_kcg1:auto_generated|q_a[11]" File: I:/sxrRISC621/db/altsyncram_kcg1.tdf Line: 277
-Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+        Warning (14320): Synthesized away node "sxrRISC621_ram:my_ram|altsyncram:altsyncram_component|altsyncram_epl1:auto_generated|q_a[0]" File: D:/sxrRISC621/db/altsyncram_epl1.tdf Line: 37
+        Warning (14320): Synthesized away node "sxrRISC621_ram:my_ram|altsyncram:altsyncram_component|altsyncram_epl1:auto_generated|q_a[1]" File: D:/sxrRISC621/db/altsyncram_epl1.tdf Line: 60
+        Warning (14320): Synthesized away node "sxrRISC621_ram:my_ram|altsyncram:altsyncram_component|altsyncram_epl1:auto_generated|q_a[2]" File: D:/sxrRISC621/db/altsyncram_epl1.tdf Line: 83
+        Warning (14320): Synthesized away node "sxrRISC621_ram:my_ram|altsyncram:altsyncram_component|altsyncram_epl1:auto_generated|q_a[3]" File: D:/sxrRISC621/db/altsyncram_epl1.tdf Line: 106
+        Warning (14320): Synthesized away node "sxrRISC621_ram:my_ram|altsyncram:altsyncram_component|altsyncram_epl1:auto_generated|q_a[4]" File: D:/sxrRISC621/db/altsyncram_epl1.tdf Line: 129
+        Warning (14320): Synthesized away node "sxrRISC621_ram:my_ram|altsyncram:altsyncram_component|altsyncram_epl1:auto_generated|q_a[5]" File: D:/sxrRISC621/db/altsyncram_epl1.tdf Line: 152
+        Warning (14320): Synthesized away node "sxrRISC621_ram:my_ram|altsyncram:altsyncram_component|altsyncram_epl1:auto_generated|q_a[6]" File: D:/sxrRISC621/db/altsyncram_epl1.tdf Line: 175
+        Warning (14320): Synthesized away node "sxrRISC621_ram:my_ram|altsyncram:altsyncram_component|altsyncram_epl1:auto_generated|q_a[7]" File: D:/sxrRISC621/db/altsyncram_epl1.tdf Line: 198
+        Warning (14320): Synthesized away node "sxrRISC621_ram:my_ram|altsyncram:altsyncram_component|altsyncram_epl1:auto_generated|q_a[8]" File: D:/sxrRISC621/db/altsyncram_epl1.tdf Line: 221
+        Warning (14320): Synthesized away node "sxrRISC621_ram:my_ram|altsyncram:altsyncram_component|altsyncram_epl1:auto_generated|q_a[9]" File: D:/sxrRISC621/db/altsyncram_epl1.tdf Line: 244
+        Warning (14320): Synthesized away node "sxrRISC621_ram:my_ram|altsyncram:altsyncram_component|altsyncram_epl1:auto_generated|q_a[10]" File: D:/sxrRISC621/db/altsyncram_epl1.tdf Line: 267
+        Warning (14320): Synthesized away node "sxrRISC621_ram:my_ram|altsyncram:altsyncram_component|altsyncram_epl1:auto_generated|q_a[11]" File: D:/sxrRISC621/db/altsyncram_epl1.tdf Line: 290
+        Warning (14320): Synthesized away node "sxrRISC621_rom:my_rom|altsyncram:altsyncram_component|altsyncram_fjf1:auto_generated|q_a[0]" File: D:/sxrRISC621/db/altsyncram_fjf1.tdf Line: 35
+        Warning (14320): Synthesized away node "sxrRISC621_rom:my_rom|altsyncram:altsyncram_component|altsyncram_fjf1:auto_generated|q_a[1]" File: D:/sxrRISC621/db/altsyncram_fjf1.tdf Line: 57
+        Warning (14320): Synthesized away node "sxrRISC621_rom:my_rom|altsyncram:altsyncram_component|altsyncram_fjf1:auto_generated|q_a[2]" File: D:/sxrRISC621/db/altsyncram_fjf1.tdf Line: 79
+        Warning (14320): Synthesized away node "sxrRISC621_rom:my_rom|altsyncram:altsyncram_component|altsyncram_fjf1:auto_generated|q_a[3]" File: D:/sxrRISC621/db/altsyncram_fjf1.tdf Line: 101
+        Warning (14320): Synthesized away node "sxrRISC621_rom:my_rom|altsyncram:altsyncram_component|altsyncram_fjf1:auto_generated|q_a[4]" File: D:/sxrRISC621/db/altsyncram_fjf1.tdf Line: 123
+        Warning (14320): Synthesized away node "sxrRISC621_rom:my_rom|altsyncram:altsyncram_component|altsyncram_fjf1:auto_generated|q_a[5]" File: D:/sxrRISC621/db/altsyncram_fjf1.tdf Line: 145
+        Warning (14320): Synthesized away node "sxrRISC621_rom:my_rom|altsyncram:altsyncram_component|altsyncram_fjf1:auto_generated|q_a[6]" File: D:/sxrRISC621/db/altsyncram_fjf1.tdf Line: 167
+        Warning (14320): Synthesized away node "sxrRISC621_rom:my_rom|altsyncram:altsyncram_component|altsyncram_fjf1:auto_generated|q_a[7]" File: D:/sxrRISC621/db/altsyncram_fjf1.tdf Line: 189
+        Warning (14320): Synthesized away node "sxrRISC621_rom:my_rom|altsyncram:altsyncram_component|altsyncram_fjf1:auto_generated|q_a[8]" File: D:/sxrRISC621/db/altsyncram_fjf1.tdf Line: 211
+        Warning (14320): Synthesized away node "sxrRISC621_rom:my_rom|altsyncram:altsyncram_component|altsyncram_fjf1:auto_generated|q_a[9]" File: D:/sxrRISC621/db/altsyncram_fjf1.tdf Line: 233
+        Warning (14320): Synthesized away node "sxrRISC621_rom:my_rom|altsyncram:altsyncram_component|altsyncram_fjf1:auto_generated|q_a[10]" File: D:/sxrRISC621/db/altsyncram_fjf1.tdf Line: 255
+        Warning (14320): Synthesized away node "sxrRISC621_rom:my_rom|altsyncram:altsyncram_component|altsyncram_fjf1:auto_generated|q_a[11]" File: D:/sxrRISC621/db/altsyncram_fjf1.tdf Line: 277
 Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "Display_pin[0]" is stuck at GND File: I:/sxrRISC621/sxrRISC621.v Line: 7
-    Warning (13410): Pin "Display_pin[1]" is stuck at GND File: I:/sxrRISC621/sxrRISC621.v Line: 7
-    Warning (13410): Pin "Display_pin[2]" is stuck at GND File: I:/sxrRISC621/sxrRISC621.v Line: 7
-    Warning (13410): Pin "Display_pin[3]" is stuck at GND File: I:/sxrRISC621/sxrRISC621.v Line: 7
-    Warning (13410): Pin "Display_pin[4]" is stuck at GND File: I:/sxrRISC621/sxrRISC621.v Line: 7
-    Warning (13410): Pin "Display_pin[5]" is stuck at GND File: I:/sxrRISC621/sxrRISC621.v Line: 7
-    Warning (13410): Pin "Display_pin[6]" is stuck at GND File: I:/sxrRISC621/sxrRISC621.v Line: 7
-    Warning (13410): Pin "Display_pin[7]" is stuck at GND File: I:/sxrRISC621/sxrRISC621.v Line: 7
+    Warning (13410): Pin "Display_pin[0]" is stuck at GND File: D:/sxrRISC621/sxrRISC621.v Line: 7
+    Warning (13410): Pin "Display_pin[1]" is stuck at GND File: D:/sxrRISC621/sxrRISC621.v Line: 7
+    Warning (13410): Pin "Display_pin[2]" is stuck at GND File: D:/sxrRISC621/sxrRISC621.v Line: 7
+    Warning (13410): Pin "Display_pin[3]" is stuck at GND File: D:/sxrRISC621/sxrRISC621.v Line: 7
+    Warning (13410): Pin "Display_pin[4]" is stuck at GND File: D:/sxrRISC621/sxrRISC621.v Line: 7
+    Warning (13410): Pin "Display_pin[5]" is stuck at GND File: D:/sxrRISC621/sxrRISC621.v Line: 7
+    Warning (13410): Pin "Display_pin[6]" is stuck at GND File: D:/sxrRISC621/sxrRISC621.v Line: 7
+    Warning (13410): Pin "Display_pin[7]" is stuck at GND File: D:/sxrRISC621/sxrRISC621.v Line: 7
 Info (17049): 295 registers lost all their fanouts during netlist optimizations.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
 Warning (21074): Design contains 7 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "SW_pin[0]" File: I:/sxrRISC621/sxrRISC621.v Line: 5
-    Warning (15610): No output dependent on input pin "SW_pin[1]" File: I:/sxrRISC621/sxrRISC621.v Line: 5
-    Warning (15610): No output dependent on input pin "SW_pin[2]" File: I:/sxrRISC621/sxrRISC621.v Line: 5
-    Warning (15610): No output dependent on input pin "SW_pin[3]" File: I:/sxrRISC621/sxrRISC621.v Line: 5
-    Warning (15610): No output dependent on input pin "SW_pin[4]" File: I:/sxrRISC621/sxrRISC621.v Line: 5
-    Warning (15610): No output dependent on input pin "Resetn_pin" File: I:/sxrRISC621/sxrRISC621.v Line: 3
-    Warning (15610): No output dependent on input pin "Clock_pin" File: I:/sxrRISC621/sxrRISC621.v Line: 3
+    Warning (15610): No output dependent on input pin "SW_pin[0]" File: D:/sxrRISC621/sxrRISC621.v Line: 5
+    Warning (15610): No output dependent on input pin "SW_pin[1]" File: D:/sxrRISC621/sxrRISC621.v Line: 5
+    Warning (15610): No output dependent on input pin "SW_pin[2]" File: D:/sxrRISC621/sxrRISC621.v Line: 5
+    Warning (15610): No output dependent on input pin "SW_pin[3]" File: D:/sxrRISC621/sxrRISC621.v Line: 5
+    Warning (15610): No output dependent on input pin "SW_pin[4]" File: D:/sxrRISC621/sxrRISC621.v Line: 5
+    Warning (15610): No output dependent on input pin "Resetn_pin" File: D:/sxrRISC621/sxrRISC621.v Line: 3
+    Warning (15610): No output dependent on input pin "Clock_pin" File: D:/sxrRISC621/sxrRISC621.v Line: 3
 Info (21057): Implemented 15 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 7 input pins
     Info (21059): Implemented 8 output pins
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 54 warnings
-    Info: Peak virtual memory: 909 megabytes
-    Info: Processing ended: Tue Sep 13 07:36:53 2016
-    Info: Elapsed time: 00:00:36
-    Info: Total CPU time (on all processors): 00:00:56
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 62 warnings
+    Info: Peak virtual memory: 913 megabytes
+    Info: Processing ended: Tue Sep 13 23:43:26 2016
+    Info: Elapsed time: 00:00:37
+    Info: Total CPU time (on all processors): 00:00:59
 
 
