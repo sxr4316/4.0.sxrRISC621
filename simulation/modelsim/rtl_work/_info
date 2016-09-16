@@ -1,0 +1,163 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dD:/sxrRISC621/simulation/modelsim
+vmult_01n
+Z1 !s110 1474021348
+!i10b 1
+!s100 eBz6h<FKXkaXWV;@hDNhb0
+I4BCWAjgAEf0gN3B3e3GZg1
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+R0
+w1474015668
+8D:/sxrRISC621/db/mult_01n.v
+FD:/sxrRISC621/db/mult_01n.v
+L0 29
+Z3 OV;L;10.4d;61
+r1
+!s85 0
+31
+Z4 !s108 1474021348.000000
+!s107 D:/sxrRISC621/db/mult_01n.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/sxrRISC621/db|D:/sxrRISC621/db/mult_01n.v|
+!i113 1
+Z5 o-vlog01compat -work work
+!s92 -vlog01compat -work work +incdir+D:/sxrRISC621/db
+vsxrRISC621
+Z6 !s110 1474021347
+!i10b 1
+!s100 CXT03WaIY>kR4f5cSTHSe0
+I_BZl2C^kT=^kBnITGKj820
+R2
+R0
+w1474021258
+8D:/sxrRISC621/sxrRISC621.v
+FD:/sxrRISC621/sxrRISC621.v
+L0 1
+R3
+r1
+!s85 0
+31
+Z7 !s108 1474021347.000000
+!s107 D:/sxrRISC621/sxrRISC621.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/sxrRISC621|D:/sxrRISC621/sxrRISC621.v|
+!i113 1
+R5
+Z8 !s92 -vlog01compat -work work +incdir+D:/sxrRISC621
+nsxr@r@i@s@c621
+vsxrRISC621_div
+R1
+!i10b 1
+!s100 OEoaYB6Z@0OGT3G1DgkB>2
+I]SMJZ0><NBTn>2SS?cfRV3
+R2
+R0
+w1473821565
+8D:/sxrRISC621/sxrRISC621_div.v
+FD:/sxrRISC621/sxrRISC621_div.v
+Z9 L0 40
+R3
+r1
+!s85 0
+31
+R4
+!s107 D:/sxrRISC621/sxrRISC621_div.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/sxrRISC621|D:/sxrRISC621/sxrRISC621_div.v|
+!i113 1
+R5
+R8
+nsxr@r@i@s@c621_div
+vsxrRISC621_mult
+R1
+!i10b 1
+!s100 FT3hmKD;JaWUhGfzFU6AY1
+I1>?jec>US;ISZ?Hl9LYhZ1
+R2
+R0
+w1473893590
+8D:/sxrRISC621/sxrRISC621_mult.v
+FD:/sxrRISC621/sxrRISC621_mult.v
+R9
+R3
+r1
+!s85 0
+31
+R4
+!s107 D:/sxrRISC621/sxrRISC621_mult.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/sxrRISC621|D:/sxrRISC621/sxrRISC621_mult.v|
+!i113 1
+R5
+R8
+nsxr@r@i@s@c621_mult
+vsxrRISC621_ram
+R1
+!i10b 1
+!s100 z0<6<kSbfY=A_zF>]SP890
+IE;J0<=ghDK_VYOg_o5d8C1
+R2
+R0
+w1473821093
+8D:/sxrRISC621/sxrRISC621_ram.v
+FD:/sxrRISC621/sxrRISC621_ram.v
+R9
+R3
+r1
+!s85 0
+31
+R7
+!s107 D:/sxrRISC621/sxrRISC621_ram.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/sxrRISC621|D:/sxrRISC621/sxrRISC621_ram.v|
+!i113 1
+R5
+R8
+nsxr@r@i@s@c621_ram
+vsxrRISC621_rom
+R6
+!i10b 1
+!s100 Sl8k^z4[KMimFTA^<EjXE1
+IS<IYZ=CI4]oec]XZ58o[43
+R2
+R0
+w1473899399
+8D:/sxrRISC621/sxrRISC621_rom.v
+FD:/sxrRISC621/sxrRISC621_rom.v
+R9
+R3
+r1
+!s85 0
+31
+R7
+!s107 D:/sxrRISC621/sxrRISC621_rom.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/sxrRISC621|D:/sxrRISC621/sxrRISC621_rom.v|
+!i113 1
+R5
+R8
+nsxr@r@i@s@c621_rom
+vsxrRISC621_tb
+R1
+!i10b 1
+!s100 9WJ2I3Ib`khdaYJMkDDRc0
+I2A@YCX`PjO<LC6gd6e9641
+R2
+R0
+w1474016287
+8D:/sxrRISC621/sxrRISC621_tb.v
+FD:/sxrRISC621/sxrRISC621_tb.v
+L0 3
+R3
+r1
+!s85 0
+31
+R4
+!s107 D:/sxrRISC621/sxrRISC621_tb.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/sxrRISC621|D:/sxrRISC621/sxrRISC621_tb.v|
+!i113 1
+R5
+R8
+nsxr@r@i@s@c621_tb

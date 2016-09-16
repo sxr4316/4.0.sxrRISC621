@@ -1,0 +1,122 @@
+# Reading C:/altera/16.0/modelsim_ase/tcl/vsim/pref.tcl
+# do sxrRISC621_run_msim_rtl_verilog.do
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Model Technology ModelSim ALTERA vmap 10.4d Lib Mapping Utility 2015.12 Dec 30 2015
+# vmap work rtl_work 
+# Copying C:/altera/16.0/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# 
+# vlog -vlog01compat -work work +incdir+D:/sxrRISC621 {D:/sxrRISC621/sxrRISC621.v}
+# Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
+# Start time: 06:22:27 on Sep 16,2016
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+D:/sxrRISC621" D:/sxrRISC621/sxrRISC621.v 
+# -- Compiling module sxrRISC621
+# 
+# Top level modules:
+# 	sxrRISC621
+# End time: 06:22:27 on Sep 16,2016, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+D:/sxrRISC621 {D:/sxrRISC621/sxrRISC621_rom.v}
+# Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
+# Start time: 06:22:27 on Sep 16,2016
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+D:/sxrRISC621" D:/sxrRISC621/sxrRISC621_rom.v 
+# -- Compiling module sxrRISC621_rom
+# 
+# Top level modules:
+# 	sxrRISC621_rom
+# End time: 06:22:27 on Sep 16,2016, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+D:/sxrRISC621 {D:/sxrRISC621/sxrRISC621_ram.v}
+# Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
+# Start time: 06:22:27 on Sep 16,2016
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+D:/sxrRISC621" D:/sxrRISC621/sxrRISC621_ram.v 
+# -- Compiling module sxrRISC621_ram
+# 
+# Top level modules:
+# 	sxrRISC621_ram
+# End time: 06:22:28 on Sep 16,2016, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+D:/sxrRISC621 {D:/sxrRISC621/sxrRISC621_mult.v}
+# Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
+# Start time: 06:22:28 on Sep 16,2016
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+D:/sxrRISC621" D:/sxrRISC621/sxrRISC621_mult.v 
+# -- Compiling module sxrRISC621_mult
+# 
+# Top level modules:
+# 	sxrRISC621_mult
+# End time: 06:22:28 on Sep 16,2016, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+D:/sxrRISC621 {D:/sxrRISC621/sxrRISC621_div.v}
+# Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
+# Start time: 06:22:28 on Sep 16,2016
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+D:/sxrRISC621" D:/sxrRISC621/sxrRISC621_div.v 
+# -- Compiling module sxrRISC621_div
+# 
+# Top level modules:
+# 	sxrRISC621_div
+# End time: 06:22:28 on Sep 16,2016, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+D:/sxrRISC621/db {D:/sxrRISC621/db/mult_01n.v}
+# Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
+# Start time: 06:22:28 on Sep 16,2016
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+D:/sxrRISC621/db" D:/sxrRISC621/db/mult_01n.v 
+# -- Compiling module mult_01n
+# 
+# Top level modules:
+# 	mult_01n
+# End time: 06:22:28 on Sep 16,2016, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+# vlog -vlog01compat -work work +incdir+D:/sxrRISC621 {D:/sxrRISC621/sxrRISC621_tb.v}
+# Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
+# Start time: 06:22:28 on Sep 16,2016
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+D:/sxrRISC621" D:/sxrRISC621/sxrRISC621_tb.v 
+# -- Compiling module sxrRISC621_tb
+# 
+# Top level modules:
+# 	sxrRISC621_tb
+# End time: 06:22:28 on Sep 16,2016, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L rtl_work -L work -voptargs="+acc"  sxrRISC621_tb
+# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L rtl_work -L work -voptargs=""+acc"" sxrRISC621_tb 
+# Start time: 06:22:28 on Sep 16,2016
+# Loading work.sxrRISC621_tb
+# Loading work.sxrRISC621
+# Loading work.sxrRISC621_rom
+# Loading altera_mf_ver.altsyncram
+# Loading work.sxrRISC621_ram
+# Loading work.sxrRISC621_mult
+# Loading lpm_ver.lpm_mult
+# Loading lpm_ver.LPM_HINT_EVALUATION
+# Loading work.sxrRISC621_div
+# Loading lpm_ver.lpm_divide
+# Loading altera_mf_ver.altsyncram_body
+# Loading altera_mf_ver.ALTERA_DEVICE_FAMILIES
+# Loading altera_mf_ver.ALTERA_MF_MEMORY_INITIALIZATION
+# 
+# add wave *
+# view structure
+# .main_pane.structure.interior.cs.body.struct
+# view signals
+# .main_pane.objects.interior.cs.body.tree
+# run -all
+add wave -position insertpoint  \
+sim:/sxrRISC621_tb/RISC621/R
+add wave -position insertpoint  \
+{sim:/sxrRISC621_tb/RISC621/SR[11]} \
+{sim:/sxrRISC621_tb/RISC621/SR[10]} \
+{sim:/sxrRISC621_tb/RISC621/SR[9]} \
+{sim:/sxrRISC621_tb/RISC621/SR[8]}
+restart
+run -all
+# GetModuleFileName: The specified module could not be found.
+# 
+# 
+quit
+# End time: 06:33:39 on Sep 16,2016, Elapsed time: 0:11:11
+# Errors: 0, Warnings: 0
