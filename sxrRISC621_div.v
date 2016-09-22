@@ -43,15 +43,15 @@ module sxrRISC621_div (
 	quotient,
 	remain);
 
-	input	[11:0]  denom;
-	input	[11:0]  numer;
-	output	[11:0]  quotient;
-	output	[11:0]  remain;
+	input	[13:0]  denom;
+	input	[13:0]  numer;
+	output	[13:0]  quotient;
+	output	[13:0]  remain;
 
-	wire [11:0] sub_wire0;
-	wire [11:0] sub_wire1;
-	wire [11:0] quotient = sub_wire0[11:0];
-	wire [11:0] remain = sub_wire1[11:0];
+	wire [13:0] sub_wire0;
+	wire [13:0] sub_wire1;
+	wire [13:0] quotient = sub_wire0[13:0];
+	wire [13:0] remain = sub_wire1[13:0];
 
 	lpm_divide	LPM_DIVIDE_component (
 				.denom (denom),
@@ -66,8 +66,8 @@ module sxrRISC621_div (
 		LPM_DIVIDE_component.lpm_hint = "LPM_REMAINDERPOSITIVE=FALSE",
 		LPM_DIVIDE_component.lpm_nrepresentation = "SIGNED",
 		LPM_DIVIDE_component.lpm_type = "LPM_DIVIDE",
-		LPM_DIVIDE_component.lpm_widthd = 12,
-		LPM_DIVIDE_component.lpm_widthn = 12;
+		LPM_DIVIDE_component.lpm_widthd = 14,
+		LPM_DIVIDE_component.lpm_widthn = 14;
 
 
 endmodule
@@ -87,16 +87,16 @@ endmodule
 // Retrieval info: CONSTANT: LPM_HINT STRING "LPM_REMAINDERPOSITIVE=FALSE"
 // Retrieval info: CONSTANT: LPM_NREPRESENTATION STRING "SIGNED"
 // Retrieval info: CONSTANT: LPM_TYPE STRING "LPM_DIVIDE"
-// Retrieval info: CONSTANT: LPM_WIDTHD NUMERIC "12"
-// Retrieval info: CONSTANT: LPM_WIDTHN NUMERIC "12"
-// Retrieval info: USED_PORT: denom 0 0 12 0 INPUT NODEFVAL "denom[11..0]"
-// Retrieval info: USED_PORT: numer 0 0 12 0 INPUT NODEFVAL "numer[11..0]"
-// Retrieval info: USED_PORT: quotient 0 0 12 0 OUTPUT NODEFVAL "quotient[11..0]"
-// Retrieval info: USED_PORT: remain 0 0 12 0 OUTPUT NODEFVAL "remain[11..0]"
-// Retrieval info: CONNECT: @denom 0 0 12 0 denom 0 0 12 0
-// Retrieval info: CONNECT: @numer 0 0 12 0 numer 0 0 12 0
-// Retrieval info: CONNECT: quotient 0 0 12 0 @quotient 0 0 12 0
-// Retrieval info: CONNECT: remain 0 0 12 0 @remain 0 0 12 0
+// Retrieval info: CONSTANT: LPM_WIDTHD NUMERIC "14"
+// Retrieval info: CONSTANT: LPM_WIDTHN NUMERIC "14"
+// Retrieval info: USED_PORT: denom 0 0 14 0 INPUT NODEFVAL "denom[13..0]"
+// Retrieval info: USED_PORT: numer 0 0 14 0 INPUT NODEFVAL "numer[13..0]"
+// Retrieval info: USED_PORT: quotient 0 0 14 0 OUTPUT NODEFVAL "quotient[13..0]"
+// Retrieval info: USED_PORT: remain 0 0 14 0 OUTPUT NODEFVAL "remain[13..0]"
+// Retrieval info: CONNECT: @denom 0 0 14 0 denom 0 0 14 0
+// Retrieval info: CONNECT: @numer 0 0 14 0 numer 0 0 14 0
+// Retrieval info: CONNECT: quotient 0 0 14 0 @quotient 0 0 14 0
+// Retrieval info: CONNECT: remain 0 0 14 0 @remain 0 0 14 0
 // Retrieval info: GEN_FILE: TYPE_NORMAL sxrRISC621_div.v TRUE
 // Retrieval info: GEN_FILE: TYPE_NORMAL sxrRISC621_div.inc FALSE
 // Retrieval info: GEN_FILE: TYPE_NORMAL sxrRISC621_div.cmp FALSE

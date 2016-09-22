@@ -1,0 +1,85 @@
+-- Copyright (C) 1991-2016 Altera Corporation. All rights reserved.
+-- Your use of Altera Corporation's design tools, logic functions 
+-- and other software and tools, and its AMPP partner logic 
+-- functions, and any output files from any of the foregoing 
+-- (including device programming or simulation files), and any 
+-- associated documentation or information are expressly subject 
+-- to the terms and conditions of the Altera Program License 
+-- Subscription Agreement, the Altera Quartus Prime License Agreement,
+-- the Altera MegaCore Function License Agreement, or other 
+-- applicable license agreement, including, without limitation, 
+-- that your use is for the sole purpose of programming logic 
+-- devices manufactured by Altera and sold by Altera or its 
+-- authorized distributors.  Please refer to the applicable 
+-- agreement for further details.
+
+-- Quartus Prime generated Memory Initialization File (.mif)
+
+WIDTH=14;
+DEPTH=16384;
+
+ADDRESS_RADIX=DEC;
+DATA_RADIX=HEX;
+
+CONTENT BEGIN
+	0      :   2600;
+	1      :   2610;
+	2      :   2620;
+	3      :   2630;
+	4      :   2640;
+	5      :   2650;
+	6      :   2660;
+	7      :   2670;
+	8      :   2680;
+	9      :   2690;
+	10     :   26A0;
+	11     :   26B0;
+	12     :   26C0;
+	13     :   26D0;
+	14     :   26E0;
+	15     :   26F0;
+	16     :   0100;
+	17     :   0000;
+	18     :   0101;
+	19     :   0001;
+	20     :   0102;
+	21     :   0002;
+	22     :   0103;
+	23     :   0003;
+	24     :   0104;
+	25     :   0004;
+	26     :   0105;
+	27     :   0005;
+	28     :   0106;
+	29     :   0006;
+	30     :   2300;
+	31     :   2301;
+	32     :   2302;
+	33     :   2303;
+	34     :   2304;
+	35     :   0200;
+	36     :   0000;
+	37     :   0201;
+	38     :   0001;
+	39     :   0202;
+	40     :   0002;
+	41     :   0203;
+	42     :   0003;
+	43     :   0204;
+	44     :   0004;
+	45     :   2600;
+	46     :   2610;
+	47     :   2620;
+	48     :   2630;
+	49     :   2640;
+	50     :   0100;
+	51     :   0000;
+	52     :   0101;
+	53     :   0001;
+	54     :   0102;
+	55     :   0002;
+	56     :   0103;
+	57     :   0003;
+	58     :   0104;
+	59     :   0004;
+END;

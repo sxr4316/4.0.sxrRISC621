@@ -1,7 +1,7 @@
 {
-	"common_dir" : "D:/sxrRISC621/",
-	"acds_version" : "Version 16.0.0",
+	"common_dir" : "C:/Users/sxr4316/Downloads/sxrRISC621/",
+	"acds_version" : "Version 15.1.0",
 	"platform" : "windows",
-	"os" : "Windows 8",
+	"os" : "Windows 7",
 	"qpf" : "sxrRISC621.qpf"
 }

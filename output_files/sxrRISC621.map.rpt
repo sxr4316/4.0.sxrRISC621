@@ -1,0 +1,634 @@
+Analysis & Elaboration report for sxrRISC621
+Thu Sep 22 00:28:46 2016
+Quartus Prime Version 16.0.0 Build 211 04/27/2016 SJ Standard Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Elaboration Summary
+  3. Parallel Compilation
+  4. Analysis & Elaboration IP Cores Summary
+  5. Source assignments for sxrRISC621_rom:my_rom|altsyncram:altsyncram_component|altsyncram_qhg1:auto_generated
+  6. Source assignments for sxrRISC621_ram:my_ram|altsyncram:altsyncram_component|altsyncram_cap1:auto_generated
+  7. Parameter Settings for User Entity Instance: Top-level Entity: |sxrRISC621
+  8. Parameter Settings for User Entity Instance: sxrRISC621_rom:my_rom|altsyncram:altsyncram_component
+  9. Parameter Settings for User Entity Instance: sxrRISC621_ram:my_ram|altsyncram:altsyncram_component
+ 10. Parameter Settings for User Entity Instance: sxrRISC621_mult:my_mult|lpm_mult:lpm_mult_component
+ 11. Parameter Settings for User Entity Instance: sxrRISC621_div:my_div|lpm_divide:LPM_DIVIDE_component
+ 12. Parameter Settings for User Entity Instance: sxrRISC621_addsub:my_addsub|lpm_add_sub:LPM_ADD_SUB_component
+ 13. altsyncram Parameter Settings by Entity Instance
+ 14. lpm_mult Parameter Settings by Entity Instance
+ 15. Analysis & Elaboration Settings
+ 16. Analysis & Elaboration Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2016 Altera Corporation. All rights reserved.
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, the Altera Quartus Prime License Agreement,
+the Altera MegaCore Function License Agreement, or other 
+applicable license agreement, including, without limitation, 
+that your use is for the sole purpose of programming logic 
+devices manufactured by Altera and sold by Altera or its 
+authorized distributors.  Please refer to the applicable 
+agreement for further details.
+
+
+
++---------------------------------------------------------------------------------+
+; Analysis & Elaboration Summary                                                  ;
++-------------------------------+-------------------------------------------------+
+; Analysis & Elaboration Status ; Successful - Thu Sep 22 00:28:46 2016           ;
+; Quartus Prime Version         ; 16.0.0 Build 211 04/27/2016 SJ Standard Edition ;
+; Revision Name                 ; sxrRISC621                                      ;
+; Top-level Entity Name         ; sxrRISC621                                      ;
+; Family                        ; Cyclone V                                       ;
+; Logic utilization (in ALMs)   ; N/A until Partition Merge                       ;
+; Total registers               ; N/A until Partition Merge                       ;
+; Total pins                    ; N/A until Partition Merge                       ;
+; Total virtual pins            ; N/A until Partition Merge                       ;
+; Total block memory bits       ; N/A until Partition Merge                       ;
+; Total PLLs                    ; N/A until Partition Merge                       ;
+; Total DLLs                    ; N/A until Partition Merge                       ;
++-------------------------------+-------------------------------------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 4           ;
+; Maximum allowed            ; 2           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 1           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
++----------------------------+-------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Elaboration IP Cores Summary                                                                                       ;
++--------+--------------+---------+--------------+--------------+-----------------------------------------+---------------------+
+; Vendor ; IP Core Name ; Version ; Release Date ; License Type ; Entity Instance                         ; IP Include File     ;
++--------+--------------+---------+--------------+--------------+-----------------------------------------+---------------------+
+; Altera ; LPM_ADD_SUB  ; 16.0    ; N/A          ; N/A          ; |sxrRISC621|sxrRISC621_addsub:my_addsub ; sxrRISC621_addsub.v ;
+; Altera ; LPM_DIVIDE   ; 16.0    ; N/A          ; N/A          ; |sxrRISC621|sxrRISC621_div:my_div       ; sxrRISC621_div.v    ;
+; Altera ; LPM_MULT     ; 16.0    ; N/A          ; N/A          ; |sxrRISC621|sxrRISC621_mult:my_mult     ; sxrRISC621_mult.v   ;
+; Altera ; RAM: 1-PORT  ; 16.0    ; N/A          ; N/A          ; |sxrRISC621|sxrRISC621_ram:my_ram       ; sxrRISC621_ram.v    ;
+; Altera ; ROM: 1-PORT  ; 16.0    ; N/A          ; N/A          ; |sxrRISC621|sxrRISC621_rom:my_rom       ; sxrRISC621_rom.v    ;
++--------+--------------+---------+--------------+--------------+-----------------------------------------+---------------------+
+
+
++-------------------------------------------------------------------------------------------------------------+
+; Source assignments for sxrRISC621_rom:my_rom|altsyncram:altsyncram_component|altsyncram_qhg1:auto_generated ;
++---------------------------------+--------------------+------+-----------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                            ;
++---------------------------------+--------------------+------+-----------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                             ;
++---------------------------------+--------------------+------+-----------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------+
+; Source assignments for sxrRISC621_ram:my_ram|altsyncram:altsyncram_component|altsyncram_cap1:auto_generated ;
++---------------------------------+--------------------+------+-----------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                            ;
++---------------------------------+--------------------+------+-----------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                             ;
++---------------------------------+--------------------+------+-----------------------------------------------+
+
+
++----------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Top-level Entity: |sxrRISC621 ;
++----------------+--------+--------------------------------------------------+
+; Parameter Name ; Value  ; Type                                             ;
++----------------+--------+--------------------------------------------------+
+; MC0            ; 00     ; Unsigned Binary                                  ;
+; MC1            ; 01     ; Unsigned Binary                                  ;
+; MC2            ; 10     ; Unsigned Binary                                  ;
+; MC3            ; 11     ; Unsigned Binary                                  ;
+; NOP_IC         ; 000000 ; Unsigned Binary                                  ;
+; LD_IC          ; 000001 ; Unsigned Binary                                  ;
+; ST_IC          ; 000010 ; Unsigned Binary                                  ;
+; CPY_IC         ; 000011 ; Unsigned Binary                                  ;
+; SWAP_IC        ; 000100 ; Unsigned Binary                                  ;
+; JMP_IC         ; 010000 ; Unsigned Binary                                  ;
+; CALL_IC        ; 010001 ; Unsigned Binary                                  ;
+; RET_IC         ; 010010 ; Unsigned Binary                                  ;
+; ADD_IC         ; 100000 ; Unsigned Binary                                  ;
+; SUB_IC         ; 100001 ; Unsigned Binary                                  ;
+; ADDC_IC        ; 100010 ; Unsigned Binary                                  ;
+; SUBC_IC        ; 100011 ; Unsigned Binary                                  ;
+; MUL_IC         ; 100100 ; Unsigned Binary                                  ;
+; DIV_IC         ; 100101 ; Unsigned Binary                                  ;
+; MULC_IC        ; 100110 ; Unsigned Binary                                  ;
+; DIVC_IC        ; 100111 ; Unsigned Binary                                  ;
+; NOT_IC         ; 101000 ; Unsigned Binary                                  ;
+; AND_IC         ; 101001 ; Unsigned Binary                                  ;
+; OR_IC          ; 101010 ; Unsigned Binary                                  ;
+; XOR_IC         ; 101011 ; Unsigned Binary                                  ;
+; SHLL_IC        ; 101100 ; Unsigned Binary                                  ;
+; SHRL_IC        ; 101101 ; Unsigned Binary                                  ;
+; SHLA_IC        ; 101110 ; Unsigned Binary                                  ;
+; SHRA_IC        ; 101111 ; Unsigned Binary                                  ;
+; ROTL_IC        ; 110000 ; Unsigned Binary                                  ;
+; ROTR_IC        ; 110001 ; Unsigned Binary                                  ;
+; RTLC_IC        ; 110010 ; Unsigned Binary                                  ;
+; RTRC_IC        ; 110011 ; Unsigned Binary                                  ;
+; JU             ; 0000   ; Unsigned Binary                                  ;
+; JC1            ; 1000   ; Unsigned Binary                                  ;
+; JN1            ; 0100   ; Unsigned Binary                                  ;
+; JV1            ; 0010   ; Unsigned Binary                                  ;
+; JZ1            ; 0001   ; Unsigned Binary                                  ;
+; JC0            ; 0111   ; Unsigned Binary                                  ;
+; JN0            ; 1011   ; Unsigned Binary                                  ;
+; JV0            ; 1101   ; Unsigned Binary                                  ;
+; JZ0            ; 1110   ; Unsigned Binary                                  ;
++----------------+--------+--------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: sxrRISC621_rom:my_rom|altsyncram:altsyncram_component ;
++------------------------------------+----------------------+----------------------------------------+
+; Parameter Name                     ; Value                ; Type                                   ;
++------------------------------------+----------------------+----------------------------------------+
+; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped                                ;
+; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY                             ;
+; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY                           ;
+; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE                           ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE                         ;
+; WIDTH_BYTEENA                      ; 1                    ; Untyped                                ;
+; OPERATION_MODE                     ; ROM                  ; Untyped                                ;
+; WIDTH_A                            ; 14                   ; Signed Integer                         ;
+; WIDTHAD_A                          ; 14                   ; Signed Integer                         ;
+; NUMWORDS_A                         ; 16384                ; Signed Integer                         ;
+; OUTDATA_REG_A                      ; UNREGISTERED         ; Untyped                                ;
+; ADDRESS_ACLR_A                     ; NONE                 ; Untyped                                ;
+; OUTDATA_ACLR_A                     ; NONE                 ; Untyped                                ;
+; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped                                ;
+; INDATA_ACLR_A                      ; NONE                 ; Untyped                                ;
+; BYTEENA_ACLR_A                     ; NONE                 ; Untyped                                ;
+; WIDTH_B                            ; 1                    ; Untyped                                ;
+; WIDTHAD_B                          ; 1                    ; Untyped                                ;
+; NUMWORDS_B                         ; 1                    ; Untyped                                ;
+; INDATA_REG_B                       ; CLOCK1               ; Untyped                                ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped                                ;
+; RDCONTROL_REG_B                    ; CLOCK1               ; Untyped                                ;
+; ADDRESS_REG_B                      ; CLOCK1               ; Untyped                                ;
+; OUTDATA_REG_B                      ; UNREGISTERED         ; Untyped                                ;
+; BYTEENA_REG_B                      ; CLOCK1               ; Untyped                                ;
+; INDATA_ACLR_B                      ; NONE                 ; Untyped                                ;
+; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped                                ;
+; ADDRESS_ACLR_B                     ; NONE                 ; Untyped                                ;
+; OUTDATA_ACLR_B                     ; NONE                 ; Untyped                                ;
+; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped                                ;
+; BYTEENA_ACLR_B                     ; NONE                 ; Untyped                                ;
+; WIDTH_BYTEENA_A                    ; 1                    ; Signed Integer                         ;
+; WIDTH_BYTEENA_B                    ; 1                    ; Untyped                                ;
+; RAM_BLOCK_TYPE                     ; AUTO                 ; Untyped                                ;
+; BYTE_SIZE                          ; 8                    ; Untyped                                ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE            ; Untyped                                ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped                                ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped                                ;
+; INIT_FILE                          ; DataFlow.mif         ; Untyped                                ;
+; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped                                ;
+; MAXIMUM_DEPTH                      ; 0                    ; Untyped                                ;
+; CLOCK_ENABLE_INPUT_A               ; BYPASS               ; Untyped                                ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL               ; Untyped                                ;
+; CLOCK_ENABLE_OUTPUT_A              ; BYPASS               ; Untyped                                ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL               ; Untyped                                ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped                                ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped                                ;
+; ENABLE_ECC                         ; FALSE                ; Untyped                                ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped                                ;
+; WIDTH_ECCSTATUS                    ; 3                    ; Untyped                                ;
+; DEVICE_FAMILY                      ; Cyclone V            ; Untyped                                ;
+; CBXI_PARAMETER                     ; altsyncram_qhg1      ; Untyped                                ;
++------------------------------------+----------------------+----------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: sxrRISC621_ram:my_ram|altsyncram:altsyncram_component ;
++------------------------------------+----------------------+----------------------------------------+
+; Parameter Name                     ; Value                ; Type                                   ;
++------------------------------------+----------------------+----------------------------------------+
+; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped                                ;
+; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY                             ;
+; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY                           ;
+; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE                           ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE                         ;
+; WIDTH_BYTEENA                      ; 1                    ; Untyped                                ;
+; OPERATION_MODE                     ; SINGLE_PORT          ; Untyped                                ;
+; WIDTH_A                            ; 14                   ; Signed Integer                         ;
+; WIDTHAD_A                          ; 14                   ; Signed Integer                         ;
+; NUMWORDS_A                         ; 16384                ; Signed Integer                         ;
+; OUTDATA_REG_A                      ; UNREGISTERED         ; Untyped                                ;
+; ADDRESS_ACLR_A                     ; NONE                 ; Untyped                                ;
+; OUTDATA_ACLR_A                     ; NONE                 ; Untyped                                ;
+; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped                                ;
+; INDATA_ACLR_A                      ; NONE                 ; Untyped                                ;
+; BYTEENA_ACLR_A                     ; NONE                 ; Untyped                                ;
+; WIDTH_B                            ; 1                    ; Untyped                                ;
+; WIDTHAD_B                          ; 1                    ; Untyped                                ;
+; NUMWORDS_B                         ; 1                    ; Untyped                                ;
+; INDATA_REG_B                       ; CLOCK1               ; Untyped                                ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped                                ;
+; RDCONTROL_REG_B                    ; CLOCK1               ; Untyped                                ;
+; ADDRESS_REG_B                      ; CLOCK1               ; Untyped                                ;
+; OUTDATA_REG_B                      ; UNREGISTERED         ; Untyped                                ;
+; BYTEENA_REG_B                      ; CLOCK1               ; Untyped                                ;
+; INDATA_ACLR_B                      ; NONE                 ; Untyped                                ;
+; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped                                ;
+; ADDRESS_ACLR_B                     ; NONE                 ; Untyped                                ;
+; OUTDATA_ACLR_B                     ; NONE                 ; Untyped                                ;
+; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped                                ;
+; BYTEENA_ACLR_B                     ; NONE                 ; Untyped                                ;
+; WIDTH_BYTEENA_A                    ; 1                    ; Signed Integer                         ;
+; WIDTH_BYTEENA_B                    ; 1                    ; Untyped                                ;
+; RAM_BLOCK_TYPE                     ; AUTO                 ; Untyped                                ;
+; BYTE_SIZE                          ; 8                    ; Untyped                                ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE            ; Untyped                                ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped                                ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped                                ;
+; INIT_FILE                          ; sxrRISC621_rom.mif   ; Untyped                                ;
+; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped                                ;
+; MAXIMUM_DEPTH                      ; 0                    ; Untyped                                ;
+; CLOCK_ENABLE_INPUT_A               ; BYPASS               ; Untyped                                ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL               ; Untyped                                ;
+; CLOCK_ENABLE_OUTPUT_A              ; BYPASS               ; Untyped                                ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL               ; Untyped                                ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped                                ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped                                ;
+; ENABLE_ECC                         ; FALSE                ; Untyped                                ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped                                ;
+; WIDTH_ECCSTATUS                    ; 3                    ; Untyped                                ;
+; DEVICE_FAMILY                      ; Cyclone V            ; Untyped                                ;
+; CBXI_PARAMETER                     ; altsyncram_cap1      ; Untyped                                ;
++------------------------------------+----------------------+----------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: sxrRISC621_mult:my_mult|lpm_mult:lpm_mult_component ;
++------------------------------------------------+-----------+-------------------------------------+
+; Parameter Name                                 ; Value     ; Type                                ;
++------------------------------------------------+-----------+-------------------------------------+
+; AUTO_CARRY_CHAINS                              ; ON        ; AUTO_CARRY                          ;
+; IGNORE_CARRY_BUFFERS                           ; OFF       ; IGNORE_CARRY                        ;
+; AUTO_CASCADE_CHAINS                            ; ON        ; AUTO_CASCADE                        ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF       ; IGNORE_CASCADE                      ;
+; LPM_WIDTHA                                     ; 14        ; Signed Integer                      ;
+; LPM_WIDTHB                                     ; 14        ; Signed Integer                      ;
+; LPM_WIDTHP                                     ; 28        ; Signed Integer                      ;
+; LPM_WIDTHR                                     ; 0         ; Untyped                             ;
+; LPM_WIDTHS                                     ; 1         ; Untyped                             ;
+; LPM_REPRESENTATION                             ; SIGNED    ; Untyped                             ;
+; LPM_PIPELINE                                   ; 0         ; Untyped                             ;
+; LATENCY                                        ; 0         ; Untyped                             ;
+; INPUT_A_IS_CONSTANT                            ; NO        ; Untyped                             ;
+; INPUT_B_IS_CONSTANT                            ; NO        ; Untyped                             ;
+; USE_EAB                                        ; OFF       ; Untyped                             ;
+; MAXIMIZE_SPEED                                 ; 5         ; Untyped                             ;
+; DEVICE_FAMILY                                  ; Cyclone V ; Untyped                             ;
+; CARRY_CHAIN                                    ; MANUAL    ; Untyped                             ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT       ; TECH_MAPPER_APEX20K                 ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO      ; Untyped                             ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0         ; Untyped                             ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0         ; Untyped                             ;
+; CBXI_PARAMETER                                 ; mult_81n  ; Untyped                             ;
+; INPUT_A_FIXED_VALUE                            ; Bx        ; Untyped                             ;
+; INPUT_B_FIXED_VALUE                            ; Bx        ; Untyped                             ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF       ; Untyped                             ;
++------------------------------------------------+-----------+-------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: sxrRISC621_div:my_div|lpm_divide:LPM_DIVIDE_component ;
++------------------------+----------------+----------------------------------------------------------+
+; Parameter Name         ; Value          ; Type                                                     ;
++------------------------+----------------+----------------------------------------------------------+
+; LPM_WIDTHN             ; 14             ; Signed Integer                                           ;
+; LPM_WIDTHD             ; 14             ; Signed Integer                                           ;
+; LPM_NREPRESENTATION    ; SIGNED         ; Untyped                                                  ;
+; LPM_DREPRESENTATION    ; SIGNED         ; Untyped                                                  ;
+; LPM_PIPELINE           ; 0              ; Untyped                                                  ;
+; LPM_REMAINDERPOSITIVE  ; FALSE          ; Untyped                                                  ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                                  ;
+; CBXI_PARAMETER         ; lpm_divide_j5s ; Untyped                                                  ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                                  ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                                  ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                               ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                             ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                             ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                           ;
++------------------------+----------------+----------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: sxrRISC621_addsub:my_addsub|lpm_add_sub:LPM_ADD_SUB_component ;
++------------------------+-------------+---------------------------------------------------------------------+
+; Parameter Name         ; Value       ; Type                                                                ;
++------------------------+-------------+---------------------------------------------------------------------+
+; LPM_WIDTH              ; 14          ; Signed Integer                                                      ;
+; LPM_REPRESENTATION     ; SIGNED      ; Untyped                                                             ;
+; LPM_DIRECTION          ; DEFAULT     ; Untyped                                                             ;
+; ONE_INPUT_IS_CONSTANT  ; NO          ; Untyped                                                             ;
+; LPM_PIPELINE           ; 0           ; Untyped                                                             ;
+; MAXIMIZE_SPEED         ; 5           ; Untyped                                                             ;
+; REGISTERED_AT_END      ; 0           ; Untyped                                                             ;
+; OPTIMIZE_FOR_SPEED     ; 5           ; Untyped                                                             ;
+; USE_CS_BUFFERS         ; 1           ; Untyped                                                             ;
+; CARRY_CHAIN            ; MANUAL      ; Untyped                                                             ;
+; CARRY_CHAIN_LENGTH     ; 48          ; CARRY_CHAIN_LENGTH                                                  ;
+; DEVICE_FAMILY          ; Cyclone V   ; Untyped                                                             ;
+; USE_WYS                ; OFF         ; Untyped                                                             ;
+; STYLE                  ; FAST        ; Untyped                                                             ;
+; CBXI_PARAMETER         ; add_sub_8lh ; Untyped                                                             ;
+; AUTO_CARRY_CHAINS      ; ON          ; AUTO_CARRY                                                          ;
+; IGNORE_CARRY_BUFFERS   ; OFF         ; IGNORE_CARRY                                                        ;
+; AUTO_CASCADE_CHAINS    ; ON          ; AUTO_CASCADE                                                        ;
+; IGNORE_CASCADE_BUFFERS ; OFF         ; IGNORE_CASCADE                                                      ;
++------------------------+-------------+---------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------------+
+; altsyncram Parameter Settings by Entity Instance                                                  ;
++-------------------------------------------+-------------------------------------------------------+
+; Name                                      ; Value                                                 ;
++-------------------------------------------+-------------------------------------------------------+
+; Number of entity instances                ; 2                                                     ;
+; Entity Instance                           ; sxrRISC621_rom:my_rom|altsyncram:altsyncram_component ;
+;     -- OPERATION_MODE                     ; ROM                                                   ;
+;     -- WIDTH_A                            ; 14                                                    ;
+;     -- NUMWORDS_A                         ; 16384                                                 ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                                          ;
+;     -- WIDTH_B                            ; 1                                                     ;
+;     -- NUMWORDS_B                         ; 1                                                     ;
+;     -- ADDRESS_REG_B                      ; CLOCK1                                                ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                                          ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                                  ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                             ;
+; Entity Instance                           ; sxrRISC621_ram:my_ram|altsyncram:altsyncram_component ;
+;     -- OPERATION_MODE                     ; SINGLE_PORT                                           ;
+;     -- WIDTH_A                            ; 14                                                    ;
+;     -- NUMWORDS_A                         ; 16384                                                 ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                                          ;
+;     -- WIDTH_B                            ; 1                                                     ;
+;     -- NUMWORDS_B                         ; 1                                                     ;
+;     -- ADDRESS_REG_B                      ; CLOCK1                                                ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                                          ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                                  ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                             ;
++-------------------------------------------+-------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------+
+; lpm_mult Parameter Settings by Entity Instance                                              ;
++---------------------------------------+-----------------------------------------------------+
+; Name                                  ; Value                                               ;
++---------------------------------------+-----------------------------------------------------+
+; Number of entity instances            ; 1                                                   ;
+; Entity Instance                       ; sxrRISC621_mult:my_mult|lpm_mult:lpm_mult_component ;
+;     -- LPM_WIDTHA                     ; 14                                                  ;
+;     -- LPM_WIDTHB                     ; 14                                                  ;
+;     -- LPM_WIDTHP                     ; 28                                                  ;
+;     -- LPM_REPRESENTATION             ; SIGNED                                              ;
+;     -- INPUT_A_IS_CONSTANT            ; NO                                                  ;
+;     -- INPUT_B_IS_CONSTANT            ; NO                                                  ;
+;     -- USE_EAB                        ; OFF                                                 ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO                                                ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx                                                  ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx                                                  ;
++---------------------------------------+-----------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Elaboration Settings                                                                                           ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                          ; Setting            ; Default Value      ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                          ; 5CEBA4F23C7        ;                    ;
+; Top-level entity name                                                           ; sxrRISC621         ; sxrRISC621         ;
+; Family name                                                                     ; Cyclone V          ; Cyclone V          ;
+; Use smart compilation                                                           ; Off                ; Off                ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation      ; On                 ; On                 ;
+; Enable compact report table                                                     ; Off                ; Off                ;
+; Restructure Multiplexers                                                        ; Auto               ; Auto               ;
+; MLAB Add Timing Constraints For Mixed-Port Feed-Through Mode Setting Don't Care ; Off                ; Off                ;
+; Create Debugging Nodes for IP Cores                                             ; Off                ; Off                ;
+; Preserve fewer node names                                                       ; On                 ; On                 ;
+; Disable OpenCore Plus hardware evaluation                                       ; Off                ; Off                ;
+; Verilog Version                                                                 ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                                    ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                        ; Auto               ; Auto               ;
+; Safe State Machine                                                              ; Off                ; Off                ;
+; Extract Verilog State Machines                                                  ; On                 ; On                 ;
+; Extract VHDL State Machines                                                     ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                               ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                      ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                                  ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                         ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                       ; On                 ; On                 ;
+; Parallel Synthesis                                                              ; On                 ; On                 ;
+; DSP Block Balancing                                                             ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                              ; On                 ; On                 ;
+; Power-Up Don't Care                                                             ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                                    ; Off                ; Off                ;
+; Remove Duplicate Registers                                                      ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                            ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                          ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                           ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                       ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                            ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                             ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                                  ; Off                ; Off                ;
+; Optimization Technique                                                          ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                              ; 70                 ; 70                 ;
+; Auto Carry Chains                                                               ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                            ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                           ; Off                ; Off                ;
+; Auto ROM Replacement                                                            ; On                 ; On                 ;
+; Auto RAM Replacement                                                            ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                      ; On                 ; On                 ;
+; Auto Shift Register Replacement                                                 ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                                 ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                                   ; On                 ; On                 ;
+; Strict RAM Replacement                                                          ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                               ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                           ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                                   ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                             ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                               ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                         ; On                 ; On                 ;
+; Report Parameter Settings                                                       ; On                 ; On                 ;
+; Report Source Assignments                                                       ; On                 ; On                 ;
+; Report Connectivity Checks                                                      ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                              ; Off                ; Off                ;
+; Synchronization Register Chain Length                                           ; 3                  ; 3                  ;
+; PowerPlay Power Optimization During Synthesis                                   ; Normal compilation ; Normal compilation ;
+; HDL message level                                                               ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                                 ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                        ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                              ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                       ; 100                ; 100                ;
+; Clock MUX Protection                                                            ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                     ; Off                ; Off                ;
+; Block Design Naming                                                             ; Auto               ; Auto               ;
+; SDC constraint protection                                                       ; Off                ; Off                ;
+; Synthesis Effort                                                                ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal                    ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                            ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                              ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                     ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                          ; On                 ; On                 ;
+; Synthesis Seed                                                                  ; 1                  ; 1                  ;
+; Automatic Parallel Synthesis                                                    ; On                 ; On                 ;
+; Partial Reconfiguration Bitstream ID                                            ; Off                ; Off                ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+
+
++---------------------------------+
+; Analysis & Elaboration Messages ;
++---------------------------------+
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file sxrrisc621.v
+    Info (12023): Found entity 1: sxrRISC621 File: C:/Users/SiD/Downloads/sxrRISC621/sxrRISC621.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file sxrrisc621_rom.v
+    Info (12023): Found entity 1: sxrRISC621_rom File: C:/Users/SiD/Downloads/sxrRISC621/sxrRISC621_rom.v Line: 40
+Info (12021): Found 1 design units, including 1 entities, in source file sxrrisc621_ram.v
+    Info (12023): Found entity 1: sxrRISC621_ram File: C:/Users/SiD/Downloads/sxrRISC621/sxrRISC621_ram.v Line: 40
+Info (12021): Found 1 design units, including 1 entities, in source file sxrrisc621_mult.v
+    Info (12023): Found entity 1: sxrRISC621_mult File: C:/Users/SiD/Downloads/sxrRISC621/sxrRISC621_mult.v Line: 40
+Info (12021): Found 1 design units, including 1 entities, in source file sxrrisc621_div.v
+    Info (12023): Found entity 1: sxrRISC621_div File: C:/Users/SiD/Downloads/sxrRISC621/sxrRISC621_div.v Line: 40
+Info (12021): Found 1 design units, including 1 entities, in source file sxrrisc621_tb.v
+    Info (12023): Found entity 1: sxrRISC621_tb File: C:/Users/SiD/Downloads/sxrRISC621/sxrRISC621_tb.v Line: 3
+Info (12021): Found 1 design units, including 1 entities, in source file sxrrisc621_addsub.v
+    Info (12023): Found entity 1: sxrRISC621_addsub File: C:/Users/SiD/Downloads/sxrRISC621/sxrRISC621_addsub.v Line: 40
+Info (12127): Elaborating entity "sxrRISC621" for the top level hierarchy
+Info (12128): Elaborating entity "sxrRISC621_rom" for hierarchy "sxrRISC621_rom:my_rom" File: C:/Users/SiD/Downloads/sxrRISC621/sxrRISC621.v Line: 96
+Info (12128): Elaborating entity "altsyncram" for hierarchy "sxrRISC621_rom:my_rom|altsyncram:altsyncram_component" File: C:/Users/SiD/Downloads/sxrRISC621/sxrRISC621_rom.v Line: 82
+Info (12130): Elaborated megafunction instantiation "sxrRISC621_rom:my_rom|altsyncram:altsyncram_component" File: C:/Users/SiD/Downloads/sxrRISC621/sxrRISC621_rom.v Line: 82
+Info (12133): Instantiated megafunction "sxrRISC621_rom:my_rom|altsyncram:altsyncram_component" with the following parameter: File: C:/Users/SiD/Downloads/sxrRISC621/sxrRISC621_rom.v Line: 82
+    Info (12134): Parameter "address_aclr_a" = "NONE"
+    Info (12134): Parameter "clock_enable_input_a" = "BYPASS"
+    Info (12134): Parameter "clock_enable_output_a" = "BYPASS"
+    Info (12134): Parameter "init_file" = "DataFlow.mif"
+    Info (12134): Parameter "intended_device_family" = "Cyclone V"
+    Info (12134): Parameter "lpm_hint" = "ENABLE_RUNTIME_MOD=NO"
+    Info (12134): Parameter "lpm_type" = "altsyncram"
+    Info (12134): Parameter "numwords_a" = "16384"
+    Info (12134): Parameter "operation_mode" = "ROM"
+    Info (12134): Parameter "outdata_aclr_a" = "NONE"
+    Info (12134): Parameter "outdata_reg_a" = "UNREGISTERED"
+    Info (12134): Parameter "widthad_a" = "14"
+    Info (12134): Parameter "width_a" = "14"
+    Info (12134): Parameter "width_byteena_a" = "1"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_qhg1.tdf
+    Info (12023): Found entity 1: altsyncram_qhg1 File: C:/Users/SiD/Downloads/sxrRISC621/db/altsyncram_qhg1.tdf Line: 32
+Info (12128): Elaborating entity "altsyncram_qhg1" for hierarchy "sxrRISC621_rom:my_rom|altsyncram:altsyncram_component|altsyncram_qhg1:auto_generated" File: c:/altera/16.0/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
+Warning (113028): 16324 out of 16384 addresses are uninitialized. The Quartus Prime software will initialize them to "0". There are 1 warnings found, and 1 warnings are reported. File: C:/Users/SiD/Downloads/sxrRISC621/DataFlow.mif Line: 1
+    Warning (113027): Addresses ranging from 60 to 16383 are not initialized File: C:/Users/SiD/Downloads/sxrRISC621/DataFlow.mif Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file db/decode_u0a.tdf
+    Info (12023): Found entity 1: decode_u0a File: C:/Users/SiD/Downloads/sxrRISC621/db/decode_u0a.tdf Line: 23
+Info (12128): Elaborating entity "decode_u0a" for hierarchy "sxrRISC621_rom:my_rom|altsyncram:altsyncram_component|altsyncram_qhg1:auto_generated|decode_u0a:rden_decode" File: C:/Users/SiD/Downloads/sxrRISC621/db/altsyncram_qhg1.tdf Line: 40
+Info (12021): Found 1 design units, including 1 entities, in source file db/mux_2hb.tdf
+    Info (12023): Found entity 1: mux_2hb File: C:/Users/SiD/Downloads/sxrRISC621/db/mux_2hb.tdf Line: 23
+Info (12128): Elaborating entity "mux_2hb" for hierarchy "sxrRISC621_rom:my_rom|altsyncram:altsyncram_component|altsyncram_qhg1:auto_generated|mux_2hb:mux2" File: C:/Users/SiD/Downloads/sxrRISC621/db/altsyncram_qhg1.tdf Line: 41
+Info (12128): Elaborating entity "sxrRISC621_ram" for hierarchy "sxrRISC621_ram:my_ram" File: C:/Users/SiD/Downloads/sxrRISC621/sxrRISC621.v Line: 98
+Info (12128): Elaborating entity "altsyncram" for hierarchy "sxrRISC621_ram:my_ram|altsyncram:altsyncram_component" File: C:/Users/SiD/Downloads/sxrRISC621/sxrRISC621_ram.v Line: 86
+Info (12130): Elaborated megafunction instantiation "sxrRISC621_ram:my_ram|altsyncram:altsyncram_component" File: C:/Users/SiD/Downloads/sxrRISC621/sxrRISC621_ram.v Line: 86
+Info (12133): Instantiated megafunction "sxrRISC621_ram:my_ram|altsyncram:altsyncram_component" with the following parameter: File: C:/Users/SiD/Downloads/sxrRISC621/sxrRISC621_ram.v Line: 86
+    Info (12134): Parameter "clock_enable_input_a" = "BYPASS"
+    Info (12134): Parameter "clock_enable_output_a" = "BYPASS"
+    Info (12134): Parameter "init_file" = "sxrRISC621_rom.mif"
+    Info (12134): Parameter "intended_device_family" = "Cyclone V"
+    Info (12134): Parameter "lpm_hint" = "ENABLE_RUNTIME_MOD=NO"
+    Info (12134): Parameter "lpm_type" = "altsyncram"
+    Info (12134): Parameter "numwords_a" = "16384"
+    Info (12134): Parameter "operation_mode" = "SINGLE_PORT"
+    Info (12134): Parameter "outdata_aclr_a" = "NONE"
+    Info (12134): Parameter "outdata_reg_a" = "UNREGISTERED"
+    Info (12134): Parameter "power_up_uninitialized" = "FALSE"
+    Info (12134): Parameter "read_during_write_mode_port_a" = "NEW_DATA_NO_NBE_READ"
+    Info (12134): Parameter "widthad_a" = "14"
+    Info (12134): Parameter "width_a" = "14"
+    Info (12134): Parameter "width_byteena_a" = "1"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_cap1.tdf
+    Info (12023): Found entity 1: altsyncram_cap1 File: C:/Users/SiD/Downloads/sxrRISC621/db/altsyncram_cap1.tdf Line: 34
+Info (12128): Elaborating entity "altsyncram_cap1" for hierarchy "sxrRISC621_ram:my_ram|altsyncram:altsyncram_component|altsyncram_cap1:auto_generated" File: c:/altera/16.0/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
+Warning (113028): 16308 out of 16384 addresses are uninitialized. The Quartus Prime software will initialize them to "0". There are 1 warnings found, and 1 warnings are reported. File: C:/Users/SiD/Downloads/sxrRISC621/sxrRISC621_rom.mif Line: 1
+    Warning (113027): Addresses ranging from 76 to 16383 are not initialized File: C:/Users/SiD/Downloads/sxrRISC621/sxrRISC621_rom.mif Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file db/decode_5la.tdf
+    Info (12023): Found entity 1: decode_5la File: C:/Users/SiD/Downloads/sxrRISC621/db/decode_5la.tdf Line: 23
+Info (12128): Elaborating entity "decode_5la" for hierarchy "sxrRISC621_ram:my_ram|altsyncram:altsyncram_component|altsyncram_cap1:auto_generated|decode_5la:decode3" File: C:/Users/SiD/Downloads/sxrRISC621/db/altsyncram_cap1.tdf Line: 44
+Info (12128): Elaborating entity "sxrRISC621_mult" for hierarchy "sxrRISC621_mult:my_mult" File: C:/Users/SiD/Downloads/sxrRISC621/sxrRISC621.v Line: 100
+Info (12128): Elaborating entity "lpm_mult" for hierarchy "sxrRISC621_mult:my_mult|lpm_mult:lpm_mult_component" File: C:/Users/SiD/Downloads/sxrRISC621/sxrRISC621_mult.v Line: 60
+Info (12130): Elaborated megafunction instantiation "sxrRISC621_mult:my_mult|lpm_mult:lpm_mult_component" File: C:/Users/SiD/Downloads/sxrRISC621/sxrRISC621_mult.v Line: 60
+Info (12133): Instantiated megafunction "sxrRISC621_mult:my_mult|lpm_mult:lpm_mult_component" with the following parameter: File: C:/Users/SiD/Downloads/sxrRISC621/sxrRISC621_mult.v Line: 60
+    Info (12134): Parameter "lpm_hint" = "MAXIMIZE_SPEED=5"
+    Info (12134): Parameter "lpm_representation" = "SIGNED"
+    Info (12134): Parameter "lpm_type" = "LPM_MULT"
+    Info (12134): Parameter "lpm_widtha" = "14"
+    Info (12134): Parameter "lpm_widthb" = "14"
+    Info (12134): Parameter "lpm_widthp" = "28"
+Info (12021): Found 1 design units, including 1 entities, in source file db/mult_81n.v
+    Info (12023): Found entity 1: mult_81n File: C:/Users/SiD/Downloads/sxrRISC621/db/mult_81n.v Line: 29
+Info (12128): Elaborating entity "mult_81n" for hierarchy "sxrRISC621_mult:my_mult|lpm_mult:lpm_mult_component|mult_81n:auto_generated" File: c:/altera/16.0/quartus/libraries/megafunctions/lpm_mult.tdf Line: 377
+Info (12128): Elaborating entity "sxrRISC621_div" for hierarchy "sxrRISC621_div:my_div" File: C:/Users/SiD/Downloads/sxrRISC621/sxrRISC621.v Line: 102
+Info (12128): Elaborating entity "lpm_divide" for hierarchy "sxrRISC621_div:my_div|lpm_divide:LPM_DIVIDE_component" File: C:/Users/SiD/Downloads/sxrRISC621/sxrRISC621_div.v Line: 63
+Info (12130): Elaborated megafunction instantiation "sxrRISC621_div:my_div|lpm_divide:LPM_DIVIDE_component" File: C:/Users/SiD/Downloads/sxrRISC621/sxrRISC621_div.v Line: 63
+Info (12133): Instantiated megafunction "sxrRISC621_div:my_div|lpm_divide:LPM_DIVIDE_component" with the following parameter: File: C:/Users/SiD/Downloads/sxrRISC621/sxrRISC621_div.v Line: 63
+    Info (12134): Parameter "lpm_drepresentation" = "SIGNED"
+    Info (12134): Parameter "lpm_hint" = "LPM_REMAINDERPOSITIVE=FALSE"
+    Info (12134): Parameter "lpm_nrepresentation" = "SIGNED"
+    Info (12134): Parameter "lpm_type" = "LPM_DIVIDE"
+    Info (12134): Parameter "lpm_widthd" = "14"
+    Info (12134): Parameter "lpm_widthn" = "14"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_j5s.tdf
+    Info (12023): Found entity 1: lpm_divide_j5s File: C:/Users/SiD/Downloads/sxrRISC621/db/lpm_divide_j5s.tdf Line: 25
+Info (12128): Elaborating entity "lpm_divide_j5s" for hierarchy "sxrRISC621_div:my_div|lpm_divide:LPM_DIVIDE_component|lpm_divide_j5s:auto_generated" File: c:/altera/16.0/quartus/libraries/megafunctions/lpm_divide.tdf Line: 148
+Info (12021): Found 1 design units, including 1 entities, in source file db/abs_divider_4dg.tdf
+    Info (12023): Found entity 1: abs_divider_4dg File: C:/Users/SiD/Downloads/sxrRISC621/db/abs_divider_4dg.tdf Line: 27
+Info (12128): Elaborating entity "abs_divider_4dg" for hierarchy "sxrRISC621_div:my_div|lpm_divide:LPM_DIVIDE_component|lpm_divide_j5s:auto_generated|abs_divider_4dg:divider" File: C:/Users/SiD/Downloads/sxrRISC621/db/lpm_divide_j5s.tdf Line: 36
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_o2f.tdf
+    Info (12023): Found entity 1: alt_u_div_o2f File: C:/Users/SiD/Downloads/sxrRISC621/db/alt_u_div_o2f.tdf Line: 23
+Info (12128): Elaborating entity "alt_u_div_o2f" for hierarchy "sxrRISC621_div:my_div|lpm_divide:LPM_DIVIDE_component|lpm_divide_j5s:auto_generated|abs_divider_4dg:divider|alt_u_div_o2f:divider" File: C:/Users/SiD/Downloads/sxrRISC621/db/abs_divider_4dg.tdf Line: 35
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_abs_4p9.tdf
+    Info (12023): Found entity 1: lpm_abs_4p9 File: C:/Users/SiD/Downloads/sxrRISC621/db/lpm_abs_4p9.tdf Line: 23
+Info (12128): Elaborating entity "lpm_abs_4p9" for hierarchy "sxrRISC621_div:my_div|lpm_divide:LPM_DIVIDE_component|lpm_divide_j5s:auto_generated|abs_divider_4dg:divider|lpm_abs_4p9:my_abs_den" File: C:/Users/SiD/Downloads/sxrRISC621/db/abs_divider_4dg.tdf Line: 36
+Info (12128): Elaborating entity "sxrRISC621_addsub" for hierarchy "sxrRISC621_addsub:my_addsub" File: C:/Users/SiD/Downloads/sxrRISC621/sxrRISC621.v Line: 104
+Info (12128): Elaborating entity "lpm_add_sub" for hierarchy "sxrRISC621_addsub:my_addsub|lpm_add_sub:LPM_ADD_SUB_component" File: C:/Users/SiD/Downloads/sxrRISC621/sxrRISC621_addsub.v Line: 76
+Info (12130): Elaborated megafunction instantiation "sxrRISC621_addsub:my_addsub|lpm_add_sub:LPM_ADD_SUB_component" File: C:/Users/SiD/Downloads/sxrRISC621/sxrRISC621_addsub.v Line: 76
+Info (12133): Instantiated megafunction "sxrRISC621_addsub:my_addsub|lpm_add_sub:LPM_ADD_SUB_component" with the following parameter: File: C:/Users/SiD/Downloads/sxrRISC621/sxrRISC621_addsub.v Line: 76
+    Info (12134): Parameter "lpm_direction" = "UNUSED"
+    Info (12134): Parameter "lpm_hint" = "ONE_INPUT_IS_CONSTANT=NO,CIN_USED=NO"
+    Info (12134): Parameter "lpm_representation" = "SIGNED"
+    Info (12134): Parameter "lpm_type" = "LPM_ADD_SUB"
+    Info (12134): Parameter "lpm_width" = "14"
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_8lh.tdf
+    Info (12023): Found entity 1: add_sub_8lh File: C:/Users/SiD/Downloads/sxrRISC621/db/add_sub_8lh.tdf Line: 26
+Info (12128): Elaborating entity "add_sub_8lh" for hierarchy "sxrRISC621_addsub:my_addsub|lpm_add_sub:LPM_ADD_SUB_component|add_sub_8lh:auto_generated" File: c:/altera/16.0/quartus/libraries/megafunctions/lpm_add_sub.tdf Line: 119
+
+

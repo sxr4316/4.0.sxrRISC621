@@ -27,22 +27,22 @@ agreement for further details.
 	(port
 		(pt 0 40)
 		(input)
-		(text "dataa[11..0]" (rect 0 0 113 16)(font "Arial" (font_size 8)))
-		(text "dataa[11..0]" (rect 4 26 58 39)(font "Arial" (font_size 8)))
+		(text "dataa[13..0]" (rect 0 0 113 16)(font "Arial" (font_size 8)))
+		(text "dataa[13..0]" (rect 4 26 59 39)(font "Arial" (font_size 8)))
 		(line (pt 0 40)(pt 72 40)(line_width 3))
 	)
 	(port
 		(pt 0 72)
 		(input)
-		(text "datab[11..0]" (rect 0 0 113 16)(font "Arial" (font_size 8)))
-		(text "datab[11..0]" (rect 4 58 58 71)(font "Arial" (font_size 8)))
+		(text "datab[13..0]" (rect 0 0 113 16)(font "Arial" (font_size 8)))
+		(text "datab[13..0]" (rect 4 58 59 71)(font "Arial" (font_size 8)))
 		(line (pt 0 72)(pt 72 72)(line_width 3))
 	)
 	(port
 		(pt 168 56)
 		(output)
-		(text "result[23..0]" (rect 0 0 122 16)(font "Arial" (font_size 8)))
-		(text "result[23..0]" (rect 108 42 163 55)(font "Arial" (font_size 8)))
+		(text "result[27..0]" (rect 0 0 122 16)(font "Arial" (font_size 8)))
+		(text "result[27..0]" (rect 108 42 163 55)(font "Arial" (font_size 8)))
 		(line (pt 168 56)(pt 104 56)(line_width 3))
 	)
 	(drawing

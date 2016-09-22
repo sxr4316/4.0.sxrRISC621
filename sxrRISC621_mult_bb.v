@@ -37,9 +37,9 @@ module sxrRISC621_mult (
 	datab,
 	result);
 
-	input	[11:0]  dataa;
-	input	[11:0]  datab;
-	output	[23:0]  result;
+	input	[13:0]  dataa;
+	input	[13:0]  datab;
+	output	[27:0]  result;
 
 endmodule
 
@@ -56,9 +56,9 @@ endmodule
 // Retrieval info: PRIVATE: SignedMult NUMERIC "1"
 // Retrieval info: PRIVATE: USE_MULT NUMERIC "1"
 // Retrieval info: PRIVATE: ValidConstant NUMERIC "0"
-// Retrieval info: PRIVATE: WidthA NUMERIC "12"
-// Retrieval info: PRIVATE: WidthB NUMERIC "12"
-// Retrieval info: PRIVATE: WidthP NUMERIC "24"
+// Retrieval info: PRIVATE: WidthA NUMERIC "14"
+// Retrieval info: PRIVATE: WidthB NUMERIC "14"
+// Retrieval info: PRIVATE: WidthP NUMERIC "28"
 // Retrieval info: PRIVATE: aclr NUMERIC "0"
 // Retrieval info: PRIVATE: clken NUMERIC "0"
 // Retrieval info: PRIVATE: new_diagram STRING "1"
@@ -67,15 +67,15 @@ endmodule
 // Retrieval info: CONSTANT: LPM_HINT STRING "MAXIMIZE_SPEED=5"
 // Retrieval info: CONSTANT: LPM_REPRESENTATION STRING "SIGNED"
 // Retrieval info: CONSTANT: LPM_TYPE STRING "LPM_MULT"
-// Retrieval info: CONSTANT: LPM_WIDTHA NUMERIC "12"
-// Retrieval info: CONSTANT: LPM_WIDTHB NUMERIC "12"
-// Retrieval info: CONSTANT: LPM_WIDTHP NUMERIC "24"
-// Retrieval info: USED_PORT: dataa 0 0 12 0 INPUT NODEFVAL "dataa[11..0]"
-// Retrieval info: USED_PORT: datab 0 0 12 0 INPUT NODEFVAL "datab[11..0]"
-// Retrieval info: USED_PORT: result 0 0 24 0 OUTPUT NODEFVAL "result[23..0]"
-// Retrieval info: CONNECT: @dataa 0 0 12 0 dataa 0 0 12 0
-// Retrieval info: CONNECT: @datab 0 0 12 0 datab 0 0 12 0
-// Retrieval info: CONNECT: result 0 0 24 0 @result 0 0 24 0
+// Retrieval info: CONSTANT: LPM_WIDTHA NUMERIC "14"
+// Retrieval info: CONSTANT: LPM_WIDTHB NUMERIC "14"
+// Retrieval info: CONSTANT: LPM_WIDTHP NUMERIC "28"
+// Retrieval info: USED_PORT: dataa 0 0 14 0 INPUT NODEFVAL "dataa[13..0]"
+// Retrieval info: USED_PORT: datab 0 0 14 0 INPUT NODEFVAL "datab[13..0]"
+// Retrieval info: USED_PORT: result 0 0 28 0 OUTPUT NODEFVAL "result[27..0]"
+// Retrieval info: CONNECT: @dataa 0 0 14 0 dataa 0 0 14 0
+// Retrieval info: CONNECT: @datab 0 0 14 0 datab 0 0 14 0
+// Retrieval info: CONNECT: result 0 0 28 0 @result 0 0 28 0
 // Retrieval info: GEN_FILE: TYPE_NORMAL sxrRISC621_mult.v TRUE
 // Retrieval info: GEN_FILE: TYPE_NORMAL sxrRISC621_mult.inc FALSE
 // Retrieval info: GEN_FILE: TYPE_NORMAL sxrRISC621_mult.cmp FALSE

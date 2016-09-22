@@ -1,5 +1,5 @@
 Restore Archived Project report for sxrRISC621
-Fri Sep 16 02:28:12 2016
+Fri Sep 16 15:04:18 2016
 Quartus Prime Version 16.0.0 Build 211 04/27/2016 SJ Standard Edition
 
 
@@ -37,7 +37,7 @@ agreement for further details.
 +-------------------------------------------------------------------------+
 ; Restore Archived Project Summary                                        ;
 +---------------------------------+---------------------------------------+
-; Restore Archived Project Status ; Successful - Fri Sep 16 02:28:12 2016 ;
+; Restore Archived Project Status ; Successful - Fri Sep 16 15:04:18 2016 ;
 ; Revision Name                   ; sxrRISC621                            ;
 ; Top-level Entity Name           ; sxrRISC621                            ;
 ; Family                          ; Cyclone V                             ;
@@ -47,14 +47,14 @@ agreement for further details.
 +-----------------------------------+
 ; Restore Archived Project Messages ;
 +-----------------------------------+
-Info: Successfully restored 'D:/sxrRISC621.qar' into the 'D:/sxrRISC621/' directory
+Info: Successfully restored 'C:/Users/SiD/Downloads/sxrRISC621.qar' into the 'C:/Users/SiD/Downloads/sxrRISC621/' directory
 Info: Generated report 'sxrRISC621.restore.rpt'
 Info (23030): Evaluation of Tcl script c:/altera/16.0/quartus/common/tcl/apps/qpm/qar.tcl was successful
 Info: Quartus Prime Shell was successful. 0 errors, 0 warnings
-    Info: Peak virtual memory: 596 megabytes
-    Info: Processing ended: Fri Sep 16 02:28:13 2016
-    Info: Elapsed time: 00:00:03
-    Info: Total CPU time (on all processors): 00:00:01
+    Info: Peak virtual memory: 594 megabytes
+    Info: Processing ended: Fri Sep 16 15:04:18 2016
+    Info: Elapsed time: 00:00:05
+    Info: Total CPU time (on all processors): 00:00:02
 
 
 +-------------------------+
@@ -63,9 +63,14 @@ Info: Quartus Prime Shell was successful. 0 errors, 0 warnings
 ; File Name               ;
 +-------------------------+
 ; qar_info.json           ;
+; assignment_defaults.qdf ;
 ; sxrRISC621.qpf          ;
 ; sxrRISC621.qsf          ;
 ; sxrRISC621.v            ;
+; sxrRISC621_addsub.bsf   ;
+; sxrRISC621_addsub.qip   ;
+; sxrRISC621_addsub.v     ;
+; sxrRISC621_addsub_bb.v  ;
 ; sxrRISC621_div.bsf      ;
 ; sxrRISC621_div.qip      ;
 ; sxrRISC621_div.v        ;
@@ -84,7 +89,6 @@ Info: Quartus Prime Shell was successful. 0 errors, 0 warnings
 ; sxrRISC621_rom.v        ;
 ; sxrRISC621_rom_bb.v     ;
 ; sxrRISC621_tb.v         ;
-; assignment_defaults.qdf ;
 +-------------------------+
 
 

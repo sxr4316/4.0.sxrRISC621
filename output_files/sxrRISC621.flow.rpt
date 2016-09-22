@@ -1,0 +1,133 @@
+Flow report for sxrRISC621
+Thu Sep 22 00:28:46 2016
+Quartus Prime Version 16.0.0 Build 211 04/27/2016 SJ Standard Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Flow Summary
+  3. Flow Settings
+  4. Flow Non-Default Global Settings
+  5. Flow Elapsed Time
+  6. Flow OS Summary
+  7. Flow Log
+  8. Flow Messages
+  9. Flow Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2016 Altera Corporation. All rights reserved.
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, the Altera Quartus Prime License Agreement,
+the Altera MegaCore Function License Agreement, or other 
+applicable license agreement, including, without limitation, 
+that your use is for the sole purpose of programming logic 
+devices manufactured by Altera and sold by Altera or its 
+authorized distributors.  Please refer to the applicable 
+agreement for further details.
+
+
+
++-------------------------------------------------------------------------------+
+; Flow Summary                                                                  ;
++-----------------------------+-------------------------------------------------+
+; Flow Status                 ; Successful - Thu Sep 22 00:28:46 2016           ;
+; Quartus Prime Version       ; 16.0.0 Build 211 04/27/2016 SJ Standard Edition ;
+; Revision Name               ; sxrRISC621                                      ;
+; Top-level Entity Name       ; sxrRISC621                                      ;
+; Family                      ; Cyclone V                                       ;
+; Device                      ; 5CEBA4F23C7                                     ;
+; Timing Models               ; Final                                           ;
+; Logic utilization (in ALMs) ; N/A until Partition Merge                       ;
+; Total registers             ; N/A until Partition Merge                       ;
+; Total pins                  ; N/A until Partition Merge                       ;
+; Total virtual pins          ; N/A until Partition Merge                       ;
+; Total block memory bits     ; N/A until Partition Merge                       ;
+; Total PLLs                  ; N/A until Partition Merge                       ;
+; Total DLLs                  ; N/A until Partition Merge                       ;
++-----------------------------+-------------------------------------------------+
+
+
++-----------------------------------------+
+; Flow Settings                           ;
++-------------------+---------------------+
+; Option            ; Setting             ;
++-------------------+---------------------+
+; Start date & time ; 09/22/2016 00:28:22 ;
+; Main task         ; Compilation         ;
+; Revision Name     ; sxrRISC621          ;
++-------------------+---------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------+
+; Flow Non-Default Global Settings                                                                                            ;
++--------------------------------------+---------------------------------------+---------------+-------------+----------------+
+; Assignment Name                      ; Value                                 ; Default Value ; Entity Name ; Section Id     ;
++--------------------------------------+---------------------------------------+---------------+-------------+----------------+
+; COMPILER_SIGNATURE_ID                ; 203178709908931.147451850207156       ; --            ; --          ; --             ;
+; EDA_DESIGN_INSTANCE_NAME             ; NA                                    ; --            ; --          ; sxrRISC621_tb  ;
+; EDA_NATIVELINK_SIMULATION_TEST_BENCH ; sxrRISC621_tb                         ; --            ; --          ; eda_simulation ;
+; EDA_OUTPUT_DATA_FORMAT               ; Verilog Hdl                           ; --            ; --          ; eda_simulation ;
+; EDA_SIMULATION_TOOL                  ; ModelSim-Altera (Verilog)             ; <None>        ; --          ; --             ;
+; EDA_TEST_BENCH_ENABLE_STATUS         ; TEST_BENCH_MODE                       ; --            ; --          ; eda_simulation ;
+; EDA_TEST_BENCH_FILE                  ; sxrRISC621_tb.v                       ; --            ; --          ; sxrRISC621_tb  ;
+; EDA_TEST_BENCH_MODULE_NAME           ; sxrRISC621_tb                         ; --            ; --          ; sxrRISC621_tb  ;
+; EDA_TEST_BENCH_NAME                  ; sxrRISC621_tb                         ; --            ; --          ; eda_simulation ;
+; EDA_TIME_SCALE                       ; 1 ps                                  ; --            ; --          ; eda_simulation ;
+; MAX_CORE_JUNCTION_TEMP               ; 85                                    ; --            ; --          ; --             ;
+; MIN_CORE_JUNCTION_TEMP               ; 0                                     ; --            ; --          ; --             ;
+; MISC_FILE                            ; sxrRISC621_rom.bsf                    ; --            ; --          ; --             ;
+; MISC_FILE                            ; sxrRISC621_rom_bb.v                   ; --            ; --          ; --             ;
+; MISC_FILE                            ; sxrRISC621_ram.bsf                    ; --            ; --          ; --             ;
+; MISC_FILE                            ; sxrRISC621_ram_bb.v                   ; --            ; --          ; --             ;
+; MISC_FILE                            ; sxrRISC621_mult.bsf                   ; --            ; --          ; --             ;
+; MISC_FILE                            ; sxrRISC621_mult_bb.v                  ; --            ; --          ; --             ;
+; MISC_FILE                            ; sxrRISC621_div.bsf                    ; --            ; --          ; --             ;
+; MISC_FILE                            ; sxrRISC621_div_bb.v                   ; --            ; --          ; --             ;
+; MISC_FILE                            ; sxrRISC621_addsub.bsf                 ; --            ; --          ; --             ;
+; MISC_FILE                            ; sxrRISC621_addsub_bb.v                ; --            ; --          ; --             ;
+; PARTITION_COLOR                      ; 16764057                              ; --            ; --          ; Top            ;
+; PARTITION_FITTER_PRESERVATION_LEVEL  ; PLACEMENT_AND_ROUTING                 ; --            ; --          ; Top            ;
+; PARTITION_NETLIST_TYPE               ; SOURCE                                ; --            ; --          ; Top            ;
+; POWER_BOARD_THERMAL_MODEL            ; None (CONSERVATIVE)                   ; --            ; --          ; --             ;
+; POWER_PRESET_COOLING_SOLUTION        ; 23 MM HEAT SINK WITH 200 LFPM AIRFLOW ; --            ; --          ; --             ;
+; PROJECT_OUTPUT_DIRECTORY             ; output_files                          ; --            ; --          ; --             ;
++--------------------------------------+---------------------------------------+---------------+-------------+----------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------+
+; Flow Elapsed Time                                                                                                          ;
++------------------------+--------------+-------------------------+---------------------+------------------------------------+
+; Module Name            ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
++------------------------+--------------+-------------------------+---------------------+------------------------------------+
+; Analysis & Elaboration ; 00:00:24     ; 1.0                     ; 902 MB              ; 00:00:55                           ;
+; Total                  ; 00:00:24     ; --                      ; --                  ; 00:00:55                           ;
++------------------------+--------------+-------------------------+---------------------+------------------------------------+
+
+
++-------------------------------------------------------------------------------------+
+; Flow OS Summary                                                                     ;
++------------------------+------------------+-----------+------------+----------------+
+; Module Name            ; Machine Hostname ; OS Name   ; OS Version ; Processor type ;
++------------------------+------------------+-----------+------------+----------------+
+; Analysis & Elaboration ; DellInspiron15R  ; Windows 8 ; 6.2        ; x86_64         ;
++------------------------+------------------+-----------+------------+----------------+
+
+
+------------
+; Flow Log ;
+------------
+quartus_map --read_settings_files=on --write_settings_files=off sxrRISC621 -c sxrRISC621 --disable_all_banners --analysis_and_elaboration
+
+
+

@@ -12,35 +12,37 @@ output	[7:0] Display_pin;	// 8 LEDs
 
 parameter [1:0] 		MC0 = 2'b00, MC1=2'b01, MC2=2'b10, MC3=2'b11;
 	
-parameter [5:0]		LD_IC		=	6'b000000, 			// 0x000
-							ST_IC		=	6'b000001,			//	0x040
-							CPY_IC	=	6'b000010,			// 0x080
-							SWAP_IC	=	6'b000011,			//	0x0C0
+parameter [5:0]		NOP_IC	=	6'b000000,			// 0x00
 							
-							JMP_IC	=	6'b010000,			//	0x400
-							CALL_IC	=	6'b010001,			//	0x440
-							RET_IC	=	6'b010010,			//	0x480
+							LD_IC		=	6'b000001, 			//	0x01
+							ST_IC		=	6'b000010,			// 0x02
+							CPY_IC	=	6'b000011,			//	0x03
+							SWAP_IC	=	6'b000100,			// 0x14
 							
-							ADD_IC	=	6'b100000,			//	0x800
-							SUB_IC	=	6'b100001,			//	0x840
-							ADDC_IC	=	6'b100010,			//	0x880
-							SUBC_IC	=	6'b100011,			//	0x8C0
-							MUL_IC	=	6'b100100,			//	0x900
-							DIV_IC	=	6'b100101,			//	0x940
-							MULC_IC	=	6'b100110,			//	0x980
-							DIVC_IC	=	6'b100111,			//	0x9C0
-							NOT_IC	=	6'b101000,			//	0xA00
-							AND_IC	=	6'b101001,			//	0xA40
-							OR_IC		=	6'b101010,			//	0xA80
-							XOR_IC	=	6'b101011,			//	0xAC0
-							SHLL_IC	=	6'b101100,			//	0xB00
-							SHRL_IC	=	6'b101101,			//	0xB40
-							SHLA_IC	=	6'b101110,			//	0xB80
-							SHRA_IC	=	6'b101111,			//	0xBC0
-							ROTL_IC	=	6'b110000,			//	0xC00
-							ROTR_IC	=	6'b110001,			//	0xC40
-							RTLC_IC	=	6'b110010,			//	0xC80
-							RTRC_IC	=	6'b110011;			//	0xCC0
+							JMP_IC	=	6'b010000,			//	0x10
+							CALL_IC	=	6'b010001,			//	0x11
+							RET_IC	=	6'b010010,			//	0x12
+							
+							ADD_IC	=	6'b100000,			//	0x20
+							SUB_IC	=	6'b100001,			//	0x21
+							ADDC_IC	=	6'b100010,			//	0x22
+							SUBC_IC	=	6'b100011,			//	0x23
+							MUL_IC	=	6'b100100,			//	0x24
+							DIV_IC	=	6'b100101,			//	0x25
+							MULC_IC	=	6'b100110,			//	0x26
+							DIVC_IC	=	6'b100111,			//	0x27
+							NOT_IC	=	6'b101000,			//	0x28
+							AND_IC	=	6'b101001,			//	0x29
+							OR_IC		=	6'b101010,			//	0x2A
+							XOR_IC	=	6'b101011,			//	0x2B
+							SHLL_IC	=	6'b101100,			//	0x2C
+							SHRL_IC	=	6'b101101,			//	0x2D
+							SHLA_IC	=	6'b101110,			//	0x2E
+							SHRA_IC	=	6'b101111,			//	0x2F
+							ROTL_IC	=	6'b110000,			//	0x30
+							ROTR_IC	=	6'b110001,			//	0x31
+							RTLC_IC	=	6'b110010,			//	0x32
+							RTRC_IC	=	6'b110011;			//	0x33
 							
 	parameter [3:0]	JU		=	4'b0000,
 							JC1	=	4'b1000,
@@ -55,17 +57,18 @@ parameter [5:0]		LD_IC		=	6'b000000, 			// 0x000
 //----------------------------------------------------------------------------
 //-- Declare internal signals
 //----------------------------------------------------------------------------
-	reg	[11:0]		R [15:0];
-	reg					WR_DM;
+	reg	[13:0]		R [15:0];
+	reg					AddSubDir, WR_DM;
 	reg	[1:0]			MC;
-	reg	[11:0]		PC, IR, MAB, MAX, MAeff, SP, DM_in, IPDR;
-	reg	[11:0]		TA, TB, TALUH, TALUL;
+	reg	[13:0]		PC, IR, MAB, MAX, MAeff, SP, DM_in, IPDR;
+	reg	[13:0]		TA, TB, TALUH, TALUL;
 	reg	[11:0]		TSR, SR;
 	reg	[7:0]			Display_pin;
-	reg	[12:0]		TALUout;
-	wire	[11:0]		PM_out, DM_out;
-	wire	[23:0]		Mul_out;
-	wire	[11:0]		DivQuot_out, DivRem_out;
+	reg	[14:0]		TALUout;
+	wire					Cflg, Vflg ;
+	wire	[13:0]		PM_out, DM_out;
+	wire	[27:0]		Mul_out;
+	wire	[13:0]		AddSub_out, DivQuot_out, DivRem_out;
 	wire					C, Clock_not;
 	integer				Ri, Rj;
 
@@ -90,13 +93,15 @@ parameter [5:0]		LD_IC		=	6'b000000, 			// 0x000
 // Instantiating only 1KWord memories to save resources
 //----------------------------------------------------------------------------
 
-		sxrRISC621_rom		my_rom 	(PC[11:0], Clock_not, PM_out);
+		sxrRISC621_rom		my_rom 	(PC[13:0], Clock_not, PM_out);
 		
-		sxrRISC621_ram		my_ram 	(MAeff[11:0], Clock_not, DM_in, WR_DM, DM_out);
+		sxrRISC621_ram		my_ram 	(MAeff[13:0], Clock_not, DM_in, WR_DM, DM_out);
 		
 		sxrRISC621_mult	my_mult 	(TA, TB, Mul_out);
 		
 		sxrRISC621_div		my_div	(TB, TA, DivQuot_out, DivRem_out);
+		
+		sxrRISC621_addsub	my_addsub(AddSubDir, TA, TB, Cflg, Vflg, AddSub_out);
 
 //----------------------------------------------------------------------------
 //	Behavioral section of the code.  Assignments are evaluated in order, i.e.
@@ -111,10 +116,17 @@ always@(posedge Clock_pin)
 //----------------------------------------------------------------------------
 				if (Resetn_pin == 0)
 					begin	
-						PC = 12'h000;
-						R[0] = 0; R[1] = 0; R[2] = 0; R[3] = 0; R[4] = 0; R[5] = 0; R[6] = 0; R[7] = 0;// Necessary for sim
+						PC = 0;
+						
+						R[0] = 0; R[1] = 0; R[2] = 0; R[3] = 0; R[4] = 0; R[5] = 0; R[6] = 0; R[7] = 0;
+						
 						R[8] = 0; R[9] = 0; R[10] = 0; R[11] = 0; R[12] = 0; R[13] = 0; R[14] = 0; R[15] = 0;
+						
+						SR = 0; TSR = 0;
+						
 						MC = MC0;
+						
+						Display_pin = 8'h00;
 					end
 				else	begin
 				
@@ -127,15 +139,15 @@ always@(posedge Clock_pin)
 						MC0: begin
 								IR 	=	PM_out;
 								
-								if(IR[11]==1'b1) begin
+								if(IR[13]==1'b1) begin
 
-									Ri 	=	PM_out[5:2];								
+									Ri 	=	PM_out[7:4];								
 
-									Rj 	=	PM_out[1:0];
+									Rj 	=	PM_out[3:0];
 									
 								end else begin
 
-									Ri 	=	PM_out[5:4];								
+									Ri 	=	PM_out[7:4];								
 
 									Rj 	=	PM_out[3:0];
 									
@@ -155,12 +167,12 @@ always@(posedge Clock_pin)
 //----------------------------------------------------------------------------
 						MC1: begin
 						
-							case (IR[11:6])
+							case (IR[13:8])
 		
 							LD_IC, ST_IC:
 									begin
 											// IR[7] is replicated to maintain the sign in 2's - Complement
-										MAB = {{8{IR[7]}}, IR[7:0]};
+										MAB = {{6{IR[7]}}, IR[7:0]};
 										if (Ri == 0)
 											MAX = 0;
 										else
@@ -181,7 +193,7 @@ always@(posedge Clock_pin)
 							JMP_IC:
 									begin
 											// IR[7] is replicated to maintain the sign in 2's - Complement
-										MAB = {{10{IR[5]}}, IR[5:0]};
+										MAB = {{8{IR[5]}}, IR[5:0]};
 										if (Ri == 0)
 											MAX = 0;
 										else
@@ -192,7 +204,7 @@ always@(posedge Clock_pin)
 							
 									begin
 											// IR[7] is replicated to maintain the sign in 2's - Complement
-										MAB = {{10{IR[5]}}, IR[5:0]};
+										MAB = {{8{IR[5]}}, IR[5:0]};
 										if (Ri == 0)
 											MAX = 0;
 										else
@@ -200,20 +212,47 @@ always@(posedge Clock_pin)
 									end
 							
 							
-							ADDC_IC, SUBC_IC, MULC_IC, DIVC_IC:
+							MULC_IC, DIVC_IC:
 									begin
 										TA = R[Ri];
-										TB = {10'b0000000000, IR[1:0]};
+										TB = {10'b0000000000, IR[3:0]};
 									end
 									
+							ADDC_IC:
+									begin
+										AddSubDir = 1'b1;
+										TA = R[Ri];
+										TB = {10'b0000000000, IR[3:0]};
+									end
+									
+							SUBC_IC:
+									begin
+										AddSubDir = 1'b0;
+										TA = R[Ri];
+										TB = {10'b0000000000, IR[3:0]};
+									end
+									
+							ADD_IC: 
+									begin
+										AddSubDir = 1'b1;
+										TA = R[Ri];
+										TB = R[Rj] ;
+									end
+							
+							SUB_IC:
+									begin
+										AddSubDir = 1'b0;
+										TA = R[Ri];
+										TB = R[Rj] ;
+									end
+										
 							NOT_IC, SHLL_IC, SHRL_IC, SHLA_IC, SHRA_IC, ROTL_IC, ROTR_IC, RTLC_IC, RTRC_IC:
 									begin
 										TA = R[Ri];
 									end
-									
 							
-							default: 
-											// SWAP_IC, ADD_IC, SUB_IC, MUL_IC, DIV_IC, AND_IC, OR_IC, XOR_IC:
+							
+							default: // SWAP_IC, ADD_IC, MUL_IC, DIV_IC, AND_IC, OR_IC, XOR_IC:
 									begin
 										TA = R[Ri];
 										TB = R[Rj];
@@ -229,7 +268,7 @@ always@(posedge Clock_pin)
 
 						MC2:	begin
 
-						case (IR[11:6])
+						case (IR[13:8])
 
 						LD_IC, JMP_IC:
 									begin
@@ -242,7 +281,7 @@ always@(posedge Clock_pin)
 
 						ST_IC:
 									begin
-										if (MAeff[11:4] != 12'hFFF)
+										if (MAeff[13:4] != 1024)
 											begin
 												MAeff = MAB + MAX;
 												WR_DM = 1'b1;
@@ -266,45 +305,43 @@ always@(posedge Clock_pin)
 // 	to account for the value of the carry when necessary.
 //----------------------------------------------------------------------------
 						
-						ADD_IC, ADDC_IC:
+						ADD_IC, ADDC_IC, SUB_IC, SUBC_IC:
 									begin
-										TALUout = TA + TB;
-										TSR[11] = TALUout[12]; // Carry
-										TSR[10] = TALUout[11]; // Negative
-										TSR[9] = ((TA[11] ~^ TB[11]) & TA[11]) ^ (TALUout[11] & (TA[11] ~^ TB[11])); // Overflow
+										TALUout = AddSub_out;
+										TSR[11] = Cflg; 		  // Carry
+										TSR[10] = TALUout[13]; // Negative
+										TSR[9]  = Vflg; 		  // Overflow
 										
-										if (TALUout[11:0] == 12'h000)
+										if (TALUout[13:0] == 0)
 											TSR[8] = 1;	// Zero
 										else
 											TSR[8] = 0;
 											
-										TALUH = TALUout[11:0];
+										TALUH = TALUout[13:0];
 									end
 									
-						SUB_IC, SUBC_IC:
-									begin
-										TALUout = TA - TB;
-										TSR[11] = TALUout[12]; // Carry
-										TSR[10] = TALUout[11]; // Negative
-										TSR[9] = ((TA[11] ~^ TB[11]) & TA[11]) ^ (TALUout[11] & (TA[11] ~^ TB[11])); // V Overflow
-										
-										if (TALUout[11:0] == 12'h000)
-											TSR[8] = 1;	// Zero
-										else
-											TSR[8] = 0;
-											
-										TALUH = TALUout[11:0];
-									end
-									
-						MUL_IC, MULC_IC:
+						MUL_IC:
 									begin
 										{TALUH, TALUL} = Mul_out;
-										TSR[11] = 0; 			// Carry
-										TSR[10] = TALUH[11]; // Negative
-										TSR[9] = ((TA[11] ~^ TB[11]) & TA[11]) ^ (TALUout[11] & (TA[11] ~^ TB[11])); // Overflow
+										TSR[11] = 0; 												// Carry
+										TSR[10] = TA[13]^TB[13]; 								// Negative
+										TSR[9]  = 0; 												// Overflow
 										
-										if ((TALUH[11:0] == 12'h000) && (TALUL[11:0] == 12'h000))
-											TSR[8] = 1;	// Zero
+										if ((TALUH[13:0] == 0) && (TALUL[13:0] == 0))
+											TSR[8] = 1;												// Zero
+										else
+											TSR[8] = 0;
+									end
+
+						MULC_IC:
+									begin
+										{TALUH, TALUL} = Mul_out;
+										TSR[11] = TALUH[0]; 																			// Carry
+										TSR[10] = TA[13]; 																			// Negative
+										TSR[9]  = 0; 																					// Overflow
+										
+										if ((TALUH[13:0] == 0) && (TALUL[13:0] == 0))
+											TSR[8] = 1;											// Zero
 										else
 											TSR[8] = 0;
 									end
@@ -317,11 +354,11 @@ always@(posedge Clock_pin)
 
 										TSR[11] = 0 ; 			  				 // Carry
 
-										TSR[10] = TALUH[11] || TALUL[11]; // Negative
+										TSR[10] = TA[13]^TB[13]; 			 // Negative
 
-										TSR[9] = 0; // V Overflow
+										TSR[9] = 0; 							 // V Overflow
 										
-										if (TALUH[11:0] == 12'h000)
+										if (TALUH[13:0] == 0)
 											TSR[8] = 1;	// Zero
 										else
 											TSR[8] = 0;
@@ -331,15 +368,22 @@ always@(posedge Clock_pin)
 						NOT_IC:
 									begin
 										TALUH = ~TA;
+										TSR[10] = TALUH[13];   // Negative
+										
+										if (TALUH[13:0] == 0)
+											TSR[8] = 1;	// Zero
+										else
+											TSR[8] = 0;
+
 									end
 						
 						AND_IC:
 									begin
 										TALUH = TA & TB;
 										
-										TSR[10] = TALUH[11];   // Negative
+										TSR[10] = TALUH[13];   // Negative
 										
-										if (TALUH[11:0] == 12'h000)
+										if (TALUH[13:0] == 0)
 											TSR[8] = 1;	// Zero
 										else
 											TSR[8] = 0;
@@ -349,9 +393,9 @@ always@(posedge Clock_pin)
 									begin
 										TALUH = TA | TB;
 
-										TSR[10] = TALUH[11]; // Negative
+										TSR[10] = TALUH[13]; // Negative
 										
-										if (TALUH[11:0] == 12'h000)
+										if (TALUH[13:0] == 0)
 											TSR[8] = 1;	// Zero
 										else
 											TSR[8] = 0;
@@ -363,27 +407,48 @@ always@(posedge Clock_pin)
 									begin
 										TALUH = TA ^ TB;
 
-										TSR[10] = TALUH[11]; // Negative
+										TSR[10] = TALUH[13]; // Negative
 										
-										if (TALUH[11:0] == 12'h000)
+										if (TALUH[13:0] == 0)
 											TSR[8] = 1;	// Zero
 										else
 											TSR[8] = 0;
 									end
 
 						
-						SHLL_IC:
+						SHLL_IC, SHLA_IC:
 									begin
-										case (Rj)
+										case (Rj & 15)
+										
 											0: TALUH = TA;
 												
-											1: TALUH[11:0]={TA[10:0], 1'b0};
+											1: TALUH[13:0]={TA[12:0], 1'b0};
 												
-											2: TALUH[11:0]={TA[9:0], 2'b00};
+											2: TALUH[13:0]={TA[11:0], 2'b00};
 												
-											3: TALUH[11:0]={TA[8:0], 3'b000};
+											3: TALUH[13:0]={TA[10:0], 3'b000};
 											
-											default : TALUH = TA;
+											4: TALUH[13:0]={TA[9:0], 4'b0000};
+												
+											5: TALUH[13:0]={TA[8:0], 5'b00000};
+												
+											6: TALUH[13:0]={TA[7:0], 6'b000000};
+												
+											7: TALUH[13:0]={TA[6:0], 7'b0000000};
+											
+											8: TALUH[13:0]={TA[5:0], 8'b00000000};
+												
+											9: TALUH[13:0]={TA[4:0], 9'b000000000};
+												
+											10: TALUH[13:0]={TA[3:0],10'b0000000000};
+												
+											11: TALUH[13:0]={TA[2:0],11'b00000000000};
+											
+											12: TALUH[13:0]={TA[1:0],12'b000000000000};
+											
+											13: TALUH[13:0]={TA[0], 13'b0000000000000};
+											
+											default : TALUH = 14'b00000000000000;
 											
 										endcase
 									end
@@ -391,77 +456,145 @@ always@(posedge Clock_pin)
 						SHRL_IC:
 									begin
 										
-										case (Rj)
+										case (Rj & 15)
+										
 											0:	TALUH = TA;
 												
-											1: TALUH[11:0]={1'b0, TA[11:1]};
+											1: TALUH[13:0]={1'b0, TA[13:1]};
 												
-											2:	TALUH[11:0]={2'b00, TA[11:2]};
+											2:	TALUH[13:0]={2'b00, TA[13:2]};
 											
-											3: TALUH[11:0]={3'b000, TA[11:3]};
+											3: TALUH[13:0]={3'b000, TA[13:3]};
 
-											default : TALUH = TA;
+											4: TALUH[13:0]={4'b0000, TA[13:4]};											
+
+											5: TALUH[13:0]={5'b00000, TA[13:5]};											
+
+											6: TALUH[13:0]={6'b000000, TA[13:6]};											
+
+											7: TALUH[13:0]={7'b0000000, TA[13:7]};											
+
+											8: TALUH[13:0]={8'b00000000, TA[13:8]};											
+
+											9: TALUH[13:0]={9'b000000000, TA[13:9]};											
+
+											10: TALUH[13:0]={10'b0000000000, TA[13:10]};											
+
+											11: TALUH[13:0]={11'b00000000000, TA[13:11]};											
+
+											12: TALUH[13:0]={12'b000000000000, TA[13:12]};											
+
+											13: TALUH[13:0]={13'b0000000000000, TA[13]};											
+
+											default : TALUH = 14'b00000000000000;
 											
 										endcase
 										
 									end
 						
-						SHLA_IC:
-									begin
-										case (Rj)
-											0:	TALUH = TA;
-										
-											1:	TALUH = {TA[11], TA[9:0], 1'b0};
-											
-											2: TALUH = {TA[11], TA[8:0], 2'b00};
-													
-											3:	TALUH = {TA[11], TA[7:0], 3'b000};
-											
-											default : TALUH = TA;
-											
-										endcase
-									end
-												
 						SHRA_IC:
 									begin
-										case (Rj)
-											1:	TALUH = {TA[11], TA[11], TA[9:0]};
+										case (Rj & 15)
+										
+											0 : TALUH = {{{(1){TA[13]}}}, TA[12:0]};
 											
-											2: TALUH = {TA[11], TA[11], TA[11], TA[8:0]};
-													
-											3:	TALUH = {TA[11], TA[11], TA[11], TA[11], TA[7:0]};
+											1 : TALUH = {{{(2){TA[13]}}}, TA[12:1]};
 											
-											default : TALUH = TA;
+											2 : TALUH = {{{(3){TA[13]}}}, TA[12:2]};
+											
+											3 : TALUH = {{{(4){TA[13]}}}, TA[12:3]};
+											
+											4 : TALUH = {{{(5){TA[13]}}}, TA[12:4]};
+											
+											5 : TALUH = {{{(6){TA[13]}}}, TA[12:5]};
+											
+											6 : TALUH = {{{(7){TA[13]}}}, TA[12:6]};
+											
+											7 : TALUH = {{{(8){TA[13]}}}, TA[12:7]};
+											
+											8 : TALUH = {{{(9){TA[13]}}}, TA[12:8]};
+											
+											9 : TALUH = {{{(10){TA[13]}}}, TA[12:9]};
+											
+											10: TALUH = {{{(11){TA[13]}}}, TA[12:10]};
+											
+											11: TALUH = {{{(12){TA[13]}}}, TA[12:11]};
+											
+											12: TALUH = {{{(13){TA[13]}}}, TA[12]};
+										
+											default : TALUH = {14{TA[13]}};
 											
 										endcase
 									end
 									
 						ROTL_IC:
 									begin
-										case (Rj)
-											0: TALUH = TA;
+										case (Rj & 15)
+										
+											0,14: TALUH = TA;
 												
-											1: TALUH = {TA[10:0], TA[11]};
+											1,15: TALUH = {TA[12:0], TA[13]};
 												
-											2: TALUH = {TA[9:0], TA[11:10]};
+											2: TALUH = {TA[11:0], TA[13:12]};
 												
-											3: TALUH = {TA[8:0], TA[11:9]};
+											3: TALUH = {TA[10:0], TA[13:11]};
 											
-											default : TALUH = TA;
+											4: TALUH = {TA[9:0], TA[13:10]};
+											
+											5: TALUH = {TA[8:0], TA[13:9]};
+
+											6: TALUH = {TA[7:0], TA[13:8]};
+											
+											7: TALUH = {TA[6:0], TA[13:7]};
+
+   										8: TALUH = {TA[5:0], TA[13:6]};
+
+											9: TALUH = {TA[4:0], TA[13:5]};
+
+											10: TALUH = {TA[3:0], TA[13:4]};
+
+											11: TALUH = {TA[2:0], TA[13:3]};
+
+											12: TALUH = {TA[1:0], TA[13:2]};
+
+											13: TALUH = {TA[0], TA[13:1]};
+
+										default : TALUH = TA;
 											
 										endcase
 									end
 
 						ROTR_IC:
 									begin
-										case (Rj)
-											0: TALUH = TA;
+										case (Rj & 15)
+										
+											0,14: TALUH = TA;
 												
-											1: TALUH = {TA[0], TA[11:1]};
+											1,15: TALUH = {TA[0], TA[13:1]};
 												
-											2: TALUH = {TA[1:0], TA[11:2]};
+											2: TALUH = {TA[1:0], TA[13:2]};
 												
-											3: TALUH = {TA[2:0], TA[11:3]};
+											3: TALUH = {TA[2:0], TA[13:3]};
+												
+											4: TALUH = {TA[3:0], TA[13:4]};
+												
+											5: TALUH = {TA[4:0], TA[13:5]};
+											
+											6: TALUH = {TA[5:0], TA[13:6]};
+												
+											7: TALUH = {TA[6:0], TA[13:7]};												
+											
+											8: TALUH = {TA[7:0], TA[13:8]};
+												
+											9: TALUH = {TA[8:0], TA[13:9]};												
+											
+											10: TALUH = {TA[9:0], TA[13:10]};
+												
+											11: TALUH = {TA[10:0], TA[13:11]};												
+											
+											12: TALUH = {TA[11:0], TA[13:12]};
+												
+											13: TALUH = {TA[12:0], TA[13]};												
 											
 											default : TALUH = TA;
 											
@@ -470,15 +603,36 @@ always@(posedge Clock_pin)
 
 						RTLC_IC:
 									begin
-										case (Rj)
-											0: TALUH = TA;
+										case (Rj & 15)
 												
-											1: begin TALUH = {TA[10:0], TSR[11]}; TSR[11] = TA[11]; end
+											1: begin TALUH = {TA[12:0], TSR[11]}; 					TSR[11] = TA[13]; end
 												
-											2: begin TALUH = {TA[9:0], TSR[11], TA[11]}; TSR[11] = TA[10]; end 
+											2: begin TALUH = {TA[11:0], TSR[11], TA[13]}; 		TSR[11] = TA[12]; end 
 												
-											3: begin TALUH = {TA[8:0], TSR[11], TA[11:10]}; TSR[11] = TA[9]; end
+											3: begin TALUH = {TA[10:0], TSR[11], TA[13:12]}; 	TSR[11] = TA[11]; end
 											
+											4: begin TALUH = {TA[9:0], TSR[11], TA[13:11]}; 	TSR[11] = TA[10]; end
+												
+											5: begin TALUH = {TA[8:0], TSR[11], TA[13:10]}; 	TSR[11] = TA[9]; end
+												
+											6: begin TALUH = {TA[7:0], TSR[11], TA[13:9]}; 		TSR[11] = TA[8]; end
+											
+											7: begin TALUH = {TA[6:0], TSR[11], TA[13:8]}; 		TSR[11] = TA[7]; end
+												
+											8: begin TALUH = {TA[5:0], TSR[11], TA[13:7]}; 		TSR[11] = TA[6]; end
+												
+											9: begin TALUH = {TA[4:0], TSR[11], TA[13:6]}; 		TSR[11] = TA[5]; end
+											
+											10: begin TALUH = {TA[3:0], TSR[11], TA[13:5]}; 	TSR[11] = TA[4]; end
+												
+											11: begin TALUH = {TA[2:0], TSR[11], TA[13:4]}; 	TSR[11] = TA[3]; end
+												
+											12: begin TALUH = {TA[1:0], TSR[11], TA[13:3]}; 	TSR[11] = TA[2]; end
+											
+											13: begin TALUH = {TA[0], TSR[11], TA[13:2]}; 		TSR[11] = TA[1]; end
+												
+											14: begin TALUH = {TSR[11], TA[13], TA[13:1] }; 	TSR[11] = TA[0]; end
+												
 											default : TALUH = TA;
 											
 										endcase
@@ -486,15 +640,36 @@ always@(posedge Clock_pin)
 
 						RTRC_IC:
 									begin
-										case (Rj)
-											0: TALUH = TA;
+										case (Rj & 15)
+																							
+											1: begin TALUH = {TSR[11], TA[13:1]}; 					TSR[11] = TA[0]; end
 												
-											1: begin TALUH = {TSR[11], TA[11:1]}; TSR[11] = TA[0]; end
+											2: begin TALUH = {TA[0], TSR[11], TA[13:2]}; 		TSR[11] = TA[1]; end
 												
-											2: begin TALUH = {TA[0], TSR[11], TA[11:2]}; TSR[11] = TA[1]; end
+											3: begin TALUH = {TA[1:0], TSR[11], TA[13:3]}; 		TSR[11] = TA[2]; end
 												
-											3: begin TALUH = {TA[1:0], TSR[11], TA[11:3]}; TSR[11] = TA[2]; end
+											4: begin TALUH = {TA[2:0], TSR[11], TA[13:4]}; 		TSR[11] = TA[3]; end
+												
+											5: begin TALUH = {TA[3:0], TSR[11], TA[13:5]}; 		TSR[11] = TA[4]; end
+												
+											6: begin TALUH = {TA[4:0], TSR[11], TA[13:6]}; 		TSR[11] = TA[5]; end												
 											
+											7: begin TALUH = {TA[5:0], TSR[11], TA[13:7]}; 		TSR[11] = TA[6]; end
+												
+											8: begin TALUH = {TA[6:0], TSR[11], TA[13:8]}; 		TSR[11] = TA[7]; end
+												
+											9: begin TALUH = {TA[7:0], TSR[11], TA[13:9]}; 		TSR[11] = TA[8]; end												
+											
+											10: begin TALUH = {TA[8:0], TSR[11], TA[13:10]}; 	TSR[11] = TA[9]; end
+												
+											11: begin TALUH = {TA[9:0], TSR[11], TA[13:11]}; 	TSR[11] = TA[10]; end
+												
+											12: begin TALUH = {TA[10:0], TSR[11], TA[13:12]}; 	TSR[11] = TA[11]; end												
+											
+											13: begin TALUH = {TA[11:0], TSR[11], TA[13]}; 		TSR[11] = TA[12]; end
+												
+											14: begin TALUH = {TA[12:0], TSR[11]}; 				TSR[11] = TA[13]; end
+												
 											default : TALUH = TA;
 											
 										endcase
@@ -511,7 +686,7 @@ always@(posedge Clock_pin)
 //----------------------------------------------------------------------------
 
 						 MC3:	begin
-							case (IR[11:6])
+							case (IR[13:8])
 								 LD_IC:
 									begin
 										if (MAeff[11:4] == 12'hFFF)
@@ -611,10 +786,24 @@ always@(posedge Clock_pin)
 											SR = TSR;
 										end
 									 
-									MUL_IC, DIV_IC, MULC_IC, DIVC_IC:
+									MUL_IC, DIV_IC:
 										begin
 											R[Ri] = TALUH;
 											R[Rj] = TALUL;
+											SR = TSR;
+										end
+									
+									MULC_IC:
+										begin
+											R[Ri] = TALUL;
+											
+											SR = TSR;
+										end
+										
+									DIVC_IC:
+										begin
+											R[Ri] = TALUH;
+											
 											SR = TSR;
 										end
 									
