@@ -87,6 +87,18 @@ if (srcfile != ""):
           with open(param, 'r') as f :
 
                for o in f :
+               
+               	words = o.split()
+               	
+               	endcommand = 0
+               
+               	for word in words :
+               		
+               		if ';' in word :
+               			
+               			endcommand = 1;
+               		
+               		
 
      except IOError as e:
 
