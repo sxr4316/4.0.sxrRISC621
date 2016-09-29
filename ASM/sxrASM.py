@@ -145,6 +145,8 @@ if (srcfile != ""):
           print "\nI/O error({0}): {1}".format(e.errno, e.strerror)
 
 	  sys.exit()
+
+knownwords = {""}
 	  
 for Files in os.listdir("./") :
 	
