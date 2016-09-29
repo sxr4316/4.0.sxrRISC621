@@ -14,9 +14,13 @@ cmdlist = "help src=".split()
 exiterror = 0
 
 try:
+
     opts, args = getopt.getopt(sys.argv[1:],'',cmdlist)
+    
 except getopt.GetoptError as err:
+    
     print str(err)
+    
     exiterror = 1
 
 os.system('clear')
@@ -25,11 +29,15 @@ srcfile = ""
 
 try:
 	if len(args) :
+	
 		print "\nCOMMAND ERROR : Non recogonizable commands / options present in command line"
+	
 		exiterror = 1
+
 except NameError :
-		exiterror = 1	
-    
+
+		exiterror = 1
+
 if exiterror == 1 :
 
      print "\nCorrect Usage of Program indicated below\n\n"
@@ -41,6 +49,7 @@ if exiterror == 1 :
 for o,a in opts :
 
      if "help" in o :
+
           print "\sxrASM.py - Assembler for 14 bit Harvard RISC Processor sxrRISC621."
 
 	  print "\nCorrect Usage of Program indicated below\n"
@@ -50,11 +59,16 @@ for o,a in opts :
           sys.exit()
 
      if "src" in o :
+
 	     if srcfile == "" :
+
 		     srcfile = a 
+
 	     else :
+
 		     print "\nCOMMAND ERROR : Multiple Parameter file specifications detected" 
-		     exiterror = 1 
+
+		     exiterror = 1
 
 if exiterror :
 
@@ -67,7 +81,9 @@ if exiterror :
 # Check for the right combination of parameters
 
 if (srcfile == "") :
+
 		print "\nARGUMENT ERROR : Necessary options not specified (stages,width,reset value, output filename are mandatory)" 
+
 		exiterror = 1 
 
 if exiterror :
@@ -146,7 +162,19 @@ if (srcfile != ""):
 
 	  sys.exit()
 
-knownwords = {""}
+try :
+
+	with open("keywords.lst", 'r') as f :
+
+		for o , a in f :
+			
+			print str(o) + str(a)
+
+except IOError as e:
+
+          print "\nI/O error({0}): {1}".format(e.errno, e.strerror)
+
+	  sys.exit()
 	  
 for Files in os.listdir("./") :
 	
@@ -155,4 +183,3 @@ for Files in os.listdir("./") :
 		print Files
 		
 		os.remove(Files)
-
