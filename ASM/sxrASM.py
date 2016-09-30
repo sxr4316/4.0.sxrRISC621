@@ -437,10 +437,10 @@ for Files in os.listdir("./") :
 
       rommif.close
 
- for Files in os.listdir("./") :
+for Files in os.listdir("./") :
  	
- 	if Files.endswith(".temp") :
+	if Files.endswith(".temp") :
  	
-		os.remove(Files))
+          os.remove(Files)
 
 sys.exit()
