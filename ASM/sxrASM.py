@@ -173,7 +173,7 @@ for Files in os.listdir("./") :
 
       rommif = open(str(srcfile.replace("."," ")).split()[0]+".mif",'w')
 
-      rommif.write("WIDTH=14;\nDEPTH=16384;\nADDRESS_RADIX=DEC;\nDATA_RADIX=HEX;\nCONTENT BEGIN")
+      rommif.write("WIDTH=14;\n\nDEPTH=16384;\n\nADDRESS_RADIX=DEC;\n\nDATA_RADIX=HEX;\n\nCONTENT BEGIN\n")
 
       try :
          with open("code.temp", 'r') as srccode :
@@ -195,6 +195,8 @@ for Files in os.listdir("./") :
                      key , val , num =  entry.split()
 
                      if key in code[0] :
+
+                        codevalid = 1 
 
                         if (int(num) == -1) :
 
@@ -223,15 +225,15 @@ for Files in os.listdir("./") :
                
                               else :
 
-                                 print " error : Invalid First Argument @"+str(asmline)+" : "+codes
+                                 print "error : Invalid First Argument @"+str(asmline)+" : "+codes
 
                                  sys.exit()
 
                            except IndexError :
 
-                                      print " error : Invalid Second Argument @"+str(asmline)+" : "+codes
+                                 print "error : Missing First Argument @"+str(asmline)+" : "+codes
 
-                                      sys.exit()
+                                 sys.exit()
 
                            except ValueError :
 
@@ -243,9 +245,16 @@ for Files in os.listdir("./") :
 
                               except ValueError:
 
-                                 print " error : Invalid First Argument @"+str(asmline)+" : "+codes
+                                 print "error : Invalid First Argument @"+str(asmline)+" : "+codes
 
                                  sys.exit()
+
+                              except IndexError :
+
+                                 print "error : Missing First Argument @"+str(asmline)+" : "+codes
+
+                                 sys.exit()
+
                            
                            try : 
                               if code[2] != "" :
@@ -267,11 +276,17 @@ for Files in os.listdir("./") :
    
                                  ins = str(val)+str( hex( int( code[1].replace("R","") ) ) ).replace("0x","")
 
+                              else :
+
+                                 print "error : Invalid First Argument @"+str(asmline)+" : "+codes
+
+                                 sys.exit()
+
                            except IndexError :
 
-                                      print " error : Invalid Second Argument @"+str(asmline)+" : "+codes
+                                 print "error : Missing First & Second Argument @"+str(asmline)+" : "+codes
 
-                                      sys.exit()
+                                 sys.exit()
 
                            except ValueError :
 
@@ -281,34 +296,41 @@ for Files in os.listdir("./") :
    
                                      ins = str(val)+str( hex( int( code[1].replace("R","").replace("0x",""),16 ) ).replace("0x","") )
 
+                                  else :
+
+                                     print "error : Invalid First Argument @"+str(asmline)+" : "+codes
+
+                                     sys.exit()
+
                               except IndexError :
 
-                                      print " error : Invalid Second Argument @"+str(asmline)+" : "+codes
+                                 print "error : Missing First & Second Argument @"+str(asmline)+" : "+codes
 
-                                      sys.exit()
+                                 sys.exit()
 
                               except ValueError :
 
-                                 print " error : Invalid First Argument @"+str(asmline)+" : "+codes
+                                 print "error : Invalid First Argument @"+str(asmline)+" : "+codes
 
                                  sys.exit()
                            
                            try:
                            
-                              if(int(code[2])<17 and int(code[2])>=0) :
+                              if ( int(code[2]) < 17 and int(code[2]) >= 0) :
    
-                                 ins = str(ins)+str(hex(int(code[2]))).replace("0x","")
+                                 ins = str(ins) + str( hex( int(code[2]) ) ).replace("0x","")
                         
                               else :
-                                 print " error : Invalid Second Argument @"+str(asmline)+" : "+codes
+
+                                 print "error : Out of Range Second Argument @" + str(asmline) + " : "+codes
 
                                  sys.exit()         
 
                            except IndexError :
 
-                                      print " error : Invalid Second Argument @"+str(asmline)+" : "+codes
+                                 print "error : Missing Second Argument @"+str(asmline)+" : "+codes
 
-                                      sys.exit()
+                                 sys.exit()
 
                            except ValueError :
 
@@ -316,23 +338,23 @@ for Files in os.listdir("./") :
                                   
                                  if(int(code[2].replace("0x",""),16)<17 and int(code[2].replace("0x",""),16)>=0) :
    
-                                     ins = str(ins)+str(hex(int(code[2].replace("0x",""),16)).replace("0x",""))
+                                     ins = str(ins) + str( hex( int( code[2].replace("0x",""),16 ) ) ).replace("0x","")
 
                                  else :
 
-                                    print " error : Invalid Second Argument @"+str(asmline)+" : "+codes
+                                    print "error : Out of Range Second Argument @"+str(asmline)+" : "+codes
 
                                     sys.exit() 
 
                               except IndexError :
 
-                                      print " error : Invalid Second Argument @"+str(asmline)+" : "+codes
+                                 print "error : Missing Second Argument @"+str(asmline)+" : "+codes
 
-                                      sys.exit()
+                                 sys.exit()
 
                               except ValueError :
 
-                                 print " error : Invalid Second Argument @"+str(asmline)+" : "+codes
+                                 print "error : Invalid Second Argument @"+str(asmline)+" : "+codes
    
                                  sys.exit()
 
@@ -346,7 +368,7 @@ for Files in os.listdir("./") :
 
                            except IndexError :
 
-                                 print " error : Invalid Second Argument @"+str(asmline)+" : "+codes
+                                 print "error : Missing First and Second Argument @"+str(asmline)+" : "+codes
 
                                  sys.exit()
 
@@ -360,7 +382,7 @@ for Files in os.listdir("./") :
 
                               except ValueError :
 
-                                 print " error : Invalid First Argument @"+str(asmline)+" : "+codes
+                                 print "error : Invalid First Argument @"+str(asmline)+" : "+codes
 
                                  sys.exit()
                            
@@ -372,7 +394,7 @@ for Files in os.listdir("./") :
 
                            except IndexError :
 
-                                 print " error : Invalid Second Argument @"+str(asmline)+" : "+codes
+                                 print "error : Missing Second Argument @"+str(asmline)+" : "+codes
 
                                  sys.exit()
 
@@ -384,16 +406,22 @@ for Files in os.listdir("./") :
    
                                      ins = str(ins)+str( hex( int( code[2].replace("R","").replace("0x",""),16 ) ).replace("0x","") )
 
-                              except :
+                              except IndexError:
 
-                                 print " error : Invalid Second Argument @"+str(asmline)+" : "+codes
+                                 print "error : Missing Second Argument @"+str(asmline)+" : "+codes
+
+                                 sys.exit()
+
+                              except ValueError:
+
+                                 print "error : Invalid Second Argument @"+str(asmline)+" : "+codes
 
                                  sys.exit()
 
 
                         if (ins != "") :
 
-                            rommif.write("\n"+str(mifline)+"\t:\t"+str(ins))
+                            rommif.write("\n\t"+str(mifline)+"\t:\t"+str(ins))
 
                             mifline = mifline + 1
 
@@ -404,3 +432,15 @@ for Files in os.listdir("./") :
          print "\nI/O error({0}): {1}".format(e.errno, e.strerror)
 
          sys.exit()
+
+      rommif.write("\nEND;")
+
+      rommif.close
+
+ for Files in os.listdir("./") :
+ 	
+ 	if Files.endswith(".temp") :
+ 	
+		os.remove(Files))
+
+sys.exit()
