@@ -1,7 +1,5 @@
 #!/usr/bin/python
 #
-
-#
 # print a message
 #
 
@@ -128,8 +126,6 @@ if (srcfile != ""):
 		       		
 		       			if (".end" in word) and (sectionname in word) :
 
-		       				currfile.write(word+" ")
-		       			
 		       				sectionactive = 0
 		       				
 		       				currfile.close()
@@ -147,12 +143,12 @@ if (srcfile != ""):
 		       				print "Illegal section definition @"+str(line)+" : "+str(o)
 		       				
 		       				
-		       		if (endcommand == 0) and (sectionactive == 1) :
+		       		if (endcommand == 0) and (sectionactive == 1) and ("." not in word):
 		       				
 		       				
 		       				currfile.write(word+" ");
 		       				
-		       	if (sectionactive == 1) :
+		       	if (sectionactive == 1) and ("." not in word):
 		       	
 		    		currfile.write("\n");
 
@@ -160,26 +156,45 @@ if (srcfile != ""):
 
           print "\nI/O error({0}): {1}".format(e.errno, e.strerror)
 
-	  sys.exit()
+          sys.exit()
 
-try :
-
-	with open("keywords.lst", 'r') as f :
-
-		for o , a in f :
-			
-			print str(o) + str(a)
-
-except IOError as e:
-
-          print "\nI/O error({0}): {1}".format(e.errno, e.strerror)
-
-	  sys.exit()
-	  
 for Files in os.listdir("./") :
 	
-	if Files.endswith(".temp") :
-	
-		print Files
-		
-		os.remove(Files)
+     if "code.temp" in Files :
+
+          line = 0
+
+          rommif = open(str(srcfile.replace("."," ")).split()[1]+".mif",'w')
+
+          rommif.write("WIDTH=14;\nDEPTH=16384;\nADDRESS_RADIX=DEC;\nDATA_RADIX=HEX;\nCONTENT BEGIN")
+
+          try :
+               for codes in open("keywords.lst",'r')  :
+
+                    codes = codes.replace(","," ")
+
+                    code = codes.split()
+
+                    if len(code) > 1 :
+
+                         rommif.write("\n"+str(line)+"\t:\t")
+
+                         line = line + 1
+               
+                    for entry in open("keywords.lst",'r')  :
+
+                         key , val =  entry.split()
+
+                         if key in code[0] :
+
+                              rommif.write(str(val))
+                              
+                              break;
+
+                    print str(key) + " " + str(val)
+
+          except IOError as e:
+
+               print "\nI/O error({0}): {1}".format(e.errno, e.strerror)
+
+               sys.exit()     
