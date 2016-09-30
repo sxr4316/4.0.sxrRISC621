@@ -366,6 +366,13 @@ for Files in os.listdir("./") :
    
                                  ins = str(val)+str( hex( int( code[1].replace("R","") ) ) ).replace("0x","")
 
+                              else :
+
+                                 print "error : Invalid First Argument @"+str(asmline)+" : "+codes
+
+                                 sys.exit()
+
+
                            except IndexError :
 
                                  print "error : Missing First and Second Argument @"+str(asmline)+" : "+codes
@@ -379,6 +386,12 @@ for Files in os.listdir("./") :
                                   if("R" in code[1]) :
    
                                      ins = str(val)+str( hex( int( code[1].replace("R","").replace("0x",""),16 ) ).replace("0x","") )
+                              
+                                  else :
+
+                                     print "error : Invalid First Argument @"+str(asmline)+" : "+codes
+
+                                     sys.exit()
 
                               except ValueError :
 
@@ -391,6 +404,12 @@ for Files in os.listdir("./") :
                               if("R" in code[2]) :
    
                                  ins = str(ins)+str( hex( int( code[2].replace("R","") ) ) ).replace("0x","")
+
+                              else :
+
+                                  print "error : Invalid First Argument @"+str(asmline)+" : "+codes
+
+                                  sys.exit()
 
                            except IndexError :
 
@@ -405,7 +424,13 @@ for Files in os.listdir("./") :
                                   if("R" in code[2]) :
    
                                      ins = str(ins)+str( hex( int( code[2].replace("R","").replace("0x",""),16 ) ).replace("0x","") )
+  
+                                  else :
 
+                                       print "error : Invalid First Argument @"+str(asmline)+" : "+codes
+
+                                       sys.exit()
+  
                               except IndexError:
 
                                  print "error : Missing Second Argument @"+str(asmline)+" : "+codes
