@@ -31,6 +31,8 @@
 			SUBC	R6, 0x2;
 			ADD		R6, R5;
 			SUB		R5, R6;
+
+               RET A;
 			SHLA	R5, 0x2;
 			NOT;
 			ADDC	R6, 0x3;
