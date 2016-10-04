@@ -30,7 +30,6 @@ srcfile = ""
 try:
 
     if len(args):
-
         print "\nCOMMAND ERROR : Non recogonizable commands / options present in command line"
 
         exiterror = 1
@@ -40,7 +39,6 @@ except NameError:
     exiterror = 1
 
 if exiterror == 1:
-
     print "\nCorrect Usage of Program indicated below\n\n"
 
     print "./sxrASM.py --src='source file name'\n"
@@ -50,7 +48,6 @@ if exiterror == 1:
 for o, a in opts:
 
     if "help" in o:
-
         print "\sxrASM.py - Assembler for 14 bit Harvard RISC Processor sxrRISC621."
 
         print "\nCorrect Usage of Program indicated below\n"
@@ -72,7 +69,6 @@ for o, a in opts:
             exiterror = 1
 
 if exiterror:
-
     print "\nCorrect Usage of Program indicated below\n\n"
 
     print "./sxrASM.py --src='source file name'\n"
@@ -82,13 +78,11 @@ if exiterror:
 # Check for the right combination of parameters
 
 if srcfile == "":
-
     print "\nARGUMENT ERROR : Necessary options not specified (stages,width,reset value, output filename are mandatory)"
 
     exiterror = 1
 
 if exiterror:
-
     print "\nCorrect Usage of Program indicated below\n\n"
 
     print "./sxrASM.py --src='source file name'\n"
@@ -128,7 +122,6 @@ if srcfile != "":
                 for word in words:
 
                     if ';' in word:
-
                         EoC = 1
 
                     if (EoC == 0) and ("." in word):
@@ -152,13 +145,11 @@ if srcfile != "":
                             print "Illegal section definition @" + str(line) + " : " + str(o)
 
                     if (EoC == 0) and (sectionactive == 1) and ("." not in word):
-
                         Valid = 1
 
                         currfile.write(word + " ")
 
                 if (sectionactive == 1) and ("." not in word) and (Valid == 1):
-
                     currfile.write("\n")
 
     except IOError as e:
@@ -167,7 +158,64 @@ if srcfile != "":
 
         sys.exit()
 
+labels = dict()
 
+for Files in os.listdir("./"):
+
+    if "code.temp" in Files:
+
+        try:
+
+            with open("code.temp", 'r') as srccode:
+
+                Valid = 0
+
+                asmline = 0
+
+                mifline = 0
+
+                for codes in srccode:
+
+                    temp = codes.replace(",", " ")
+
+                    code = str(temp).split()
+
+                    asmline += 1
+
+                    ins = ""
+
+                    if '@' in code[0]:
+
+                        labels[code[0]] = str(hex(mifline)).replace("0x", "")
+
+                        index = 1
+
+                    else:
+
+                        index = 0
+
+                    if len(code) > index:
+
+                        for entry in open("keywords.lst", 'r'):
+
+                            key, val, num = entry.split()
+
+                            if key in code[index]:
+
+                                if int(num) < 3:
+
+                                    mifline += 1
+
+                                else:
+
+                                    mifline += 2
+
+                                break
+        except IOError as e:
+
+            print "\nI/O error({0}): {1}".format(e.errno, e.strerror)
+
+            sys.exit()
 
 for Files in os.listdir("./"):
 
@@ -274,7 +322,6 @@ for Files in os.listdir("./"):
 
                                     try:
                                         if code[index + 2] != "":
-
                                             print "error : Unnecessary argument specified @" + str(
                                                 asmline) + " : " + codes
 
@@ -477,8 +524,47 @@ for Files in os.listdir("./"):
 
                                             sys.exit()
 
-                                if ins != "":
+                                if num == 3:
 
+                                    try:
+
+                                        if "@" in code[index + 1]:
+
+                                            if code[index + 1] in labels:
+
+                                                rommif.write("\n\t" + str(mifline) + "\t:\t" + str(ins))
+
+                                                mifline += 1
+
+                                                ins = ""
+
+                                                ins = ins.join('0' * (4 - len(labels[code[0]]))) + str(labels[code[0]])
+
+                                                rommif.write("\n\t" + str(mifline) + "\t:\t" + str(ins))
+
+                                                mifline += 1
+
+                                            else:
+
+                                                print "error : Undefined label used in @" + str(asmline) + " : " + codes
+
+                                                sys.exit()
+
+                                        else:
+
+                                            print "error : Invalid Argument @" + str(asmline) + " : " + codes
+
+                                            sys.exit()
+
+
+                                    except IndexError:
+
+                                        print "error : Missing First and Second Argument @" + str(
+                                            asmline) + " : " + codes
+
+                                        sys.exit()
+
+                                if ins != "":
                                     rommif.write("\n\t" + str(mifline) + "\t:\t" + str(ins))
 
                                     mifline += 1
@@ -497,7 +583,8 @@ rommif.close()
 for Files in os.listdir("./"):
 
     if Files.endswith(".temp"):
-
         os.remove(Files)
+
+print labels
 
 sys.exit()
