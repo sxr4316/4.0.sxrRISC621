@@ -150,7 +150,6 @@ if srcfile != "":
                         currfile.write(word + " ")
 
                 if (sectionactive == 1) and ("." not in word) and (Valid == 1):
-
                     currfile.write("\n")
 
     except IOError as e:
@@ -189,7 +188,7 @@ for Files in os.listdir("./"):
 
                         if code[0] not in labels:
 
-                            labels[code[0]] = str(hex(mifline)).replace("0x", "")
+                            labels[code[0]] = str(hex(mifline)).replace("0x", "").upper()
 
                         else:
 
@@ -234,8 +233,6 @@ for Files in os.listdir("./"):
 
             with open("code.temp", 'r') as srccode:
 
-                Valid = 0
-
                 asmline = 0
 
                 mifline = 0
@@ -252,6 +249,8 @@ for Files in os.listdir("./"):
 
                     asmline += 1
 
+                    Valid = 0
+
                     ins = ""
 
                     if '@' in code[0]:
@@ -262,7 +261,7 @@ for Files in os.listdir("./"):
 
                         index = 0
 
-                    if len(code) > 0:
+                    if len(code) > index:
 
                         for entry in open("keywords.lst", 'r'):
 
@@ -315,7 +314,8 @@ for Files in os.listdir("./"):
                                         try:
 
                                             if "R" in code[index + 1]:
-                                                ins = str(val) + str(hex(code[index + 1].replace("R", ""))) + "0"
+                                                ins = str(val) + str(hex(code[index + 1].replace("R", ""))).replace(
+                                                    "0x", "") + "0"
 
                                         except ValueError:
 
@@ -536,17 +536,14 @@ for Files in os.listdir("./"):
 
                                             if code[index + 1] in labels:
 
-                                                rommif.write("\n\t" + str(mifline) + "\t:\t" + str(ins))
+                                                rommif.write("\n\t" + str(mifline) + "\t:\t" + str(val))
 
                                                 mifline += 1
 
                                                 ins = ""
 
-                                                ins = ins.join('0' * (4 - len(labels[code[0]]))) + str(labels[code[0]])
-
-                                                rommif.write("\n\t" + str(mifline) + "\t:\t" + str(ins))
-
-                                                mifline += 1
+                                                ins = ins.join("0" * (4 - len(str(labels[code[index + 1]])))) + str(
+                                                    labels[code[index + 1]])
 
                                             else:
 
@@ -571,249 +568,196 @@ for Files in os.listdir("./"):
 
                                     try:
 
-                                        ins = "" + val
+                                        if "R" in code[index + 1]:
 
-                                        args = "".join(code[(index + 1):]).replace(" ", "")
-
-                                        if args.startswith("M["):
-
-                                            code = args.replace("M[", "").replace("]", "").replace(",", " ").split()
-
-                                            try:
-
-                                                if "SP" in code[0]:
-
-                                                    pass;
-
-                                                elif "PC" in code[0]:
-
-                                                    pass;
-
-
-                                                if "R" in code[0]:
-
-                                                    ins = str(val) + str(
-                                                        hex(int(code[index + 1].replace("R", "")))).replace(
-                                                        "0x", "")
-
-                                                else:
-
-                                                    print "error : Invalid First Memory Argument @" + str(
-                                                        asmline) + " : " + codes
-
-                                                    sys.exit()
-
-                                            except IndexError:
-
-                                                print "error : Missing First & Second Memory Argument @" + str(
-                                                    asmline) + " : " + codes
-
-                                                sys.exit()
-
-                                            except ValueError:
-
-                                                try:
-
-                                                    if "R" in code[0]:
-
-                                                        ins = str(val) + str(hex(
-                                                            int(code[index + 1].replace("R", "").replace("0x", ""),
-                                                                16)).replace("0x", ""))
-
-                                                    else:
-
-                                                        print "error : Invalid First Memory Argument @" + str(
-                                                            asmline) + " : " + codes
-
-                                                        sys.exit()
-
-                                                except IndexError:
-
-                                                    print "error : Missing First & Second Memory Argument @" + str(
-                                                        asmline) + " : " + codes
-
-                                                    sys.exit()
-
-                                                except ValueError:
-
-                                                    print "error : Invalid First Memory Argument @" + str(
-                                                        asmline) + " : " + codes
-
-                                                    sys.exit()
-
-                                            try:
-
-                                                if 16384 > int(code[1]) >= 0:
-
-                                                    ins = str(ins) + str(hex(int(code[index + 2]))).replace("0x",
-                                                                                                            "")
-
-                                                else:
-
-                                                    print "error : Out of Range Second Argument @" + str(
-                                                        asmline) + " : " + codes
-
-                                                    sys.exit()
-
-                                            except IndexError:
-
-                                                print "error : Missing Second Argument @" + str(
-                                                    asmline) + " : " + codes
-
-                                                sys.exit()
-
-                                            except ValueError:
-
-                                                try:
-
-                                                    if 16384 > int(code[index + 2].replace("0x", ""), 16) >= 0:
-
-                                                        ins = str(ins) + str(
-                                                            hex(int(code[index + 2].replace("0x", ""),
-                                                                    16))).replace("0x", "")
-
-                                                    else:
-
-                                                        print "error : Out of Range Second Argument @" + str(
-                                                            asmline) + " : " + codes
-
-                                                        sys.exit()
-
-                                                except IndexError:
-
-                                                    print "error : Missing Second Argument @" + str(
-                                                        asmline) + " : " + codes
-
-                                                    sys.exit()
-
-                                                except ValueError:
-
-                                                    print "error : Invalid Second Argument @" + str(
-                                                        asmline) + " : " + codes
-
-                                                    sys.exit()
-
+                                            ins = str(val) + str(
+                                                hex(int(code[index + 1].replace("R", "")))).replace(
+                                                "0x", "")
 
                                         else:
 
-                                            try:
+                                            print "error : Invalid First Argument @" + str(asmline) + " : " + codes
 
-                                                if "R" in code[index + 1]:
-
-                                                    ins = str(val) + str(
-                                                        hex(int(code[index + 1].replace("R", "")))).replace("0x",
-                                                                                                            "")
-
-                                                else:
-
-                                                    print "error : Invalid First Argument @" + str(
-                                                        asmline) + " : " + codes
-
-                                                    sys.exit()
-
-                                            except IndexError:
-
-                                                print "error : Missing First & Second Argument @" + str(
-                                                    asmline) + " : " + codes
-
-                                                sys.exit()
-
-                                            except ValueError:
-
-                                                try:
-
-                                                    if "R" in code[index + 1]:
-
-                                                        ins = str(val) + str(hex(
-                                                            int(code[index + 1].replace("R", "").replace("0x", ""),
-                                                                16)).replace("0x", ""))
-
-                                                    else:
-
-                                                        print "error : Invalid First Argument @" + str(
-                                                            asmline) + " : " + codes
-
-                                                        sys.exit()
-
-                                                except IndexError:
-
-                                                    print "error : Missing First & Second Argument @" + str(
-                                                        asmline) + " : " + codes
-
-                                                    sys.exit()
-
-                                                except ValueError:
-
-                                                    print "error : Invalid First Argument @" + str(
-                                                        asmline) + " : " + codes
-
-                                                    sys.exit()
-
-                                            try:
-
-                                                if 17 > int(code[index + 2]) >= 0:
-
-                                                    ins = str(ins) + str(hex(int(code[index + 2]))).replace("0x",
-                                                                                                            "")
-
-                                                else:
-
-                                                    print "error : Out of Range Second Argument @" + str(
-                                                        asmline) + " : " + codes
-
-                                                    sys.exit()
-
-                                            except IndexError:
-
-                                                print "error : Missing Second Argument @" + str(
-                                                    asmline) + " : " + codes
-
-                                                sys.exit()
-
-                                            except ValueError:
-
-                                                try:
-
-                                                    if 17 > int(code[index + 2].replace("0x", ""), 16) >= 0:
-
-                                                        ins = str(ins) + str(hex(
-                                                            int(code[index + 2].replace("0x", ""), 16))).replace(
-                                                            "0x", "")
-
-                                                    else:
-
-                                                        print "error : Out of Range Second Argument @" + str(
-                                                            asmline) + " : " + codes
-
-                                                        sys.exit()
-
-                                                except IndexError:
-
-                                                    print "error : Missing Second Argument @" + str(
-                                                        asmline) + " : " + codes
-
-                                                    sys.exit()
-
-                                                except ValueError:
-
-                                                    print "error : Invalid Second Argument @" + str(
-                                                        asmline) + " : " + codes
-
-                                                    sys.exit()
+                                            sys.exit()
 
                                     except IndexError:
 
-                                        print "error : Missing First and Second Argument @" + str(
+                                        print "error : Missing First & Second Argument @" + str(
                                             asmline) + " : " + codes
 
                                         sys.exit()
 
-                    if ins != "":
-                        rommif.write("\n\t" + str(mifline) + "\t:\t" + str(ins))
+                                    except ValueError:
 
-                        mifline += 1
+                                        try:
 
-                    break
+                                            if "R" in code[index + 1]:
+
+                                                ins = str(val) + str(hex(
+                                                    int(code[index + 1].replace("R", "").replace("0x", ""),
+                                                        16)).replace("0x", ""))
+
+                                            else:
+
+                                                print "error : Invalid First Argument @" + str(
+                                                    asmline) + " : " + codes
+
+                                                sys.exit()
+
+                                        except IndexError:
+
+                                            print "error : Missing First & Second Argument @" + str(
+                                                asmline) + " : " + codes
+
+                                            sys.exit()
+
+                                        except ValueError:
+
+                                            print "error : Invalid First Argument @" + str(asmline) + " : " + codes
+
+                                            sys.exit()
+
+                                    args = "".join(code[(index + 2):]).replace(" ", "")
+
+                                    code = args.replace("M[", "").replace("]", "").replace("+", " ").split()
+
+                                    try:
+
+                                        if "PC" in code[0]:
+
+                                            ins += str("1")
+
+                                            rommif.write("\n\t" + str(mifline) + "\t:\t" + str(ins))
+
+                                            mifline += 1
+
+                                            ins = ""
+
+                                        elif "SP" in code[0]:
+
+                                            ins += str("2")
+
+                                            rommif.write("\n\t" + str(mifline) + "\t:\t" + str(ins))
+
+                                            mifline += 1
+
+                                            ins = ""
+
+                                        elif "R" in code[0] and (2 < int(code[0].replace("R", ""), 16) < 16):
+
+                                            ins += str(
+                                                hex(int(code[0].replace("R", "")))).replace(
+                                                "0x", "")
+
+                                            rommif.write("\n\t" + str(mifline) + "\t:\t" + str(ins))
+
+                                            mifline += 1
+
+                                            ins = ""
+
+                                        else:
+
+                                            ins += "0"
+
+                                            rommif.write("\n\t" + str(mifline) + "\t:\t" + str(ins))
+
+                                            mifline += 1
+
+                                            ins = ""
+
+                                    except IndexError:
+
+                                        print "error : Missing First & Second Memory Argument @" + str(
+                                            asmline) + " : " + codes
+
+                                        sys.exit()
+
+                                    except ValueError:
+
+                                        print "error : Invalid First Memory Argument @" + str(
+                                            asmline) + " : " + codes
+
+                                        sys.exit()
+
+                                    try:
+
+                                        if 16384 > int(code[1].replace("]", "")) >= 0:
+
+                                            ins = str(ins) + str(hex(int(code[1].replace("]", "")))).replace("0x", "")
+
+                                            ins = str("0") * (4 - len(str(ins))) + str(ins)
+
+                                            rommif.write("\n\t" + str(mifline) + "\t:\t" + str(ins))
+
+                                            mifline += 1
+
+                                            ins = ""
+
+                                        else:
+
+                                            print "error : Out of Range Second Argument @" + str(
+                                                asmline) + " : " + codes
+
+                                            sys.exit()
+
+                                    except IndexError:
+
+                                        print "error : Missing Second Argument @" + str(
+                                            asmline) + " : " + codes
+
+                                        sys.exit()
+
+                                    except ValueError:
+
+                                        try:
+
+                                            if 16384 > int(code[1].replace("]", "").replace("0x", ""), 16) >= 0:
+
+                                                ins = str(ins) + str(
+                                                    hex(int(code[1].replace("]", "").replace("0x", ""),
+                                                            16))).replace("0x", "")
+
+                                                ins = str("0") * (4 - len(str(ins))) + str(ins)
+
+                                                rommif.write("\n\t" + str(mifline) + "\t:\t" + str(ins))
+
+                                                mifline += 1
+
+                                                ins = ""
+
+                                            else:
+
+                                                print "error : Out of Range Second Argument @" + str(
+                                                    asmline) + " : " + codes
+
+                                                sys.exit()
+
+                                        except IndexError:
+
+                                            print "error : Missing Second Argument @" + str(
+                                                asmline) + " : " + codes
+
+                                            sys.exit()
+
+                                        except ValueError:
+
+                                            print "error : Invalid Second Argument @" + str(asmline) + " : " + codes
+
+                                            sys.exit()
+
+                                if (num != 3) and (num != 4) and (ins != ""):
+                                    rommif.write("\n\t" + str(mifline) + "\t:\t" + str(ins))
+
+                                    mifline += 1
+
+                                    ins = ""
+
+                                break
+
+                        if Valid == 0:
+                            print "error : Unrecogonized ASM opcode @ " + str(asmline) + " : " + codes
+
+                            sys.exit()
 
                 rommif.write("\n\nEND;")
 
@@ -828,11 +772,6 @@ for Files in os.listdir("./"):
 for Files in os.listdir("./"):
 
     if Files.endswith(".temp"):
-
         os.remove(Files)
-
-        pass
-
-print labels
 
 sys.exit()

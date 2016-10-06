@@ -37,7 +37,7 @@ SUBC R2, 01; R2 = 1 				%
 MUL  R2, R1; R2 = 0 , R1 = 2;		%
 MULC R1, 03; R1 = 6 				%
 ADDC R3, 03; R3 = 3 				%
-DIVC R3, 01; R3 = 3 				%
+@sample1 DIVC R3, 01; R3 = 3 				%
 DIV  R1, R3; R1 = 2 ; R3 = 0;		%
 SUB  R0, R0; R0 = 0 				%
 SUB  R1, R1; R1 = 0 				%
@@ -49,6 +49,7 @@ DIV  R0, R1; R0 = 1 ; R1 = 1;		%
 MULC R0, 00; R0 = 0 				%
 MULC R1, 00; R1 = 0 				%
 MULC R2, 00; R2 = 0 				%
+LD		R5, M[PC + 0x0555];
 MULC R3, 00; R1 = 0 				%
 MULC R4, 00; R4 = 0 				%
 MULC R5, 00; R5 = 0 				%
@@ -67,7 +68,7 @@ NOT  R1; R1 = 16362 (-22)		%
 ADD  R2, R1; R2 = 16362 (-22)		%
 ADD  R1, R2; R1 = 16340 (-44), C=1%
 NOT  R1; R1 = 43	 			%
-NOT  R2; R2 = 21	 			%
+@sample2 NOT  R2; R2 = 21	 			%
 NOT  R0; R0 = 16362 (-22)		%
 DIVC R0, 02; R0 = 16373 (-11)		%
 RTLC R0, 00; R0 = 16373 (-11)		%
@@ -100,4 +101,5 @@ SHRL R0, 02; R0 = 2044 			%
 SHLL R0, 00; R0 = 2044 			%
 SHLL R0, 02; R0 = 8176			%
 SHLL R0, 01; R0 = 16352 (-32)		%
+JMPC  @sample1;
 .endcode;
