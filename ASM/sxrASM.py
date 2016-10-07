@@ -23,6 +23,11 @@ except getopt.GetoptError as err:
 
     sys.exit()
 
+for Files in os.listdir("./"):
+
+    if Files.endswith(".temp"):
+        os.remove(Files)
+
 os.system('clear')
 
 srcfile = ""
@@ -271,6 +276,8 @@ for Files in os.listdir("./"):
             print "\nI/O error({0}): {1}".format(e.errno, e.strerror)
 
             sys.exit()
+
+outfile = str(srcfile.replace(".", " ")).split()[0] + ".mif"
 
 for Files in os.listdir("./"):
 
@@ -674,7 +681,7 @@ for Files in os.listdir("./"):
 
                                             ins += str("1")
 
-                                            rommif.write("\n\t" + str(mifline) + "\t:\t" + str(ins))
+                                            rommif.write("\n\t" + str(mifline) + "\t:\t" + str(ins) + "\t % " + codes.replace("\n","") + "\t % ")
 
                                             mifline += 1
 
@@ -684,7 +691,7 @@ for Files in os.listdir("./"):
 
                                             ins += str("2")
 
-                                            rommif.write("\n\t" + str(mifline) + "\t:\t" + str(ins))
+                                            rommif.write("\n\t" + str(mifline) + "\t:\t" + str(ins) + "\t % " + codes.replace("\n","") + "\t % ")
 
                                             mifline += 1
 
@@ -696,7 +703,7 @@ for Files in os.listdir("./"):
                                                 hex(int(code[0].replace("R", "")))).replace(
                                                 "0x", "")
 
-                                            rommif.write("\n\t" + str(mifline) + "\t:\t" + str(ins))
+                                            rommif.write("\n\t" + str(mifline) + "\t:\t" + str(ins) + "\t % " + codes.replace("\n","") + "\t % ")
 
                                             mifline += 1
 
@@ -706,7 +713,7 @@ for Files in os.listdir("./"):
 
                                             ins += "0"
 
-                                            rommif.write("\n\t" + str(mifline) + "\t:\t" + str(ins))
+                                            rommif.write("\n\t" + str(mifline) + "\t:\t" + str(ins) + "\t % " + codes.replace("\n","") + "\t % ")
 
                                             mifline += 1
 
@@ -734,7 +741,7 @@ for Files in os.listdir("./"):
 
                                             ins = str("0") * (4 - len(str(ins))) + str(ins)
 
-                                            rommif.write("\n\t" + str(mifline) + "\t:\t" + str(ins))
+                                            rommif.write("\n\t" + str(mifline) + "\t:\t" + str(ins) + "\t % " + codes.replace("\n","") + "\t % ")
 
                                             mifline += 1
 
@@ -766,7 +773,7 @@ for Files in os.listdir("./"):
 
                                                 ins = str("0") * (4 - len(str(ins))) + str(ins)
 
-                                                rommif.write("\n\t" + str(mifline) + "\t:\t" + str(ins))
+                                                rommif.write("\n\t" + str(mifline) + "\t:\t" + str(ins) + "\t % " + codes.replace("\n","") + "\t % ")
 
                                                 mifline += 1
 
@@ -793,7 +800,7 @@ for Files in os.listdir("./"):
                                             sys.exit()
 
                                 if (num != 3) and (num != 4) and (ins != ""):
-                                    rommif.write("\n\t" + str(mifline) + "\t:\t" + str(ins))
+                                    rommif.write("\n\t" + str(mifline) + "\t:\t" + str(ins) + "\t % " + codes.replace("\n","") + "\t % ")
 
                                     mifline += 1
 
@@ -820,5 +827,7 @@ for Files in os.listdir("./"):
 
     if Files.endswith(".temp"):
         os.remove(Files)
+
+print "Processing Complete \n Source Assembly File : "+srcfile+"\n Output MIF file : "+outfile+"\n"
 
 sys.exit()

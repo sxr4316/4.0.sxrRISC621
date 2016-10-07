@@ -4,9 +4,6 @@
 
 .directives;
 ;
-     .equ	constOne	0x1;
-     .equ	constTwo	0x2;
-;
 .enddirectives;
 
 ;------------------------------------------------------------------------------
@@ -15,8 +12,6 @@
 
 .constants;
 ;
-	.word	firstConstWord	0xFFFF;
-;
 .endconstants;
 
 ;------------------------------------------------------------------------------
@@ -24,82 +19,25 @@
 ;------------------------------------------------------------------------------
 
 .code;
-SUB  R0, R0; R0 = 0 				%
-SUB  R1, R1; R1 = 0 				%
-SUB  R2, R2; R2 = 0 				%
-SUB  R3, R3; R3 = 0 				%
-ADDC R0, 03; R0 = 3 				%
-ADDC R1, 02; R1 = 2 				%
-ADD  R2, R0; R2 = 3 				%
-ADD  R2, R1; R2 = 5 				%
-SUB  R2, R0; R2 = 2 				%
-SUBC R2, 01; R2 = 1 				%
-MUL  R2, R1; R2 = 0 , R1 = 2;		%
-MULC R1, 03; R1 = 6 				%
-ADDC R3, 03; R3 = 3 				%
-@sample1 DIVC R3, 01; R3 = 3 				%
-DIV  R1, R3; R1 = 2 ; R3 = 0;		%
-SUB  R0, R0; R0 = 0 				%
-SUB  R1, R1; R1 = 0 				%
-SUB  R2, R2; R2 = 0 				%
-SUB  R3, R3; R3 = 0 				%
-ADDC R0, 03; R0 = 3 				%
-ADDC R1, 02; R1 = 2 				%
-DIV  R0, R1; R0 = 1 ; R1 = 1;		%
-MULC R0, 00; R0 = 0 				%
-MULC R1, 00; R1 = 0 				%
-MULC R2, 00; R2 = 0 				%
-LD		R5, M[PC + 0x0555];
-MULC R3, 00; R1 = 0 				%
-MULC R4, 00; R4 = 0 				%
-MULC R5, 00; R5 = 0 				%
-MULC R6, 00; R6 = 0 				%
-MULC R7, 00; R7 = 0 				%
-MULC R8, 00; R8 = 0 				%
-ADDC R0, 03; R0 = 3 				%
-ADDC R0, 03; R0 = 6 				%
-ADDC R0, 03; R0 = 9 				%
-ADDC R0, 03; R0 = 12 				%
-ADDC R0, 03; R0 = 15 				%
-ADDC R0, 03; R0 = 18 				%
-ADDC R0, 03; R0 = 21 				%
-ADD  R1, R0; R1 = 21 				%
-NOT  R1; R1 = 16362 (-22)		%
-ADD  R2, R1; R2 = 16362 (-22)		%
-ADD  R1, R2; R1 = 16340 (-44), C=1%
-NOT  R1; R1 = 43	 			%
-@sample2 NOT  R2; R2 = 21	 			%
-NOT  R0; R0 = 16362 (-22)		%
-DIVC R0, 02; R0 = 16373 (-11)		%
-RTLC R0, 00; R0 = 16373 (-11)		%
-RTLC R0, 01; R0 = 16362 (-22)		%
-RTLC R0, 02; R0 = 16299 (-85)		%
-RTRC R0, 00; R0 = 16299 (-85)		%
-RTRC R0, 02; R0 = 16362 (-22)		%
-RTRC R0, 01; R0 = 16373 (-11)		%
-AND  R2, R0; R2 = 21			%
-XOR  R0, R2; R0 = 16352 (-32)		%
-OR   R2, R0; R2 = 16373 (-11)		%
-XOR  R2, R0; R2 = 21			%
-SHLA R0, 00; R0 = 16352 (-32)		%
-SHLA R0, 01; R0 = 16320 (-64)		%
-SHLA R0, 02; R0 = 16128 (-256)	%
-SHLA R0, 03; R0 = 14336 (-2048)	%
-SHRA R0, 00; R0 = 14336 (-2048)	%
-SHRA R0, 03; R0 = 16128 (-256)	%
-SHRA R0, 02; R0 = 16320 (-64)		%
-SHRA R0, 01; R0 = 16352 (-32)		%
-ROTL R0, 00; R0 = 16352 (-32)		%
-ROTL R0, 01; R0 = 16321 (-63)		%
-ROTL R0, 02; R0 = 16135 (-249)	%
-ROTR R0, 00; R0 = 16135 (-249)	%
-ROTR R0, 02; R0 = 16321 (-63)		%
-ROTR R0, 01; R0 = 16352 (-32)		%
-SHRL R0, 00; R0 = 16352 (-32)		%
-SHRL R0, 01; R0 = 8176 			%
-SHRL R0, 02; R0 = 2044 			%
-SHLL R0, 00; R0 = 2044 			%
-SHLL R0, 02; R0 = 8176			%
-SHLL R0, 01; R0 = 16352 (-32)		%
-JMPC  @sample1;
+                JMP     @forward;                  // Unconditional Forward JUMP
+                ST      RA, M[R1+0x32A0];          // STORE Instruction
+                JMPN    @forward;                  // Forward JUMP when bit is true
+                JMPNV   @forward;                  // Forward JUMP when bit is false
+                SUB     R0, R0;
+@backward       SUB     R1, R1;
+                ADDC    R0, 03;
+                SHRL    R0, 01;
+                CALL    @Routine;                   //  CALL Instruction Forward
+                CALL    @backward;                  //  CALL Instruction backward
+                SHRL    R0, 02;
+                SHLL    R0, 00;
+@forward        ADDC    R0, 03;
+                SHLL    R0, 02;
+                SHLL    R0, 01;
+                LD      RA, M[SP+3200];            // LOAD to decimal offset
+                LD      R5, M[R3+0x3FA0];          // LOAD to hexadecimal offset
+                JMP     @backward;                 // Unconditional Backward JUMP
+@Routine        JMPZ    @forward;                  // Backward JUMP when bit is true
+                JMPNC   @backward;                 // Backward JUMP when bit is false
+                RET;                               // RETURN Instruction
 .endcode;

@@ -24,5 +24,5 @@
 ;------------------------------------------------------------------------------
 
 .code;
-     SUB  R0, 0;  		    //Invalid Second Argument, literal instead of register
+    JMPN    @forward;                  // Forward JUMP when bit is true
 .endcode;
