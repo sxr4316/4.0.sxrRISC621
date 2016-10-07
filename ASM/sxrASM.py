@@ -137,9 +137,9 @@ except IOError :
     keyfile.write("JMPNV  100D   3\n")
     keyfile.write("JMPNN  100B   3\n")
     keyfile.write("JMPZ   1001   3\n")
-    keyfile.write("JMPC   1108   3\n")
-    keyfile.write("JMPV   1102   3\n")
-    keyfile.write("JMPN   1104   3\n")
+    keyfile.write("JMPC   1008   3\n")
+    keyfile.write("JMPV   1002   3\n")
+    keyfile.write("JMPN   1004   3\n")
     keyfile.write("JMP    1000   3\n")
     keyfile.write("LD     01     4\n")
     keyfile.write("ST     02     4\n")
@@ -255,7 +255,7 @@ for Files in os.listdir("./"):
 
                             key, val, num = entry.split()
 
-                            if key in code[index]:
+                            if key.upper() in code[index].upper():
 
                                 if int(num) < 3:
 
@@ -314,7 +314,7 @@ for Files in os.listdir("./"):
 
                             key, val, num = entry.split()
 
-                            if key in code[index]:
+                            if key.upper() in code[index].upper():
 
                                 Valid = 1
 
