@@ -30,6 +30,7 @@ srcfile = ""
 try:
 
     if len(args):
+
         print "\nCOMMAND ERROR : Non recogonizable commands / options present in command line"
 
         exiterror = 1
@@ -98,6 +99,52 @@ sectionname = ""
 sectionactive = 0
 
 f = ""
+
+try :
+
+    keyfile = open("keywords.lst",'r')
+
+except IOError :
+
+    keyfile = open("keywords.lst",'w')
+
+    keyfile.write("RET    12    -1\n")
+    keyfile.write("NOT    28     0\n")
+    keyfile.write("ADDC   22     1\n")
+    keyfile.write("SUBC   23     1\n")
+    keyfile.write("MULC   26     1\n")
+    keyfile.write("DIVC   27     1\n")
+    keyfile.write("SHLL   2C     1\n")
+    keyfile.write("SHRL   2D     1\n")
+    keyfile.write("SHLA   2E     1\n")
+    keyfile.write("SHRA   2F     1\n")
+    keyfile.write("ROTL   30     1\n")
+    keyfile.write("ROTR   31     1\n")
+    keyfile.write("RTLC   32     1\n")
+    keyfile.write("RTRC   33     1\n")
+    keyfile.write("CPY    03     2\n")
+    keyfile.write("SWAP   04     2\n")
+    keyfile.write("ADD    20     2\n")
+    keyfile.write("SUB    21     2\n")
+    keyfile.write("MUL    24     2\n")
+    keyfile.write("DIV    25     2\n")
+    keyfile.write("AND    29     2\n")
+    keyfile.write("XOR    2B     2\n")
+    keyfile.write("OR     2A     2\n")
+    keyfile.write("CALL   1100   3\n")
+    keyfile.write("JMPNZ  100E   3\n")
+    keyfile.write("JMPNC  1007   3\n")
+    keyfile.write("JMPNV  100D   3\n")
+    keyfile.write("JMPNN  100B   3\n")
+    keyfile.write("JMPZ   1001   3\n")
+    keyfile.write("JMPC   1108   3\n")
+    keyfile.write("JMPV   1102   3\n")
+    keyfile.write("JMPN   1104   3\n")
+    keyfile.write("JMP    1000   3\n")
+    keyfile.write("LD     01     4\n")
+    keyfile.write("ST     02     4\n")
+
+    keyfile.close()
 
 if srcfile != "":
 
