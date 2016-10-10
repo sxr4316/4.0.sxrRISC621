@@ -4,7 +4,7 @@ editor if you plan to continue editing the block that represents it in
 the Block Editor! File corruption is VERY likely to occur.
 */
 /*
-Copyright (C) 1991-2016 Altera Corporation. All rights reserved.
+Copyright (C) 1991-2015 Altera Corporation. All rights reserved.
 Your use of Altera Corporation's design tools, logic functions 
 and other software and tools, and its AMPP partner logic 
 functions, and any output files from any of the foregoing 
@@ -22,39 +22,39 @@ agreement for further details.
 (header "symbol" (version "1.2"))
 (symbol
 	(rect 0 0 176 96)
-	(text "sxrRISC621_div" (rect 44 0 225 18)(font "Arial" (font_size 10)))
-	(text "inst" (rect 8 78 41 92)(font "Arial" ))
+	(text "sxrRISC621_div" (rect 42 0 223 17)(font "Arial" (font_size 10)))
+	(text "inst" (rect 8 81 41 92)(font "Arial" ))
 	(port
 		(pt 0 24)
 		(input)
-		(text "numer[13..0]" (rect 0 0 113 16)(font "Arial" (font_size 8)))
-		(text "numer[13..0]" (rect 20 17 78 30)(font "Arial" (font_size 8)))
+		(text "numer[13..0]" (rect 0 0 127 14)(font "Arial" (font_size 8)))
+		(text "numer[13..0]" (rect 20 18 82 29)(font "Arial" (font_size 8)))
 		(line (pt 0 24)(pt 16 24)(line_width 3))
 	)
 	(port
 		(pt 0 40)
 		(input)
-		(text "denom[13..0]" (rect 0 0 113 16)(font "Arial" (font_size 8)))
-		(text "denom[13..0]" (rect 20 33 80 46)(font "Arial" (font_size 8)))
+		(text "denom[13..0]" (rect 0 0 127 14)(font "Arial" (font_size 8)))
+		(text "denom[13..0]" (rect 20 34 84 45)(font "Arial" (font_size 8)))
 		(line (pt 0 40)(pt 16 40)(line_width 3))
 	)
 	(port
 		(pt 176 24)
 		(output)
-		(text "quotient[13..0]" (rect 0 0 141 16)(font "Arial" (font_size 8)))
-		(text "quotient[13..0]" (rect 89 17 155 30)(font "Arial" (font_size 8)))
+		(text "quotient[13..0]" (rect 0 0 159 14)(font "Arial" (font_size 8)))
+		(text "quotient[13..0]" (rect 87 18 156 29)(font "Arial" (font_size 8)))
 		(line (pt 176 24)(pt 160 24)(line_width 3))
 	)
 	(port
 		(pt 176 40)
 		(output)
-		(text "remain[13..0]" (rect 0 0 122 16)(font "Arial" (font_size 8)))
-		(text "remain[13..0]" (rect 95 33 155 46)(font "Arial" (font_size 8)))
+		(text "remain[13..0]" (rect 0 0 138 14)(font "Arial" (font_size 8)))
+		(text "remain[13..0]" (rect 93 34 157 45)(font "Arial" (font_size 8)))
 		(line (pt 176 40)(pt 160 40)(line_width 3))
 	)
 	(drawing
-		(text "Numer is SIGNED" (rect 83 50 241 111)(font "Arial" ))
-		(text "Denom is SIGNED" (rect 81 66 239 143)(font "Arial" ))
+		(text "Numer is SIGNED" (rect 87 51 252 111)(font "Arial" ))
+		(text "Denom is SIGNED" (rect 85 67 250 143)(font "Arial" ))
 		(line (pt 16 16)(pt 16 80))
 		(line (pt 16 16)(pt 160 16))
 		(line (pt 16 80)(pt 160 80))
