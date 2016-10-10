@@ -1,10 +1,11 @@
 Quartus Prime Archive log --	C:/Users/SiD/Downloads/sxrRISC621/sxrRISC621.qarlog
 
 Archive:	C:/Users/SiD/Downloads/sxrRISC621/sxrRISC621.qar
-Date:		Thu Sep 22 00:28:47 2016
+Date:		Sun Sep 25 10:26:02 2016
 Quartus Prime		16.0.0 Build 211 04/27/2016 SJ Standard Edition
 
 	=========== Files Selected: ===========
+C:/Users/SiD/Desktop/sxrRISC621.txt
 C:/Users/SiD/Downloads/sxrRISC621/DataFlow.mif
 C:/Users/SiD/Downloads/sxrRISC621/assignment_defaults.qdf
 C:/Users/SiD/Downloads/sxrRISC621/sxrRISC621.qpf
@@ -28,7 +29,6 @@ C:/Users/SiD/Downloads/sxrRISC621/sxrRISC621_ram.qip
 C:/Users/SiD/Downloads/sxrRISC621/sxrRISC621_ram.v
 C:/Users/SiD/Downloads/sxrRISC621/sxrRISC621_ram_bb.v
 C:/Users/SiD/Downloads/sxrRISC621/sxrRISC621_rom.bsf
-C:/Users/SiD/Downloads/sxrRISC621/sxrRISC621_rom.mif
 C:/Users/SiD/Downloads/sxrRISC621/sxrRISC621_rom.qip
 C:/Users/SiD/Downloads/sxrRISC621/sxrRISC621_rom.v
 C:/Users/SiD/Downloads/sxrRISC621/sxrRISC621_rom_bb.v
