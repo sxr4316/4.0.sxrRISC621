@@ -590,7 +590,7 @@ for Files in os.listdir("./"):
 
                                             if code[index + 1] in labels:
 
-                                                rommif.write("\n\t" + str(mifline) + "\t:\t" + str(val))
+                                                rommif.write("\n\t" + str(mifline) + "\t:\t" + str(val) + ";")
 
                                                 mifline += 1
 
@@ -681,7 +681,7 @@ for Files in os.listdir("./"):
 
                                             ins += str("1")
 
-                                            rommif.write("\n\t" + str(mifline) + "\t:\t" + str(ins) + "\t % " + codes.replace("\n","") + "\t % ")
+                                            rommif.write("\n\t" + str(mifline) + "\t:\t" + str(ins) + ";" + "\t % " + codes.replace("\n","")  + + "\t % ")
 
                                             mifline += 1
 
@@ -691,7 +691,7 @@ for Files in os.listdir("./"):
 
                                             ins += str("2")
 
-                                            rommif.write("\n\t" + str(mifline) + "\t:\t" + str(ins) + "\t % " + codes.replace("\n","") + "\t % ")
+                                            rommif.write("\n\t" + str(mifline) + "\t:\t" + str(ins)  + ";"+ "\t % " + codes.replace("\n","")  + "\t % ")
 
                                             mifline += 1
 
@@ -703,7 +703,7 @@ for Files in os.listdir("./"):
                                                 hex(int(code[0].replace("R", "")))).replace(
                                                 "0x", "")
 
-                                            rommif.write("\n\t" + str(mifline) + "\t:\t" + str(ins) + "\t % " + codes.replace("\n","") + "\t % ")
+                                            rommif.write("\n\t" + str(mifline) + "\t:\t" + str(ins)  + ";"+ "\t % " + codes.replace("\n","")  + "\t % ")
 
                                             mifline += 1
 
@@ -713,7 +713,7 @@ for Files in os.listdir("./"):
 
                                             ins += "0"
 
-                                            rommif.write("\n\t" + str(mifline) + "\t:\t" + str(ins) + "\t % " + codes.replace("\n","") + "\t % ")
+                                            rommif.write("\n\t" + str(mifline) + "\t:\t" + str(ins)  + ";"+ "\t % " + codes.replace("\n","")  + "\t % ")
 
                                             mifline += 1
 
@@ -741,7 +741,7 @@ for Files in os.listdir("./"):
 
                                             ins = str("0") * (4 - len(str(ins))) + str(ins)
 
-                                            rommif.write("\n\t" + str(mifline) + "\t:\t" + str(ins) + "\t % " + codes.replace("\n","") + "\t % ")
+                                            rommif.write("\n\t" + str(mifline) + "\t:\t" + str(ins)  + ";"+ "\t % " + codes.replace("\n","")  + "\t % ")
 
                                             mifline += 1
 
@@ -773,7 +773,7 @@ for Files in os.listdir("./"):
 
                                                 ins = str("0") * (4 - len(str(ins))) + str(ins)
 
-                                                rommif.write("\n\t" + str(mifline) + "\t:\t" + str(ins) + "\t % " + codes.replace("\n","") + "\t % ")
+                                                rommif.write("\n\t" + str(mifline) + "\t:\t" + str(ins)  + ";"+ "\t % " + codes.replace("\n","")  + "\t % ")
 
                                                 mifline += 1
 
@@ -800,7 +800,7 @@ for Files in os.listdir("./"):
                                             sys.exit()
 
                                 if (num != 3) and (num != 4) and (ins != ""):
-                                    rommif.write("\n\t" + str(mifline) + "\t:\t" + str(ins) + "\t % " + codes.replace("\n","") + "\t % ")
+                                    rommif.write("\n\t" + str(mifline) + "\t:\t" + str(ins) + ";" + "\t % " + codes.replace("\n","") + "\t % ")
 
                                     mifline += 1
 
