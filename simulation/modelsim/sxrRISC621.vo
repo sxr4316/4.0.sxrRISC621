@@ -1,4 +1,4 @@
-// Copyright (C) 1991-2016 Altera Corporation. All rights reserved.
+// Copyright (C) 1991-2015 Altera Corporation. All rights reserved.
 // Your use of Altera Corporation's design tools, logic functions 
 // and other software and tools, and its AMPP partner logic 
 // functions, and any output files from any of the foregoing 
@@ -15,9 +15,9 @@
 
 // VENDOR "Altera"
 // PROGRAM "Quartus Prime"
-// VERSION "Version 16.0.0 Build 211 04/27/2016 SJ Standard Edition"
+// VERSION "Version 15.1.0 Build 185 10/21/2015 SJ Lite Edition"
 
-// DATE "09/25/2016 09:34:48"
+// DATE "10/12/2016 09:33:37"
 
 // 
 // Device: Altera 5CEBA4F23C7 Package FBGA484
@@ -40,12 +40,12 @@ input 	[4:0] SW_pin;
 output 	[7:0] Display_pin;
 
 // Design Ports Information
-// SW_pin[0]	=>  Location: PIN_E16,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// SW_pin[1]	=>  Location: PIN_J19,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// SW_pin[0]	=>  Location: PIN_E15,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// SW_pin[1]	=>  Location: PIN_M16,	 I/O Standard: 2.5 V,	 Current Strength: Default
 // SW_pin[2]	=>  Location: PIN_Y21,	 I/O Standard: 2.5 V,	 Current Strength: Default
 // SW_pin[3]	=>  Location: PIN_Y3,	 I/O Standard: 2.5 V,	 Current Strength: Default
 // SW_pin[4]	=>  Location: PIN_AB17,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// Display_pin[0]	=>  Location: PIN_L1,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// Display_pin[0]	=>  Location: PIN_T8,	 I/O Standard: 2.5 V,	 Current Strength: Default
 // Display_pin[1]	=>  Location: PIN_AA7,	 I/O Standard: 2.5 V,	 Current Strength: Default
 // Display_pin[2]	=>  Location: PIN_H13,	 I/O Standard: 2.5 V,	 Current Strength: Default
 // Display_pin[3]	=>  Location: PIN_AB10,	 I/O Standard: 2.5 V,	 Current Strength: Default
@@ -78,7 +78,7 @@ wire \Clock_pin~input_o ;
 wire \~QUARTUS_CREATED_GND~I_combout ;
 
 
-// Location: IOOBUF_X0_Y20_N56
+// Location: IOOBUF_X12_Y0_N2
 cyclonev_io_obuf \Display_pin[0]~output (
 	.i(gnd),
 	.oe(vcc),
@@ -206,7 +206,7 @@ defparam \Display_pin[7]~output .open_drain_output = "false";
 defparam \Display_pin[7]~output .shift_series_termination_control = "false";
 // synopsys translate_on
 
-// Location: IOIBUF_X50_Y45_N18
+// Location: IOIBUF_X46_Y45_N41
 cyclonev_io_ibuf \SW_pin[0]~input (
 	.i(SW_pin[0]),
 	.ibar(gnd),
@@ -217,7 +217,7 @@ defparam \SW_pin[0]~input .bus_hold = "false";
 defparam \SW_pin[0]~input .simulate_z_as = "z";
 // synopsys translate_on
 
-// Location: IOIBUF_X48_Y45_N35
+// Location: IOIBUF_X54_Y18_N61
 cyclonev_io_ibuf \SW_pin[1]~input (
 	.i(SW_pin[1]),
 	.ibar(gnd),
@@ -283,7 +283,7 @@ defparam \Clock_pin~input .bus_hold = "false";
 defparam \Clock_pin~input .simulate_z_as = "z";
 // synopsys translate_on
 
-// Location: LABCELL_X19_Y31_N0
+// Location: LABCELL_X50_Y22_N3
 cyclonev_lcell_comb \~QUARTUS_CREATED_GND~I (
 // Equation(s):
 
