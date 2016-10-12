@@ -1,4 +1,4 @@
-// Copyright (C) 1991-2015 Altera Corporation. All rights reserved.
+// Copyright (C) 1991-2016 Altera Corporation. All rights reserved.
 // Your use of Altera Corporation's design tools, logic functions 
 // and other software and tools, and its AMPP partner logic 
 // functions, and any output files from any of the foregoing 
@@ -15,9 +15,9 @@
 
 // VENDOR "Altera"
 // PROGRAM "Quartus Prime"
-// VERSION "Version 15.1.0 Build 185 10/21/2015 SJ Lite Edition"
+// VERSION "Version 15.1.2 Build 193 02/01/2016 SJ Lite Edition"
 
-// DATE "10/12/2016 09:33:37"
+// DATE "10/12/2016 16:57:46"
 
 // 
 // Device: Altera 5CEBA4F23C7 Package FBGA484
@@ -40,21 +40,21 @@ input 	[4:0] SW_pin;
 output 	[7:0] Display_pin;
 
 // Design Ports Information
-// SW_pin[0]	=>  Location: PIN_E15,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// SW_pin[1]	=>  Location: PIN_M16,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// SW_pin[2]	=>  Location: PIN_Y21,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// SW_pin[3]	=>  Location: PIN_Y3,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// SW_pin[4]	=>  Location: PIN_AB17,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// Display_pin[0]	=>  Location: PIN_T8,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// Display_pin[1]	=>  Location: PIN_AA7,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// Display_pin[2]	=>  Location: PIN_H13,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// Display_pin[3]	=>  Location: PIN_AB10,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// Display_pin[4]	=>  Location: PIN_AB5,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// Display_pin[5]	=>  Location: PIN_V9,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// Display_pin[6]	=>  Location: PIN_C2,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// Display_pin[7]	=>  Location: PIN_E7,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// Resetn_pin	=>  Location: PIN_K9,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// Clock_pin	=>  Location: PIN_G13,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// Resetn_pin	=>  Location: PIN_E15,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// Clock_pin	=>  Location: PIN_M16,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// SW_pin[0]	=>  Location: PIN_U22,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// SW_pin[1]	=>  Location: PIN_Y3,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// SW_pin[2]	=>  Location: PIN_AB17,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// SW_pin[3]	=>  Location: PIN_T8,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// SW_pin[4]	=>  Location: PIN_AA7,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// Display_pin[0]	=>  Location: PIN_D13,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// Display_pin[1]	=>  Location: PIN_AB10,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// Display_pin[2]	=>  Location: PIN_AB5,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// Display_pin[3]	=>  Location: PIN_V9,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// Display_pin[4]	=>  Location: PIN_U20,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// Display_pin[5]	=>  Location: PIN_E7,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// Display_pin[6]	=>  Location: PIN_K9,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// Display_pin[7]	=>  Location: PIN_G13,	 I/O Standard: 2.5 V,	 Current Strength: Default
 
 
 wire gnd;
@@ -68,17 +68,17 @@ assign unknown = 1'bx;
 tri1 devclrn;
 tri1 devpor;
 tri1 devoe;
+wire \Resetn_pin~input_o ;
+wire \Clock_pin~input_o ;
 wire \SW_pin[0]~input_o ;
 wire \SW_pin[1]~input_o ;
 wire \SW_pin[2]~input_o ;
 wire \SW_pin[3]~input_o ;
 wire \SW_pin[4]~input_o ;
-wire \Resetn_pin~input_o ;
-wire \Clock_pin~input_o ;
 wire \~QUARTUS_CREATED_GND~I_combout ;
 
 
-// Location: IOOBUF_X12_Y0_N2
+// Location: IOOBUF_X36_Y45_N2
 cyclonev_io_obuf \Display_pin[0]~output (
 	.i(gnd),
 	.oe(vcc),
@@ -94,7 +94,7 @@ defparam \Display_pin[0]~output .open_drain_output = "false";
 defparam \Display_pin[0]~output .shift_series_termination_control = "false";
 // synopsys translate_on
 
-// Location: IOOBUF_X18_Y0_N53
+// Location: IOOBUF_X25_Y0_N53
 cyclonev_io_obuf \Display_pin[1]~output (
 	.i(gnd),
 	.oe(vcc),
@@ -110,7 +110,7 @@ defparam \Display_pin[1]~output .open_drain_output = "false";
 defparam \Display_pin[1]~output .shift_series_termination_control = "false";
 // synopsys translate_on
 
-// Location: IOOBUF_X38_Y45_N2
+// Location: IOOBUF_X16_Y0_N76
 cyclonev_io_obuf \Display_pin[2]~output (
 	.i(gnd),
 	.oe(vcc),
@@ -126,7 +126,7 @@ defparam \Display_pin[2]~output .open_drain_output = "false";
 defparam \Display_pin[2]~output .shift_series_termination_control = "false";
 // synopsys translate_on
 
-// Location: IOOBUF_X25_Y0_N53
+// Location: IOOBUF_X16_Y0_N59
 cyclonev_io_obuf \Display_pin[3]~output (
 	.i(gnd),
 	.oe(vcc),
@@ -142,7 +142,7 @@ defparam \Display_pin[3]~output .open_drain_output = "false";
 defparam \Display_pin[3]~output .shift_series_termination_control = "false";
 // synopsys translate_on
 
-// Location: IOOBUF_X16_Y0_N76
+// Location: IOOBUF_X52_Y0_N36
 cyclonev_io_obuf \Display_pin[4]~output (
 	.i(gnd),
 	.oe(vcc),
@@ -158,7 +158,7 @@ defparam \Display_pin[4]~output .open_drain_output = "false";
 defparam \Display_pin[4]~output .shift_series_termination_control = "false";
 // synopsys translate_on
 
-// Location: IOOBUF_X16_Y0_N59
+// Location: IOOBUF_X8_Y45_N93
 cyclonev_io_obuf \Display_pin[5]~output (
 	.i(gnd),
 	.oe(vcc),
@@ -174,7 +174,7 @@ defparam \Display_pin[5]~output .open_drain_output = "false";
 defparam \Display_pin[5]~output .shift_series_termination_control = "false";
 // synopsys translate_on
 
-// Location: IOOBUF_X0_Y21_N39
+// Location: IOOBUF_X34_Y45_N53
 cyclonev_io_obuf \Display_pin[6]~output (
 	.i(gnd),
 	.oe(vcc),
@@ -190,7 +190,7 @@ defparam \Display_pin[6]~output .open_drain_output = "false";
 defparam \Display_pin[6]~output .shift_series_termination_control = "false";
 // synopsys translate_on
 
-// Location: IOOBUF_X8_Y45_N93
+// Location: IOOBUF_X38_Y45_N19
 cyclonev_io_obuf \Display_pin[7]~output (
 	.i(gnd),
 	.oe(vcc),
@@ -207,61 +207,6 @@ defparam \Display_pin[7]~output .shift_series_termination_control = "false";
 // synopsys translate_on
 
 // Location: IOIBUF_X46_Y45_N41
-cyclonev_io_ibuf \SW_pin[0]~input (
-	.i(SW_pin[0]),
-	.ibar(gnd),
-	.dynamicterminationcontrol(gnd),
-	.o(\SW_pin[0]~input_o ));
-// synopsys translate_off
-defparam \SW_pin[0]~input .bus_hold = "false";
-defparam \SW_pin[0]~input .simulate_z_as = "z";
-// synopsys translate_on
-
-// Location: IOIBUF_X54_Y18_N61
-cyclonev_io_ibuf \SW_pin[1]~input (
-	.i(SW_pin[1]),
-	.ibar(gnd),
-	.dynamicterminationcontrol(gnd),
-	.o(\SW_pin[1]~input_o ));
-// synopsys translate_off
-defparam \SW_pin[1]~input .bus_hold = "false";
-defparam \SW_pin[1]~input .simulate_z_as = "z";
-// synopsys translate_on
-
-// Location: IOIBUF_X50_Y0_N52
-cyclonev_io_ibuf \SW_pin[2]~input (
-	.i(SW_pin[2]),
-	.ibar(gnd),
-	.dynamicterminationcontrol(gnd),
-	.o(\SW_pin[2]~input_o ));
-// synopsys translate_off
-defparam \SW_pin[2]~input .bus_hold = "false";
-defparam \SW_pin[2]~input .simulate_z_as = "z";
-// synopsys translate_on
-
-// Location: IOIBUF_X0_Y18_N44
-cyclonev_io_ibuf \SW_pin[3]~input (
-	.i(SW_pin[3]),
-	.ibar(gnd),
-	.dynamicterminationcontrol(gnd),
-	.o(\SW_pin[3]~input_o ));
-// synopsys translate_off
-defparam \SW_pin[3]~input .bus_hold = "false";
-defparam \SW_pin[3]~input .simulate_z_as = "z";
-// synopsys translate_on
-
-// Location: IOIBUF_X38_Y0_N52
-cyclonev_io_ibuf \SW_pin[4]~input (
-	.i(SW_pin[4]),
-	.ibar(gnd),
-	.dynamicterminationcontrol(gnd),
-	.o(\SW_pin[4]~input_o ));
-// synopsys translate_off
-defparam \SW_pin[4]~input .bus_hold = "false";
-defparam \SW_pin[4]~input .simulate_z_as = "z";
-// synopsys translate_on
-
-// Location: IOIBUF_X34_Y45_N52
 cyclonev_io_ibuf \Resetn_pin~input (
 	.i(Resetn_pin),
 	.ibar(gnd),
@@ -272,7 +217,7 @@ defparam \Resetn_pin~input .bus_hold = "false";
 defparam \Resetn_pin~input .simulate_z_as = "z";
 // synopsys translate_on
 
-// Location: IOIBUF_X38_Y45_N18
+// Location: IOIBUF_X54_Y18_N61
 cyclonev_io_ibuf \Clock_pin~input (
 	.i(Clock_pin),
 	.ibar(gnd),
@@ -281,6 +226,61 @@ cyclonev_io_ibuf \Clock_pin~input (
 // synopsys translate_off
 defparam \Clock_pin~input .bus_hold = "false";
 defparam \Clock_pin~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: IOIBUF_X51_Y0_N52
+cyclonev_io_ibuf \SW_pin[0]~input (
+	.i(SW_pin[0]),
+	.ibar(gnd),
+	.dynamicterminationcontrol(gnd),
+	.o(\SW_pin[0]~input_o ));
+// synopsys translate_off
+defparam \SW_pin[0]~input .bus_hold = "false";
+defparam \SW_pin[0]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: IOIBUF_X0_Y18_N44
+cyclonev_io_ibuf \SW_pin[1]~input (
+	.i(SW_pin[1]),
+	.ibar(gnd),
+	.dynamicterminationcontrol(gnd),
+	.o(\SW_pin[1]~input_o ));
+// synopsys translate_off
+defparam \SW_pin[1]~input .bus_hold = "false";
+defparam \SW_pin[1]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: IOIBUF_X38_Y0_N52
+cyclonev_io_ibuf \SW_pin[2]~input (
+	.i(SW_pin[2]),
+	.ibar(gnd),
+	.dynamicterminationcontrol(gnd),
+	.o(\SW_pin[2]~input_o ));
+// synopsys translate_off
+defparam \SW_pin[2]~input .bus_hold = "false";
+defparam \SW_pin[2]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: IOIBUF_X12_Y0_N1
+cyclonev_io_ibuf \SW_pin[3]~input (
+	.i(SW_pin[3]),
+	.ibar(gnd),
+	.dynamicterminationcontrol(gnd),
+	.o(\SW_pin[3]~input_o ));
+// synopsys translate_off
+defparam \SW_pin[3]~input .bus_hold = "false";
+defparam \SW_pin[3]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: IOIBUF_X18_Y0_N52
+cyclonev_io_ibuf \SW_pin[4]~input (
+	.i(SW_pin[4]),
+	.ibar(gnd),
+	.dynamicterminationcontrol(gnd),
+	.o(\SW_pin[4]~input_o ));
+// synopsys translate_off
+defparam \SW_pin[4]~input .bus_hold = "false";
+defparam \SW_pin[4]~input .simulate_z_as = "z";
 // synopsys translate_on
 
 // Location: LABCELL_X50_Y22_N3
