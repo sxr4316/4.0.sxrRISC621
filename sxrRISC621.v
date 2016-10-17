@@ -379,7 +379,7 @@ always@(posedge Clock_pin)
 						default : TALUH = 14'b00000000000000;
 					endcase
 					TALUL = 0;
-					TSR = TSR
+					TSR = TSR;
 				end
 
 				SHRL_IC:	begin
@@ -401,7 +401,7 @@ always@(posedge Clock_pin)
 						default : TALUH = 14'b00000000000000;
 					endcase
 					TALUL = 0;
-					TSR = TSR
+					TSR = TSR;
 				end
 
 				SHRA_IC: begin
@@ -422,7 +422,7 @@ always@(posedge Clock_pin)
 						default : TALUH = {14{TA[13]}};
 					endcase
 					TALUL = 0;
-					TSR = TSR
+					TSR = TSR;
 				end
 
 				ROTL_IC: begin
@@ -444,7 +444,7 @@ always@(posedge Clock_pin)
 						default : TALUH = TA;
 					endcase
 					TALUL = 0;
-					TSR = TSR
+					TSR = TSR;
 				end
 
 				ROTR_IC:	begin
@@ -466,7 +466,7 @@ always@(posedge Clock_pin)
 						default : TALUH = TA;
 					endcase
 					TALUL = 0;
-					TSR = TSR
+					TSR = TSR;
 				end									
 
 				RTLC_IC:	begin
@@ -488,7 +488,7 @@ always@(posedge Clock_pin)
 						default : TALUH = TA;
 					endcase
 					TALUL = 0;
-					TSR = TSR
+					TSR = TSR;
 				end
 
 				RTRC_IC:	begin
@@ -510,13 +510,13 @@ always@(posedge Clock_pin)
 						default : TALUH = TA;
 					endcase
 					TALUL = 0;
-					TSR = TSR
+					TSR = TSR;
 				end
 	
 				default: begin
 					TALUH = TALUH;
 					TALUL = TALUL;
-					TSR = TSR
+					TSR = TSR;
 				end
 
 			endcase
