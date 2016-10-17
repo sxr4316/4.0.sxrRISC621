@@ -4,6 +4,7 @@
 #
 
 import getopt
+import shutil
 import sys
 import os
 
@@ -816,6 +817,8 @@ for Files in os.listdir("./"):
                 rommif.write("\n\nEND;")
 
                 rommif.close()
+				
+                shutil.copy(str(srcfile.replace(".", " ")).split()[0] + ".mif","./../sxrRISC621_rom.mif")
 
         except IOError as e:
 

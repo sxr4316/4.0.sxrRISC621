@@ -1,102 +1,103 @@
-# Reading C:/altera/16.0/modelsim_ase/tcl/vsim/pref.tcl
 # do sxrRISC621_run_msim_rtl_verilog.do
 # if {[file exists rtl_work]} {
 # 	vdel -lib rtl_work -all
 # }
 # vlib rtl_work
 # vmap work rtl_work
-# Model Technology ModelSim ALTERA vmap 10.4d Lib Mapping Utility 2015.12 Dec 30 2015
-# vmap work rtl_work 
-# Copying C:/altera/16.0/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini
+# Model Technology ModelSim ALTERA vmap 10.4b Lib Mapping Utility 2015.05 May 27 2015
+# vmap -modelsim_quiet work rtl_work 
+# Copying C:/altera_lite/15.1/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini
 # Modifying modelsim.ini
+# ** Warning: Copied C:/altera_lite/15.1/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini.
+#          Updated modelsim.ini.
 # 
-# vlog -vlog01compat -work work +incdir+C:/Users/SiD/Downloads/sxrRISC621 {C:/Users/SiD/Downloads/sxrRISC621/sxrRISC621.v}
-# Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 10:23:10 on Sep 25,2016
-# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/SiD/Downloads/sxrRISC621" C:/Users/SiD/Downloads/sxrRISC621/sxrRISC621.v 
+# vlog -vlog01compat -work work +incdir+C:/Users/sxr4316/Downloads/sxrRISC621 {C:/Users/sxr4316/Downloads/sxrRISC621/sxrRISC621.v}
+# Model Technology ModelSim ALTERA vlog 10.4b Compiler 2015.05 May 27 2015
+# Start time: 09:35:37 on Oct 14,2016
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/sxr4316/Downloads/sxrRISC621" C:/Users/sxr4316/Downloads/sxrRISC621/sxrRISC621.v 
 # -- Compiling module sxrRISC621
-# ** Warning: C:/Users/SiD/Downloads/sxrRISC621/sxrRISC621.v(47): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
+# ** Warning: C:/Users/sxr4316/Downloads/sxrRISC621/sxrRISC621.v(47): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
 # 
 # 
 # Top level modules:
 # 	sxrRISC621
-# End time: 10:23:10 on Sep 25,2016, Elapsed time: 0:00:00
+# End time: 09:35:37 on Oct 14,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 1
-# vlog -vlog01compat -work work +incdir+C:/Users/SiD/Downloads/sxrRISC621 {C:/Users/SiD/Downloads/sxrRISC621/sxrRISC621_rom.v}
-# Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 10:23:10 on Sep 25,2016
-# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/SiD/Downloads/sxrRISC621" C:/Users/SiD/Downloads/sxrRISC621/sxrRISC621_rom.v 
+# vlog -vlog01compat -work work +incdir+C:/Users/sxr4316/Downloads/sxrRISC621 {C:/Users/sxr4316/Downloads/sxrRISC621/sxrRISC621_rom.v}
+# Model Technology ModelSim ALTERA vlog 10.4b Compiler 2015.05 May 27 2015
+# Start time: 09:35:37 on Oct 14,2016
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/sxr4316/Downloads/sxrRISC621" C:/Users/sxr4316/Downloads/sxrRISC621/sxrRISC621_rom.v 
 # -- Compiling module sxrRISC621_rom
 # 
 # Top level modules:
 # 	sxrRISC621_rom
-# End time: 10:23:11 on Sep 25,2016, Elapsed time: 0:00:01
+# End time: 09:35:37 on Oct 14,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -vlog01compat -work work +incdir+C:/Users/SiD/Downloads/sxrRISC621 {C:/Users/SiD/Downloads/sxrRISC621/sxrRISC621_ram.v}
-# Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 10:23:11 on Sep 25,2016
-# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/SiD/Downloads/sxrRISC621" C:/Users/SiD/Downloads/sxrRISC621/sxrRISC621_ram.v 
+# vlog -vlog01compat -work work +incdir+C:/Users/sxr4316/Downloads/sxrRISC621 {C:/Users/sxr4316/Downloads/sxrRISC621/sxrRISC621_ram.v}
+# Model Technology ModelSim ALTERA vlog 10.4b Compiler 2015.05 May 27 2015
+# Start time: 09:35:37 on Oct 14,2016
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/sxr4316/Downloads/sxrRISC621" C:/Users/sxr4316/Downloads/sxrRISC621/sxrRISC621_ram.v 
 # -- Compiling module sxrRISC621_ram
 # 
 # Top level modules:
 # 	sxrRISC621_ram
-# End time: 10:23:11 on Sep 25,2016, Elapsed time: 0:00:00
+# End time: 09:35:37 on Oct 14,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -vlog01compat -work work +incdir+C:/Users/SiD/Downloads/sxrRISC621 {C:/Users/SiD/Downloads/sxrRISC621/sxrRISC621_mult.v}
-# Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 10:23:11 on Sep 25,2016
-# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/SiD/Downloads/sxrRISC621" C:/Users/SiD/Downloads/sxrRISC621/sxrRISC621_mult.v 
+# vlog -vlog01compat -work work +incdir+C:/Users/sxr4316/Downloads/sxrRISC621 {C:/Users/sxr4316/Downloads/sxrRISC621/sxrRISC621_mult.v}
+# Model Technology ModelSim ALTERA vlog 10.4b Compiler 2015.05 May 27 2015
+# Start time: 09:35:37 on Oct 14,2016
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/sxr4316/Downloads/sxrRISC621" C:/Users/sxr4316/Downloads/sxrRISC621/sxrRISC621_mult.v 
 # -- Compiling module sxrRISC621_mult
 # 
 # Top level modules:
 # 	sxrRISC621_mult
-# End time: 10:23:11 on Sep 25,2016, Elapsed time: 0:00:00
+# End time: 09:35:37 on Oct 14,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -vlog01compat -work work +incdir+C:/Users/SiD/Downloads/sxrRISC621 {C:/Users/SiD/Downloads/sxrRISC621/sxrRISC621_div.v}
-# Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 10:23:11 on Sep 25,2016
-# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/SiD/Downloads/sxrRISC621" C:/Users/SiD/Downloads/sxrRISC621/sxrRISC621_div.v 
+# vlog -vlog01compat -work work +incdir+C:/Users/sxr4316/Downloads/sxrRISC621 {C:/Users/sxr4316/Downloads/sxrRISC621/sxrRISC621_div.v}
+# Model Technology ModelSim ALTERA vlog 10.4b Compiler 2015.05 May 27 2015
+# Start time: 09:35:37 on Oct 14,2016
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/sxr4316/Downloads/sxrRISC621" C:/Users/sxr4316/Downloads/sxrRISC621/sxrRISC621_div.v 
 # -- Compiling module sxrRISC621_div
 # 
 # Top level modules:
 # 	sxrRISC621_div
-# End time: 10:23:11 on Sep 25,2016, Elapsed time: 0:00:00
+# End time: 09:35:37 on Oct 14,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -vlog01compat -work work +incdir+C:/Users/SiD/Downloads/sxrRISC621 {C:/Users/SiD/Downloads/sxrRISC621/sxrRISC621_addsub.v}
-# Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 10:23:11 on Sep 25,2016
-# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/SiD/Downloads/sxrRISC621" C:/Users/SiD/Downloads/sxrRISC621/sxrRISC621_addsub.v 
+# vlog -vlog01compat -work work +incdir+C:/Users/sxr4316/Downloads/sxrRISC621 {C:/Users/sxr4316/Downloads/sxrRISC621/sxrRISC621_addsub.v}
+# Model Technology ModelSim ALTERA vlog 10.4b Compiler 2015.05 May 27 2015
+# Start time: 09:35:37 on Oct 14,2016
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/sxr4316/Downloads/sxrRISC621" C:/Users/sxr4316/Downloads/sxrRISC621/sxrRISC621_addsub.v 
 # -- Compiling module sxrRISC621_addsub
 # 
 # Top level modules:
 # 	sxrRISC621_addsub
-# End time: 10:23:11 on Sep 25,2016, Elapsed time: 0:00:00
+# End time: 09:35:37 on Oct 14,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -vlog01compat -work work +incdir+C:/Users/SiD/Downloads/sxrRISC621/db {C:/Users/SiD/Downloads/sxrRISC621/db/mult_81n.v}
-# Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 10:23:11 on Sep 25,2016
-# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/SiD/Downloads/sxrRISC621/db" C:/Users/SiD/Downloads/sxrRISC621/db/mult_81n.v 
+# vlog -vlog01compat -work work +incdir+C:/Users/sxr4316/Downloads/sxrRISC621/db {C:/Users/sxr4316/Downloads/sxrRISC621/db/mult_81n.v}
+# Model Technology ModelSim ALTERA vlog 10.4b Compiler 2015.05 May 27 2015
+# Start time: 09:35:37 on Oct 14,2016
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/sxr4316/Downloads/sxrRISC621/db" C:/Users/sxr4316/Downloads/sxrRISC621/db/mult_81n.v 
 # -- Compiling module mult_81n
 # 
 # Top level modules:
 # 	mult_81n
-# End time: 10:23:11 on Sep 25,2016, Elapsed time: 0:00:00
+# End time: 09:35:37 on Oct 14,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
-# vlog -vlog01compat -work work +incdir+C:/Users/SiD/Downloads/sxrRISC621 {C:/Users/SiD/Downloads/sxrRISC621/sxrRISC621_tb.v}
-# Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 10:23:12 on Sep 25,2016
-# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/SiD/Downloads/sxrRISC621" C:/Users/SiD/Downloads/sxrRISC621/sxrRISC621_tb.v 
+# vlog -vlog01compat -work work +incdir+C:/Users/sxr4316/Downloads/sxrRISC621 {C:/Users/sxr4316/Downloads/sxrRISC621/sxrRISC621_tb.v}
+# Model Technology ModelSim ALTERA vlog 10.4b Compiler 2015.05 May 27 2015
+# Start time: 09:35:37 on Oct 14,2016
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/sxr4316/Downloads/sxrRISC621" C:/Users/sxr4316/Downloads/sxrRISC621/sxrRISC621_tb.v 
 # -- Compiling module sxrRISC621_tb
 # 
 # Top level modules:
 # 	sxrRISC621_tb
-# End time: 10:23:12 on Sep 25,2016, Elapsed time: 0:00:00
+# End time: 09:35:37 on Oct 14,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
 # vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L rtl_work -L work -voptargs="+acc"  sxrRISC621_tb
 # vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L rtl_work -L work -voptargs=""+acc"" sxrRISC621_tb 
-# Start time: 10:23:12 on Sep 25,2016
+# Start time: 09:35:37 on Oct 14,2016
 # Loading work.sxrRISC621_tb
 # Loading work.sxrRISC621
 # Loading work.sxrRISC621_rom
@@ -114,45 +115,22 @@
 # Loading altera_mf_ver.ALTERA_MF_MEMORY_INITIALIZATION
 # 
 # add wave *
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+# 
+#           File in use by: SiD  Hostname: DELLINSPIRON15R  ProcessID: 7320
+# 
+#           Attempting to use alternate WLF file "./wlfte4dni8".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+# 
+#           Using alternate file: ./wlfte4dni8
+# 
 # view structure
 # .main_pane.structure.interior.cs.body.struct
 # view signals
 # .main_pane.objects.interior.cs.body.tree
 # run -all
-do C:/Users/SiD/Downloads/sxrRISC621/simulation/modelsim/wave.do
+do C:/Users/sxr4316/Downloads/sxrRISC621/simulation/modelsim/PipelineSimulation.do
 restart
 run -all
-.
-# wrong # args: should be ". option ?arg arg ...?"
-compile all
-# wrong # args: should be "compile w cmd ..."
-vlog -reportprogress 300 -work work C:/Users/SiD/Downloads/sxrRISC621/sxrRISC621.v
-# Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 10:24:36 on Sep 25,2016
-# vlog -reportprogress 300 -work work C:/Users/SiD/Downloads/sxrRISC621/sxrRISC621.v 
-# -- Compiling module sxrRISC621
-# ** Warning: C:/Users/SiD/Downloads/sxrRISC621/sxrRISC621.v(47): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
-# 
-# 
-# Top level modules:
-# 	sxrRISC621
-# End time: 10:24:36 on Sep 25,2016, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 1
-vlog -reportprogress 300 -work work C:/Users/SiD/Downloads/sxrRISC621/sxrRISC621.v
-# Model Technology ModelSim ALTERA vlog 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 10:24:40 on Sep 25,2016
-# vlog -reportprogress 300 -work work C:/Users/SiD/Downloads/sxrRISC621/sxrRISC621.v 
-# -- Compiling module sxrRISC621
-# ** Warning: C:/Users/SiD/Downloads/sxrRISC621/sxrRISC621.v(47): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
-# 
-# 
-# Top level modules:
-# 	sxrRISC621
-# End time: 10:24:40 on Sep 25,2016, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 1
-restart
-# Loading work.sxrRISC621
-run -all
-# GetModuleFileName: The specified module could not be found.
-# 
-# 
+# End time: 09:37:42 on Oct 14,2016, Elapsed time: 0:02:05
+# Errors: 0, Warnings: 2

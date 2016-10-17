@@ -1,11 +1,11 @@
 //lpm_mult CBX_DECLARE_ALL_CONNECTED_PORTS="OFF" DEVICE_FAMILY="Cyclone V" DSP_BLOCK_BALANCING="Auto" LPM_REPRESENTATION="SIGNED" LPM_WIDTHA=14 LPM_WIDTHB=14 LPM_WIDTHP=28 MAXIMIZE_SPEED=5 dataa datab result CARRY_CHAIN="MANUAL" CARRY_CHAIN_LENGTH=48
-//VERSION_BEGIN 15.1 cbx_cycloneii 2016:01:20:19:04:45:SJ cbx_lpm_add_sub 2016:01:20:19:04:45:SJ cbx_lpm_mult 2016:01:20:19:04:45:SJ cbx_mgl 2016:01:20:20:20:04:SJ cbx_nadder 2016:01:20:19:04:45:SJ cbx_padd 2016:01:20:19:04:45:SJ cbx_stratix 2016:01:20:19:04:45:SJ cbx_stratixii 2016:01:20:19:04:45:SJ cbx_util_mgl 2016:01:20:19:04:45:SJ  VERSION_END
+//VERSION_BEGIN 15.1 cbx_cycloneii 2015:10:21:18:09:23:SJ cbx_lpm_add_sub 2015:10:21:18:09:23:SJ cbx_lpm_mult 2015:10:21:18:09:23:SJ cbx_mgl 2015:10:21:18:12:49:SJ cbx_nadder 2015:10:21:18:09:23:SJ cbx_padd 2015:10:21:18:09:23:SJ cbx_stratix 2015:10:21:18:09:23:SJ cbx_stratixii 2015:10:21:18:09:23:SJ cbx_util_mgl 2015:10:21:18:09:23:SJ  VERSION_END
 // synthesis VERILOG_INPUT_VERSION VERILOG_2001
 // altera message_off 10463
 
 
 
-// Copyright (C) 1991-2016 Altera Corporation. All rights reserved.
+// Copyright (C) 1991-2015 Altera Corporation. All rights reserved.
 //  Your use of Altera Corporation's design tools, logic functions 
 //  and other software and tools, and its AMPP partner logic 
 //  functions, and any output files from any of the foregoing 

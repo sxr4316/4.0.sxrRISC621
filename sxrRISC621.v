@@ -94,10 +94,6 @@ reg					StallMC0, StallMC1, StallMC2, StallMC3;
 
 assign	Clock_not = ~Clock_pin;
 
-//----------------------------------------------------------------------------
-// Instantiating only 1KWord memories to save resources
-//----------------------------------------------------------------------------
-
 sxrRISC621_rom		my_rom 		(PC[13:0], Clock_not, PM_out);
 
 sxrRISC621_ram		my_ram 		(MAeff[13:0], Clock_not, DM_in, WR_DM, DM_out);
@@ -136,9 +132,10 @@ always@(posedge Clock_pin)
 
 								Display_pin = 8'h00;
 								
-								StallMC3 = 1'b1;	StallMC2 = 1'b1;	StallMC1 = 1'b1; 
-
-	end else	begin
+								StallMC3 = 1'b1;	StallMC2 = 1'b1;	StallMC1 = 1'b1; StallMC0	= 1'b0;
+							
+	end 
+	else	begin
 
 		if ( StallMC3 == 1'b0 ) begin 
 			
@@ -153,18 +150,18 @@ always@(posedge Clock_pin)
 
 				ST_IC: begin
 					if (MAeff[13:8] != 6'h3F) begin
-						DM_in	=	R[IR3[3:0]];
+						DM_in	=	TALUL;
 						WR_DM =	1'b1;
 					end
 				end
 
 				CPY_IC: begin
-					R[IR3[7:4]] = TALUL;
+					R[IR3[7:4]] = TALUH;
 				end
 
 				SWAP_IC: begin
-					R[IR3[7:4]] = TALUL;
-					R[IR3[3:0]] = TALUH;
+					R[IR3[7:4]] = TALUH;
+					R[IR3[3:0]] = TALUL;
 				end
 
 				JMP_IC: begin
@@ -212,7 +209,7 @@ always@(posedge Clock_pin)
 				end
 
 				MULC_IC: begin
-					R[IR3[7:4]] = TALUL;
+					R[IR3[7:4]] = TALUH;
 				end
 
 				DIVC_IC: begin
@@ -235,6 +232,8 @@ always@(posedge Clock_pin)
 
 				LD_IC, ST_IC, JMP_IC: begin
 					MAeff = MAB + MAX;
+					TALUH = 0;
+					TALUL = TB;
 				end
 
 				CALL_IC: begin
@@ -242,6 +241,8 @@ always@(posedge Clock_pin)
 					DM_in = PC ;
 					WR_DM = 1'b1;
 					SP 	=	SP	-	1'b1	;
+					TALUH = 0;
+					TALUL = 0;					
 				end
 
 				RET_IC: begin
@@ -249,97 +250,114 @@ always@(posedge Clock_pin)
 					TSR	=	DM_out[11:0]	;
 					MAeff	=	SP ;
 					SP		=	SP	+	1'b1;
+					TALUH = 0;
+					TALUL = 0;
 				end
 
 				CPY_IC: begin
-					TALUL = TB;
+					TALUH = TB;
+					TALUL = 0;					
 				end
 
 				SWAP_IC: begin
-					TALUH = TA;
-					TALUL = TB;
+					TALUL = TA;
+					TALUH = TB;
 				end
 
 				ADD_IC, ADDC_IC, SUB_IC, SUBC_IC: begin
 					TALUout = AddSub_out;
-					TSR[11] = Cflg; 		  // Carry
-					TSR[10] = TALUout[13]; // Negative
-					TSR[9]  = Vflg; 		  // Overflow
+					TALUH = TALUout[13:0];
+					TALUL = 0;					
 					if (TALUout[13:0] == 0)
 						TSR[8] = 1;	// Zero
 					else
 						TSR[8] = 0;
-					TALUH = TALUout[13:0];
+					TSR[9]  = Vflg; 		  // Overflow
+					TSR[10] = TALUout[13]; // Negative
+					TSR[11] = Cflg; 		  // Carry
 				end
 
 				MUL_IC: begin
 					{TALUH, TALUL} = Mul_out;
-					TSR[11] = 0; 												// Carry
-					TSR[10] = TA[13]^TB[13]; 								// Negative
-					TSR[9]  = 0; 												// Overflow
-					if ((TALUH[13:0] == 0) && (TALUL[13:0] == 0))
+					if (Mul_out == 0)
 						TSR[8] = 1;												// Zero
 					else
 						TSR[8] = 0;
+					TSR[9]  = 0; 												// Overflow
+					TSR[10] = TA[13]^TB[13]; 								// Negative
+					TSR[11] = 0; 												// Carry
 				end
 
 				MULC_IC:	begin
-					{TALUH, TALUL} = Mul_out;
-					TSR[11] = TALUH[0]; 																			// Carry
-					TSR[10] = TA[13]; 																			// Negative
-					TSR[9]  = 0; 																					// Overflow
-					if ((TALUH[13:0] == 0) && (TALUL[13:0] == 0))
+					TALUH = Mul_out[13:0];
+					TALUL = 0;
+					if (Mul_out == 0)
 						TSR[8] = 1;											// Zero
 					else
 						TSR[8] = 0;
+					TSR[9]  = 0; 																					// Overflow
+					TSR[10] = TA[13]; 																			// Negative
+					TSR[11] = TALUH[0]; 																			// Carry
 				end
 
 				DIV_IC, DIVC_IC: begin
 					TALUH =	DivQuot_out ;
 					TALUL	=	DivRem_out  ;
-					TSR[11] = 0 ; 			  				 // Carry
-					TSR[10] = TA[13]^TB[13]; 			 // Negative
-					TSR[9] = 0; 							 // V Overflow
 					if (TALUH[13:0] == 0)
 						TSR[8] = 1;	// Zero
 					else
 						TSR[8] = 0;
+					TSR[9] = 0; 							 // V Overflow
+					TSR[10] = TA[13]^TB[13]; 			 // Negative
+					TSR[11] = 0 ; 			  				 // Carry
 				end
 
 				NOT_IC: begin
 					TALUH = ~TA;
-					TSR[10] = TALUH[13];   // Negative
+					TALUL = 0;
 					if (TALUH[13:0] == 0)
-						TSR[8] = 1;	// Zero
+						TSR[8] = 1'b1;	// Zero
 					else
-						TSR[8] = 0;
+						TSR[8] = 1'b0;
+					TSR[9]	 = 1'b0;
+					TSR[10] = TALUH[13]; // Negative
+					TSR[11]	 = 1'b0;
 				end
 
 				AND_IC: begin
 					TALUH = TA & TB;
-					TSR[10] = TALUH[13];		// Negative
+					TALUL = 0;					
 					if (TALUH[13:0] == 0)
-						TSR[8] = 1;				// Zero
+						TSR[8] = 1'b1;	// Zero
 					else
-						TSR[8] = 0;
+						TSR[8] = 1'b0;
+					TSR[9]	 = 1'b0;
+					TSR[10] = TALUH[13]; // Negative
+					TSR[11]	 = 1'b0;
 				end
 
 				OR_IC: begin
 					TALUH = TA | TB;
-					TSR[10] = TALUH[13];		// Negative
+					TALUL = 0;
 					if (TALUH[13:0] == 0)
-						TSR[8] = 1;				// Zero
+						TSR[8] = 1'b1;	// Zero
 					else
-						TSR[8] = 0;
+						TSR[8] = 1'b0;
+					TSR[9]	 = 1'b0;
+					TSR[10] = TALUH[13]; // Negative
+					TSR[11]	 = 1'b0;
 				end
 
 				XOR_IC: begin
 					TALUH = TA ^ TB;
-					TSR[10] = TALUH[13]; // Negative
+					TALUL = 0;
 					if (TALUH[13:0] == 0)
-						TSR[8] = 1;	// Zero
+						TSR[8] = 1'b1;	// Zero
 					else
-						TSR[8] = 0;
+						TSR[8] = 1'b0;
+					TSR[9]	 = 1'b0;
+					TSR[10] = TALUH[13]; // Negative
+					TSR[11]	 = 1'b0;
 				end
 
 				SHLL_IC, SHLA_IC:	begin
@@ -360,6 +378,8 @@ always@(posedge Clock_pin)
 						13: TALUH[13:0]={TA[0], 13'b0000000000000};
 						default : TALUH = 14'b00000000000000;
 					endcase
+					TALUL = 0;
+					TSR = TSR
 				end
 
 				SHRL_IC:	begin
@@ -380,6 +400,8 @@ always@(posedge Clock_pin)
 						13: TALUH[13:0]={13'b0000000000000, TA[13]};											
 						default : TALUH = 14'b00000000000000;
 					endcase
+					TALUL = 0;
+					TSR = TSR
 				end
 
 				SHRA_IC: begin
@@ -399,6 +421,8 @@ always@(posedge Clock_pin)
 						12: TALUH = {{{(13){TA[13]}}}, TA[12]};
 						default : TALUH = {14{TA[13]}};
 					endcase
+					TALUL = 0;
+					TSR = TSR
 				end
 
 				ROTL_IC: begin
@@ -419,6 +443,8 @@ always@(posedge Clock_pin)
 						13: TALUH = {TA[0], TA[13:1]};
 						default : TALUH = TA;
 					endcase
+					TALUL = 0;
+					TSR = TSR
 				end
 
 				ROTR_IC:	begin
@@ -439,6 +465,8 @@ always@(posedge Clock_pin)
 						13: TALUH = {TA[12:0], TA[13]};
 						default : TALUH = TA;
 					endcase
+					TALUL = 0;
+					TSR = TSR
 				end									
 
 				RTLC_IC:	begin
@@ -459,6 +487,8 @@ always@(posedge Clock_pin)
 						14: begin TALUH = {TSR[11], TA[13:1] }; 				TSR[11] = TA[0]; end
 						default : TALUH = TA;
 					endcase
+					TALUL = 0;
+					TSR = TSR
 				end
 
 				RTRC_IC:	begin
@@ -479,7 +509,15 @@ always@(posedge Clock_pin)
 						14: begin TALUH = {TA[12:0], TSR[11]}; 				TSR[11] = TA[13]; end
 						default : TALUH = TA;
 					endcase
-				end			
+					TALUL = 0;
+					TSR = TSR
+				end
+	
+				default: begin
+					TALUH = TALUH;
+					TALUL = TALUL;
+					TSR = TSR
+				end
 
 			endcase
 			
@@ -498,6 +536,7 @@ always@(posedge Clock_pin)
 				case (IR1[13:8])
 					LD_IC, ST_IC, JMP_IC: begin
 						MAB = PM_out;
+				
 						if (IR1[7:4] == 14'h0000)
 												MAX = 0 ;
 						else if (IR1[7:4] == 14'h0001)
@@ -505,7 +544,20 @@ always@(posedge Clock_pin)
 						else if (IR1[7:4] == 14'h0002)
 												MAX = SP ;
 						else
-												MAX = R[IR1[7:4]] ;
+												if (IR2[7:4]==IR1[7:4])
+													MAX = TALUH;
+												else if (((IR2[13:8]==MUL_IC)||(IR2[13:8]==DIV_IC)||(IR2[13:8]==SWAP_IC))&&(IR2[3:0] == IR1[7:4]))
+													MAX = TALUL;
+												else
+													MAX = R[IR1[7:4]];
+						TA = TA;
+						if (IR2[7:4]==IR1[3:0])
+							TB = TALUH;
+						else if (((IR2[13:8]==MUL_IC)||(IR2[13:8]==DIV_IC)||(IR2[13:8]==SWAP_IC))&&(IR2[3:0] == IR1[3:0]))
+							TB = TALUL;
+						else
+							TB = R[IR1[3:0]];
+
 						PC 	=	PC + 1'b1;
 					end
 
@@ -518,52 +570,114 @@ always@(posedge Clock_pin)
 						else if (IR1[7:4] == 14'h0002)
 												MAX = SP ;
 						else
-												MAX = R[IR1[7:4]] ;
+												if (IR2[7:4]==IR1[7:4])
+													MAX = TALUH;
+												else if (((IR2[13:8]==MUL_IC)||(IR2[13:8]==DIV_IC)||(IR2[13:8]==SWAP_IC))&&(IR2[3:0] == IR1[7:4]))
+													MAX = TALUL;
+												else
+													MAX = R[IR1[7:4]];
 						PC 	=	PC + 1'b1;
 						SP		=	SP - 1'b1 ;
+						TA = TA;
+						TB = TB;
 					end
 
 					RET_IC: begin
 						MAeff	=	SP	;
 						SP		=	SP	+	1'b1;
+						TA = TA;
+						TB = TB;
 					end
 
 					CPY_IC: begin
-						TB = R[IR1[3:0]];
+						if (IR2[7:4]==IR1[3:0])
+							TB = TALUH;
+						else if (((IR2[13:8]==MUL_IC)||(IR2[13:8]==DIV_IC)||(IR2[13:8]==SWAP_IC))&&(IR2[3:0] == IR1[3:0]))
+							TB = TALUL;
+						else
+							TB = R[IR1[3:0]];
 					end
 
-					SWAP_IC: begin
-						TA = R[IR1[7:4]];
-						TB = R[IR1[3:0]];
+					SWAP_IC, AND_IC, OR_IC, XOR_IC, MUL_IC, DIV_IC: begin
+						if (IR2[7:4]==IR1[7:4])
+							TA = TALUH;
+						else if (((IR2[13:8]==MUL_IC)||(IR2[13:8]==DIV_IC)||(IR2[13:8]==SWAP_IC))&&(IR2[3:0] == IR1[7:4]))
+							TA = TALUL;
+						else
+							TA = R[IR1[7:4]];
+							
+						if (IR2[7:4]==IR1[3:0])
+							TB = TALUH;
+						else if (((IR2[13:8]==MUL_IC)||(IR2[13:8]==DIV_IC)||(IR2[13:8]==SWAP_IC))&&(IR2[3:0] == IR1[3:0]))
+							TB = TALUL;
+						else
+							TB = R[IR1[3:0]];
 					end
 
 					MULC_IC, DIVC_IC:	begin
-						TA = R[IR1[7:4]];
+						if (IR2[7:4]==IR1[7:4])
+							TA = TALUH;
+						else if (((IR2[13:8]==MUL_IC)||(IR2[13:8]==DIV_IC)||(IR2[13:8]==SWAP_IC))&&(IR2[3:0] == IR1[7:4]))
+							TA = TALUL;
+						else
+							TA = R[IR1[7:4]];
 						TB = {10'b0000000000, IR1[3:0]};
 					end
 
 					ADDC_IC: begin
 						AddSubDir = 1'b1;
-						TA = R[IR1[7:4]];
+						if (IR2[7:4]==IR1[7:4])
+							TA = TALUH;
+						else if (((IR2[13:8]==MUL_IC)||(IR2[13:8]==DIV_IC)||(IR2[13:8]==SWAP_IC))&&(IR2[3:0] == IR1[7:4]))
+							TA = TALUL;
+						else
+							TA = R[IR1[7:4]];
 						TB = {10'b0000000000, IR1[3:0]};
 					end
 
 					SUBC_IC:	begin
 						AddSubDir = 1'b0;
-						TA = R[IR1[7:4]];
+						if (IR2[7:4]==IR1[7:4])
+							TA = TALUH;
+						else if (((IR2[13:8]==MUL_IC)||(IR2[13:8]==DIV_IC)||(IR2[13:8]==SWAP_IC))&&(IR2[3:0] == IR1[7:4]))
+							TA = TALUL;
+						else
+							TA = R[IR1[7:4]];
 						TB = {10'b0000000000, IR1[3:0]};
 					end
 
 					ADD_IC: begin
 						AddSubDir = 1'b1;
-						TA = R[IR1[7:4]];
-						TB = R[IR1[3:0]] ;
+						if (IR2[7:4]==IR1[7:4])
+							TA = TALUH;
+						else if (((IR2[13:8]==MUL_IC)||(IR2[13:8]==DIV_IC)||(IR2[13:8]==SWAP_IC))&&(IR2[3:0] == IR1[7:4]))
+							TA = TALUL;
+						else
+							TA = R[IR1[7:4]];
+							
+						if (IR2[7:4]==IR1[3:0])
+							TB = TALUH;
+						else if (((IR2[13:8]==MUL_IC)||(IR2[13:8]==DIV_IC)||(IR2[13:8]==SWAP_IC))&&(IR2[3:0] == IR1[3:0]))
+							TB = TALUL;
+						else
+							TB = R[IR1[3:0]];
 					end
 
 					SUB_IC: begin
 						AddSubDir = 1'b0;
-						TA = R[IR1[7:4]];
-						TB = R[IR1[3:0]] ;
+						if (IR2[7:4]==IR1[7:4])
+							TA = TALUH;
+						else if (((IR2[13:8]==MUL_IC)||(IR2[13:8]==DIV_IC)||(IR2[13:8]==SWAP_IC))&&(IR2[3:0] == IR1[7:4]))
+							TA = TALUL;
+						else
+							TA = R[IR1[7:4]];
+							
+						if (IR2[7:4]==IR1[3:0])
+							TB = TALUH;
+						else if (((IR2[13:8]==MUL_IC)||(IR2[13:8]==DIV_IC)||(IR2[13:8]==SWAP_IC))&&(IR2[3:0] == IR1[3:0]))
+							TB = TALUL;
+						else
+							TB = R[IR1[3:0]];
 					end
 
 					NOT_IC,
@@ -571,12 +685,19 @@ always@(posedge Clock_pin)
 					SHLA_IC, SHRA_IC,
 					ROTL_IC, ROTR_IC,
 					RTLC_IC, RTRC_IC: begin
-						TA = R[IR1[7:4]];
+						if (IR2[7:4]==IR1[7:4])
+							TA = TALUH;
+						else if (((IR2[13:8]==MUL_IC)||(IR2[13:8]==DIV_IC)||(IR2[13:8]==SWAP_IC))&&(IR2[3:0] == IR1[7:4]))
+							TA = TALUL;
+						else
+							TA = R[IR1[7:4]];
+							
+						TB = TB;
 					end
-
-					default: begin // AND_IC, OR_IC, XOR_IC: 
-						TA = R[IR1[7:4]];
-						TB = R[IR1[3:0]];
+					
+					default : begin					
+						TA = TA;
+						TB = TB;
 					end
 
 				endcase
@@ -587,16 +708,11 @@ always@(posedge Clock_pin)
 
 		end
 
-		
-
-	
 	//----------------------------------------------------------------------------
 		
 		if ( StallMC0 == 1'b0 ) begin
 
 					IR 		=	PM_out;
-					IR[7:4] 	=	{10'h000, PM_out[7:4]};								
-					IR[3:0] 	=	{10'h000, PM_out[3:0]};
 					PC 		=	PC + 1'b1;
 					WR_DM 	=	1'b0;
 					
