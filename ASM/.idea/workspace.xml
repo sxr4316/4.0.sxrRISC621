@@ -2,10 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ebd40a16-e93a-4006-bac7-5f585aa3c2aa" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/ASM.iml" afterPath="$PROJECT_DIR$/.idea/ASM.iml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../simulation/modelsim/ProjectOne.do" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../simulation/modelsim/modelsim.ini" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../simulation/modelsim/rtl_work/_lib.qdb" afterPath="$PROJECT_DIR$/../simulation/modelsim/rtl_work/_lib.qdb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../simulation/modelsim/rtl_work/_lib1_0.qdb" afterPath="$PROJECT_DIR$/../simulation/modelsim/rtl_work/_lib1_0.qdb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../simulation/modelsim/rtl_work/_lib1_0.qpg" afterPath="$PROJECT_DIR$/../simulation/modelsim/rtl_work/_lib1_0.qpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../simulation/modelsim/rtl_work/_lib1_0.qtl" afterPath="$PROJECT_DIR$/../simulation/modelsim/rtl_work/_lib1_0.qtl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../simulation/modelsim/vsim.wlf" afterPath="$PROJECT_DIR$/../simulation/modelsim/vsim.wlf" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sxrASM.py" afterPath="$PROJECT_DIR$/sxrASM.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sxrRISC621_rom.asm" afterPath="$PROJECT_DIR$/sxrRISC621_rom.asm" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../greybox_tmp/cbx_args.txt" afterPath="$PROJECT_DIR$/../greybox_tmp/cbx_args.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../db/prev_cmp_sxrRISC621.qmsg" afterPath="$PROJECT_DIR$/../db/prev_cmp_sxrRISC621.qmsg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../simulation/modelsim/msim_transcript" afterPath="$PROJECT_DIR$/../simulation/modelsim/msim_transcript" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../simulation/modelsim/rtl_work/_info" afterPath="$PROJECT_DIR$/../simulation/modelsim/rtl_work/_info" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../simulation/modelsim/sxrRISC621.vo" afterPath="$PROJECT_DIR$/../simulation/modelsim/sxrRISC621.vo" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../simulation/modelsim/sxrRISC621_rom.ver" afterPath="$PROJECT_DIR$/../simulation/modelsim/sxrRISC621_rom.ver" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../sxrRISC621.v" afterPath="$PROJECT_DIR$/../sxrRISC621.v" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../sxrRISC621_rom.mif" afterPath="$PROJECT_DIR$/../sxrRISC621_rom.mif" />
     </list>
     <ignored path="ASM.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -28,8 +41,8 @@
       <file leaf-file-name="sxrASM.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/sxrASM.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="199">
-              <caret line="810" column="1" selection-start-line="810" selection-start-column="1" selection-end-line="810" selection-end-column="2" />
+            <state relative-caret-position="255">
+              <caret line="689" column="0" selection-start-line="689" selection-start-column="0" selection-end-line="689" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -47,11 +60,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/sxrASM.py" />
+      </list>
+    </option>
+  </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="49" />
-    <option name="y" value="39" />
+    <option name="y" value="52" />
     <option name="width" value="1317" />
-    <option name="height" value="729" />
+    <option name="height" value="716" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -78,7 +98,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
@@ -100,6 +119,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -121,7 +141,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="49" y="39" width="1317" height="729" extended-state="0" />
+    <frame x="49" y="52" width="1317" height="716" extended-state="0" />
     <editor active="false" />
     <layout>
       <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24601367" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -169,8 +189,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/sxrASM.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="199">
-          <caret line="810" column="1" selection-start-line="810" selection-start-column="1" selection-end-line="810" selection-end-column="2" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sxrASM.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sxrASM.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="689" column="0" selection-start-line="689" selection-start-column="0" selection-end-line="689" selection-end-column="0" />
           <folding />
         </state>
       </provider>

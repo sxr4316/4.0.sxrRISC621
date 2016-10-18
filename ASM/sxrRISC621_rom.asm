@@ -29,6 +29,7 @@
 	ADDC R3, 4;
 	ADDC R0, 1;
 	ADDC R1, 2;
+@Label	ST   R2, M[R8 + 0x001];
 	ADDC R2, 3;
 	ADDC R3, 4;
 	ADDC R0, 1;
@@ -37,12 +38,14 @@
 	ADDC R3, 4;
 	ADDC R0, 1;
 	ADDC R1, 2;
+	LD   R2, M[R8 + 0x001];
 	ADDC R2, 3;
 	ADDC R3, 4;
 	ADDC R0, 1;
 	ADDC R0, 1;
 	ADDC R0, 1;
 	ADDC R0, 1;
+	JMP  @Label;
 	ADDC R0, 1;
 	ADDC R0, 1;
 	ADDC R0, 1;

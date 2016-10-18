@@ -625,7 +625,7 @@ for Files in os.listdir("./"):
 
                                         if "R" in code[index + 1]:
 
-                                            ins = str(val) + str(
+                                            Rj = str(
                                                 hex(int(code[index + 1].replace("R", "")))).replace(
                                                 "0x", "")
 
@@ -648,7 +648,7 @@ for Files in os.listdir("./"):
 
                                             if "R" in code[index + 1]:
 
-                                                ins = str(val) + str(hex(
+                                                Rj = str(hex(
                                                     int(code[index + 1].replace("R", "").replace("0x", ""),
                                                         16)).replace("0x", ""))
 
@@ -680,7 +680,9 @@ for Files in os.listdir("./"):
 
                                         if "PC" in code[0]:
 
-                                            ins += str("1")
+                                            Ri = str("1")
+
+                                            ins = str(val)+str(Ri)+str(Rj)
 
                                             rommif.write("\n\t" + str(mifline) + "\t:\t" + str(ins) + ";" + "\t % " + codes.replace("\n","")  + + "\t % ")
 
@@ -690,7 +692,9 @@ for Files in os.listdir("./"):
 
                                         elif "SP" in code[0]:
 
-                                            ins += str("2")
+                                            Ri = str("2")
+
+                                            ins = str(val) + str(Ri) + str(Rj)
 
                                             rommif.write("\n\t" + str(mifline) + "\t:\t" + str(ins)  + ";"+ "\t % " + codes.replace("\n","")  + "\t % ")
 
@@ -700,9 +704,11 @@ for Files in os.listdir("./"):
 
                                         elif "R" in code[0] and (2 < int(code[0].replace("R", ""), 16) < 16):
 
-                                            ins += str(
+                                            Ri = str(
                                                 hex(int(code[0].replace("R", "")))).replace(
                                                 "0x", "")
+
+                                            ins = str(val) + str(Ri) + str(Rj)
 
                                             rommif.write("\n\t" + str(mifline) + "\t:\t" + str(ins)  + ";"+ "\t % " + codes.replace("\n","")  + "\t % ")
 
@@ -712,7 +718,9 @@ for Files in os.listdir("./"):
 
                                         else:
 
-                                            ins += "0"
+                                            Ri = str("0")
+
+                                            ins = str(val) + str(Ri) + str(Rj)
 
                                             rommif.write("\n\t" + str(mifline) + "\t:\t" + str(ins)  + ";"+ "\t % " + codes.replace("\n","")  + "\t % ")
 
