@@ -10,90 +10,90 @@
 # 
 # vlog -vlog01compat -work work +incdir+/home/sxr4316/ee621/sxrRISC621 {/home/sxr4316/ee621/sxrRISC621/sxrRISC621.v}
 # Model Technology ModelSim ALTERA vlog 10.4b Compiler 2015.05 May 27 2015
-# Start time: 11:33:41 on Oct 19,2016
+# Start time: 12:07:52 on Oct 19,2016
 # vlog -reportprogress 300 -vlog01compat -work work "+incdir+/home/sxr4316/ee621/sxrRISC621" /home/sxr4316/ee621/sxrRISC621/sxrRISC621.v 
 # -- Compiling module sxrRISC621
 # ** Warning: /home/sxr4316/ee621/sxrRISC621/sxrRISC621.v(47): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
 # 
 # Top level modules:
 # 	sxrRISC621
-# End time: 11:33:41 on Oct 19,2016, Elapsed time: 0:00:00
+# End time: 12:07:52 on Oct 19,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 1
 # vlog -vlog01compat -work work +incdir+/home/sxr4316/ee621/sxrRISC621 {/home/sxr4316/ee621/sxrRISC621/sxrRISC621_rom.v}
 # Model Technology ModelSim ALTERA vlog 10.4b Compiler 2015.05 May 27 2015
-# Start time: 11:33:41 on Oct 19,2016
+# Start time: 12:07:52 on Oct 19,2016
 # vlog -reportprogress 300 -vlog01compat -work work "+incdir+/home/sxr4316/ee621/sxrRISC621" /home/sxr4316/ee621/sxrRISC621/sxrRISC621_rom.v 
 # -- Compiling module sxrRISC621_rom
 # 
 # Top level modules:
 # 	sxrRISC621_rom
-# End time: 11:33:41 on Oct 19,2016, Elapsed time: 0:00:00
+# End time: 12:07:52 on Oct 19,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -vlog01compat -work work +incdir+/home/sxr4316/ee621/sxrRISC621 {/home/sxr4316/ee621/sxrRISC621/sxrRISC621_ram.v}
 # Model Technology ModelSim ALTERA vlog 10.4b Compiler 2015.05 May 27 2015
-# Start time: 11:33:41 on Oct 19,2016
+# Start time: 12:07:52 on Oct 19,2016
 # vlog -reportprogress 300 -vlog01compat -work work "+incdir+/home/sxr4316/ee621/sxrRISC621" /home/sxr4316/ee621/sxrRISC621/sxrRISC621_ram.v 
 # -- Compiling module sxrRISC621_ram
 # 
 # Top level modules:
 # 	sxrRISC621_ram
-# End time: 11:33:41 on Oct 19,2016, Elapsed time: 0:00:00
+# End time: 12:07:52 on Oct 19,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -vlog01compat -work work +incdir+/home/sxr4316/ee621/sxrRISC621 {/home/sxr4316/ee621/sxrRISC621/sxrRISC621_mult.v}
 # Model Technology ModelSim ALTERA vlog 10.4b Compiler 2015.05 May 27 2015
-# Start time: 11:33:41 on Oct 19,2016
+# Start time: 12:07:52 on Oct 19,2016
 # vlog -reportprogress 300 -vlog01compat -work work "+incdir+/home/sxr4316/ee621/sxrRISC621" /home/sxr4316/ee621/sxrRISC621/sxrRISC621_mult.v 
 # -- Compiling module sxrRISC621_mult
 # 
 # Top level modules:
 # 	sxrRISC621_mult
-# End time: 11:33:41 on Oct 19,2016, Elapsed time: 0:00:00
+# End time: 12:07:52 on Oct 19,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -vlog01compat -work work +incdir+/home/sxr4316/ee621/sxrRISC621 {/home/sxr4316/ee621/sxrRISC621/sxrRISC621_div.v}
 # Model Technology ModelSim ALTERA vlog 10.4b Compiler 2015.05 May 27 2015
-# Start time: 11:33:41 on Oct 19,2016
+# Start time: 12:07:52 on Oct 19,2016
 # vlog -reportprogress 300 -vlog01compat -work work "+incdir+/home/sxr4316/ee621/sxrRISC621" /home/sxr4316/ee621/sxrRISC621/sxrRISC621_div.v 
 # -- Compiling module sxrRISC621_div
 # 
 # Top level modules:
 # 	sxrRISC621_div
-# End time: 11:33:41 on Oct 19,2016, Elapsed time: 0:00:00
+# End time: 12:07:52 on Oct 19,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -vlog01compat -work work +incdir+/home/sxr4316/ee621/sxrRISC621 {/home/sxr4316/ee621/sxrRISC621/sxrRISC621_addsub.v}
 # Model Technology ModelSim ALTERA vlog 10.4b Compiler 2015.05 May 27 2015
-# Start time: 11:33:41 on Oct 19,2016
+# Start time: 12:07:52 on Oct 19,2016
 # vlog -reportprogress 300 -vlog01compat -work work "+incdir+/home/sxr4316/ee621/sxrRISC621" /home/sxr4316/ee621/sxrRISC621/sxrRISC621_addsub.v 
 # -- Compiling module sxrRISC621_addsub
 # 
 # Top level modules:
 # 	sxrRISC621_addsub
-# End time: 11:33:41 on Oct 19,2016, Elapsed time: 0:00:00
+# End time: 12:07:52 on Oct 19,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -vlog01compat -work work +incdir+/home/sxr4316/ee621/sxrRISC621/db {/home/sxr4316/ee621/sxrRISC621/db/mult_81n.v}
 # Model Technology ModelSim ALTERA vlog 10.4b Compiler 2015.05 May 27 2015
-# Start time: 11:33:41 on Oct 19,2016
+# Start time: 12:07:53 on Oct 19,2016
 # vlog -reportprogress 300 -vlog01compat -work work "+incdir+/home/sxr4316/ee621/sxrRISC621/db" /home/sxr4316/ee621/sxrRISC621/db/mult_81n.v 
 # -- Compiling module mult_81n
 # 
 # Top level modules:
 # 	mult_81n
-# End time: 11:33:41 on Oct 19,2016, Elapsed time: 0:00:00
+# End time: 12:07:53 on Oct 19,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
 # vlog -vlog01compat -work work +incdir+/home/sxr4316/ee621/sxrRISC621 {/home/sxr4316/ee621/sxrRISC621/sxrRISC621_tb.v}
 # Model Technology ModelSim ALTERA vlog 10.4b Compiler 2015.05 May 27 2015
-# Start time: 11:33:41 on Oct 19,2016
+# Start time: 12:07:53 on Oct 19,2016
 # vlog -reportprogress 300 -vlog01compat -work work "+incdir+/home/sxr4316/ee621/sxrRISC621" /home/sxr4316/ee621/sxrRISC621/sxrRISC621_tb.v 
 # -- Compiling module sxrRISC621_tb
 # 
 # Top level modules:
 # 	sxrRISC621_tb
-# End time: 11:33:41 on Oct 19,2016, Elapsed time: 0:00:00
+# End time: 12:07:53 on Oct 19,2016, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
 # vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L rtl_work -L work -voptargs="+acc"  sxrRISC621_tb
 # vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L rtl_work -L work -voptargs=""+acc"" sxrRISC621_tb 
-# Start time: 11:33:42 on Oct 19,2016
+# Start time: 12:07:53 on Oct 19,2016
 # Loading work.sxrRISC621_tb
 # Loading work.sxrRISC621
 # Loading work.sxrRISC621_rom
@@ -121,6 +121,5 @@
 do /home/sxr4316/ee621/sxrRISC621/simulation/modelsim/Simulation.do
 restart
 run -all
-quit
-# End time: 11:38:48 on Oct 19,2016, Elapsed time: 0:05:06
+# End time: 12:13:39 on Oct 19,2016, Elapsed time: 0:05:46
 # Errors: 0, Warnings: 0
