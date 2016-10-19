@@ -519,16 +519,11 @@ always@(posedge Clock_pin)
     end
 
    endcase
-   
-    IR3       = IR2;
-	 StallMC3  = 1'b0;
-   
-  end else begin
-     IR3      = IR2;
-	  StallMC3 = 1'b1;
-  end
-
+ end
  
+ IR3       = IR2;
+ StallMC3  = StallMC2;
+
  //----------------------------------------------------------------------------
 
   if ( StallMC1 == 1'b0 ) begin
@@ -702,13 +697,11 @@ always@(posedge Clock_pin)
 
     endcase
 
-    IR2		  = IR1;
-	 StallMC2  = 1'b0;
-   
-  end else begin
-     IR2      = IR1 ;
-	  StallMC2 = 1'b1;
-  end
+   end
+ 
+ IR2 = IR1 ;
+ 
+ StallMC2 = StallMC1;
 
  //----------------------------------------------------------------------------
   
@@ -716,12 +709,12 @@ always@(posedge Clock_pin)
 
      IR       = PM_out;
      PC       = PC + 1'b1;
-     IR1      = IR ;
-	  StallMC1 = 1'b0;
-  end else begin
-     IR1      = IR ;
-	  StallMC1 = 1'b1;
-  end
+
+	end
+  
+  IR1 = IR ;
+  
+  StallMC1 = StallMC0;
 
   if ((IR3[13:8]==JMP_IC)||(IR3[13:8]==CALL_IC)||(IR3[13:8]==RET_IC)) begin
 		StallMC0 = 1'b1; IR = 14'h0000;
