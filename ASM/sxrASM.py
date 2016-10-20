@@ -36,7 +36,6 @@ srcfile = ""
 try:
 
     if len(args):
-
         print "\nCOMMAND ERROR : Non recogonizable commands / options present in command line"
 
         exiterror = 1
@@ -106,14 +105,15 @@ sectionactive = 0
 
 f = ""
 
-try :
+try:
 
-    keyfile = open("keywords.lst",'r')
+    keyfile = open("keywords.lst", 'r')
 
-except IOError :
+except IOError:
 
-    keyfile = open("keywords.lst",'w')
+    keyfile = open("keywords.lst", 'w')
 
+    keyfile.write("NOP    00    -1\n")
     keyfile.write("RET    12    -1\n")
     keyfile.write("NOT    28     0\n")
     keyfile.write("ADDC   22     1\n")
@@ -152,6 +152,10 @@ except IOError :
 
     keyfile.close()
 
+old = ""
+
+new = ""
+
 if srcfile != "":
 
     try:
@@ -168,6 +172,14 @@ if srcfile != "":
 
                 words = temp.split()
 
+                try:
+                    if "@" not in words[0]:
+                        new = words[0]
+                    else:
+                        new = words[1]
+                except IndexError:
+                    pass;
+
                 EoC = 0
 
                 Valid = 0
@@ -175,6 +187,7 @@ if srcfile != "":
                 for word in words:
 
                     if ';' in word:
+
                         EoC = 1
 
                     if (EoC == 0) and ("." in word):
@@ -198,12 +211,22 @@ if srcfile != "":
                             print "Illegal section definition @" + str(line) + " : " + str(o)
 
                     if (EoC == 0) and (sectionactive == 1) and ("." not in word):
+
+                        if (old == "LD" or old == "ST") and (new == "CALL" or new == "RET"):
+
+                            currfile.write("NOP;\n")
+
+                            old = new
+
                         Valid = 1
 
                         currfile.write(word + " ")
 
                 if (sectionactive == 1) and ("." not in word) and (Valid == 1):
+
                     currfile.write("\n")
+
+                    old = new
 
     except IOError as e:
 
@@ -682,9 +705,10 @@ for Files in os.listdir("./"):
 
                                             Ri = str("1")
 
-                                            ins = str(val)+str(Ri)+str(Rj)
+                                            ins = str(val) + str(Ri) + str(Rj)
 
-                                            rommif.write("\n\t" + str(mifline) + "\t:\t" + str(ins) + ";" + "\t % " + codes.replace("\n","")  + + "\t % ")
+                                            rommif.write("\n\t" + str(mifline) + "\t:\t" + str(
+                                                ins) + ";" + "\t % " + codes.replace("\n", "") + + "\t % ")
 
                                             mifline += 1
 
@@ -696,7 +720,8 @@ for Files in os.listdir("./"):
 
                                             ins = str(val) + str(Ri) + str(Rj)
 
-                                            rommif.write("\n\t" + str(mifline) + "\t:\t" + str(ins)  + ";"+ "\t % " + codes.replace("\n","")  + "\t % ")
+                                            rommif.write("\n\t" + str(mifline) + "\t:\t" + str(
+                                                ins) + ";" + "\t % " + codes.replace("\n", "") + "\t % ")
 
                                             mifline += 1
 
@@ -710,7 +735,8 @@ for Files in os.listdir("./"):
 
                                             ins = str(val) + str(Ri) + str(Rj)
 
-                                            rommif.write("\n\t" + str(mifline) + "\t:\t" + str(ins)  + ";"+ "\t % " + codes.replace("\n","")  + "\t % ")
+                                            rommif.write("\n\t" + str(mifline) + "\t:\t" + str(
+                                                ins) + ";" + "\t % " + codes.replace("\n", "") + "\t % ")
 
                                             mifline += 1
 
@@ -722,7 +748,8 @@ for Files in os.listdir("./"):
 
                                             ins = str(val) + str(Ri) + str(Rj)
 
-                                            rommif.write("\n\t" + str(mifline) + "\t:\t" + str(ins)  + ";"+ "\t % " + codes.replace("\n","")  + "\t % ")
+                                            rommif.write("\n\t" + str(mifline) + "\t:\t" + str(
+                                                ins) + ";" + "\t % " + codes.replace("\n", "") + "\t % ")
 
                                             mifline += 1
 
@@ -750,7 +777,8 @@ for Files in os.listdir("./"):
 
                                             ins = str("0") * (4 - len(str(ins))) + str(ins)
 
-                                            rommif.write("\n\t" + str(mifline) + "\t:\t" + str(ins)  + ";"+ "\t % " + codes.replace("\n","")  + "\t % ")
+                                            rommif.write("\n\t" + str(mifline) + "\t:\t" + str(
+                                                ins) + ";" + "\t % " + codes.replace("\n", "") + "\t % ")
 
                                             mifline += 1
 
@@ -782,7 +810,8 @@ for Files in os.listdir("./"):
 
                                                 ins = str("0") * (4 - len(str(ins))) + str(ins)
 
-                                                rommif.write("\n\t" + str(mifline) + "\t:\t" + str(ins)  + ";"+ "\t % " + codes.replace("\n","")  + "\t % ")
+                                                rommif.write("\n\t" + str(mifline) + "\t:\t" + str(
+                                                    ins) + ";" + "\t % " + codes.replace("\n", "") + "\t % ")
 
                                                 mifline += 1
 
@@ -809,7 +838,9 @@ for Files in os.listdir("./"):
                                             sys.exit()
 
                                 if (num != 3) and (num != 4) and (ins != ""):
-                                    rommif.write("\n\t" + str(mifline) + "\t:\t" + str(ins) + ";" + "\t % " + codes.replace("\n","") + "\t % ")
+                                    rommif.write(
+                                        "\n\t" + str(mifline) + "\t:\t" + str(ins) + ";" + "\t % " + codes.replace("\n",
+                                                                                                                   "") + "\t % ")
 
                                     mifline += 1
 
@@ -825,8 +856,8 @@ for Files in os.listdir("./"):
                 rommif.write("\n\nEND;")
 
                 rommif.close()
-				
-                shutil.copy(str(srcfile.replace(".", " ")).split()[0] + ".mif","./../sxrRISC621_rom.mif")
+
+                shutil.copy(str(srcfile.replace(".", " ")).split()[0] + ".mif", "./../sxrRISC621_rom.mif")
 
         except IOError as e:
 
@@ -837,8 +868,8 @@ for Files in os.listdir("./"):
 for Files in os.listdir("./"):
 
     if Files.endswith(".temp"):
-        os.remove(Files)
-
-print "Processing Complete \n Source Assembly File : "+srcfile+"\n Output MIF file : "+outfile+"\n"
+        #        os.remove(Files)
+        pass;
+print "Processing Complete \n Source Assembly File : " + srcfile + "\n Output MIF file : " + outfile + "\n"
 
 sys.exit()
