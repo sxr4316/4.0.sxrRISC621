@@ -1,7 +1,7 @@
 {
-	"common_dir" : "/home/sxr4316/ee621/sxrRISC621/",
-	"acds_version" : "Version 15.1.2",
-	"platform" : "linux",
-	"os" : "Ubuntu 16.04.1",
+	"common_dir" : "C:/Users/sxr4316/Downloads/sxrRISC621/",
+	"acds_version" : "Version 15.1.0",
+	"platform" : "windows",
+	"os" : "Windows 7",
 	"qpf" : "sxrRISC621.qpf"
 }
