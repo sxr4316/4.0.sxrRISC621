@@ -21,7 +21,7 @@ always @ (data_in)
 			eq = 4'h0008;
 		
 		default:
-			eq = 16'h0000;
+			eq = 4'h0000;
 		
 	endcase
 	

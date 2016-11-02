@@ -153,7 +153,7 @@ always@(posedge Clock_pin)
     end
 
     ST_IC: begin
-     if (MAeff[13:8] != 6'hFF) begin
+     if (MAeff[13:8] != 6'h3F) begin
       DM_in = TALUL;
       WR_DM = 1'b1;
      end

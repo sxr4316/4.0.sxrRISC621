@@ -1,0 +1,55 @@
+Quartus Prime Archive log --	/home/sxr4316/ee621/sxrRISC621/sxrRISC621.qarlog
+
+Archive:	/home/sxr4316/ee621/sxrRISC621/sxrRISC621.qar
+Date:		Wed Nov  2 07:18:41 2016
+Quartus Prime		15.1.2 Build 193 02/01/2016 SJ Lite Edition
+
+	=========== Files Selected: ===========
+/home/sxr4316/ee621/sxrRISC621/assignment_defaults.qdf
+/home/sxr4316/ee621/sxrRISC621/sxrRISC621.qpf
+/home/sxr4316/ee621/sxrRISC621/sxrRISC621.qsf
+/home/sxr4316/ee621/sxrRISC621/sxrRISC621.v
+/home/sxr4316/ee621/sxrRISC621/sxrRISC621_addsub.bsf
+/home/sxr4316/ee621/sxrRISC621/sxrRISC621_addsub.qip
+/home/sxr4316/ee621/sxrRISC621/sxrRISC621_addsub.v
+/home/sxr4316/ee621/sxrRISC621/sxrRISC621_addsub_bb.v
+/home/sxr4316/ee621/sxrRISC621/sxrRISC621_assignment_defaults.qdf
+/home/sxr4316/ee621/sxrRISC621/sxrRISC621_cache.bsf
+/home/sxr4316/ee621/sxrRISC621/sxrRISC621_cache.cmp
+/home/sxr4316/ee621/sxrRISC621/sxrRISC621_cache.qip
+/home/sxr4316/ee621/sxrRISC621/sxrRISC621_cache.v
+/home/sxr4316/ee621/sxrRISC621/sxrRISC621_cache_bb.v
+/home/sxr4316/ee621/sxrRISC621/sxrRISC621_cam.v
+/home/sxr4316/ee621/sxrRISC621/sxrRISC621_cram.v
+/home/sxr4316/ee621/sxrRISC621/sxrRISC621_crom.v
+/home/sxr4316/ee621/sxrRISC621/sxrRISC621_div.bsf
+/home/sxr4316/ee621/sxrRISC621/sxrRISC621_div.qip
+/home/sxr4316/ee621/sxrRISC621/sxrRISC621_div.v
+/home/sxr4316/ee621/sxrRISC621/sxrRISC621_div_bb.v
+/home/sxr4316/ee621/sxrRISC621/sxrRISC621_grp.v
+/home/sxr4316/ee621/sxrRISC621/sxrRISC621_mult.bsf
+/home/sxr4316/ee621/sxrRISC621/sxrRISC621_mult.qip
+/home/sxr4316/ee621/sxrRISC621/sxrRISC621_mult.v
+/home/sxr4316/ee621/sxrRISC621/sxrRISC621_mult_bb.v
+/home/sxr4316/ee621/sxrRISC621/sxrRISC621_pll.cmp
+/home/sxr4316/ee621/sxrRISC621/sxrRISC621_pll.qip
+/home/sxr4316/ee621/sxrRISC621/sxrRISC621_pll.sip
+/home/sxr4316/ee621/sxrRISC621/sxrRISC621_pll.spd
+/home/sxr4316/ee621/sxrRISC621/sxrRISC621_pll.v
+/home/sxr4316/ee621/sxrRISC621/sxrRISC621_pll/sxrRISC621_pll_0002.qip
+/home/sxr4316/ee621/sxrRISC621/sxrRISC621_pll/sxrRISC621_pll_0002.v
+/home/sxr4316/ee621/sxrRISC621/sxrRISC621_pll_sim/sxrRISC621_pll.vo
+/home/sxr4316/ee621/sxrRISC621/sxrRISC621_ram.bsf
+/home/sxr4316/ee621/sxrRISC621/sxrRISC621_ram.qip
+/home/sxr4316/ee621/sxrRISC621/sxrRISC621_ram.v
+/home/sxr4316/ee621/sxrRISC621/sxrRISC621_ram_bb.v
+/home/sxr4316/ee621/sxrRISC621/sxrRISC621_rom.bsf
+/home/sxr4316/ee621/sxrRISC621/sxrRISC621_rom.mif
+/home/sxr4316/ee621/sxrRISC621/sxrRISC621_rom.qip
+/home/sxr4316/ee621/sxrRISC621/sxrRISC621_rom.v
+/home/sxr4316/ee621/sxrRISC621/sxrRISC621_rom_bb.v
+/home/sxr4316/ee621/sxrRISC621/sxrRISC621_tb.v
+	======= Total: 44 files to archive =======
+
+	================ Status: ===============
+All files archived successfully.

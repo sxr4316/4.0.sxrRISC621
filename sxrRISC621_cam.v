@@ -32,8 +32,6 @@ module sxrRISC621_cam (we_n, rd_n, din, argin, addrs, dout, mbits);
 	always @ (we_n, din, addrs)	begin
 		if (we_n == 0)
 					cam_mem[addrs] = din;
-		else
-					cam_mem[addrs] = cam_mem[addrs];
 	end
 	
 //----------------------------------------------------------------------------
