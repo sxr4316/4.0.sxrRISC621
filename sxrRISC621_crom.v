@@ -47,6 +47,10 @@ reg	[4:0] transfer_count;
 
 reg	[1:0]	GrpID;
 
+wire Reset ;
+
+assign Reset = ~Resetn; 
+
 //----------------------------------------------------------------------------
 // 8-bit Block Address | 2-bit Group Address | 4-bit Word Address
 //----------------------------------------------------------------------------
@@ -55,7 +59,7 @@ reg	[1:0]	GrpID;
 // The PLL unit/block generates three clock phases to sequence all events
 //----------------------------------------------------------------------------
 
-	sxrRISC621_pll	rom_pll 	(Clock, c0, c1, c2);
+	sxrRISC621_pll	rom_pll 	(Clock, Reset, c0, c1, c2);
 	
 //----------------------------------------------------------------------------
 // I'm using two separate CAM memories for the two-way TAG identification
@@ -129,8 +133,6 @@ always @ (posedge c0) begin
 
 		if (miss == 0) begin
 
-			StBusy = 0 ;
-		
 			we_n0 = 1; we_n1 = 1; we_n2 = 1; we_n3 = 1;
 			
 //----------------------------------------------------------------------------
@@ -138,33 +140,37 @@ always @ (posedge c0) begin
 // Then, all are logically OR-ed using the OR reduction operator.
 //----------------------------------------------------------------------------
 
-			if ( (|(mbits0 & GrpDecd)) && StValid[({2'b00,GrpID})] ) begin
+			if ( (|(mbits0 & GrpDecd)) && (StValid[({2'b00,GrpID})]==1'b1) ) begin
 			
 //----------------------------------------------------------------------------
 // Concatenated group and word address fields.
 //----------------------------------------------------------------------------
 
 				PMC_address = {2'b00, PM_address[5:0]}; 
+				
+				StBusy = 0 ;
 
 //----------------------------------------------------------------------------
 // Apply the replacing strategy: if this block was accessed now and a 
 //    replacement will be necessary next, replace the other block.
 //----------------------------------------------------------------------------
 
-			end else if ( (|(mbits1 & GrpDecd)) && StValid[({2'b01,GrpID})] ) begin
+			end else if ( (|(mbits1 & GrpDecd)) && (StValid[({2'b01,GrpID})] == 1'b1) ) begin
 			
 //----------------------------------------------------------------------------
 // Concatenated group and word address fields.
 //----------------------------------------------------------------------------
 
 				PMC_address = {2'b01, PM_address[5:0]}; 
+
+				StBusy = 0 ;
 				
 //----------------------------------------------------------------------------
 // Apply the replacing strategy: if this block was accessed now and a 
 //    replacement will be necessary next, replace the other block.
 //----------------------------------------------------------------------------
 
-			end else	if ( (|(mbits2 & GrpDecd)) && StValid[({2'b10,GrpID})] ) begin
+			end else	if ( (|(mbits2 & GrpDecd)) && (StValid[({2'b10,GrpID})] == 1'b1) ) begin
 			
 //----------------------------------------------------------------------------
 // Concatenated group and word address fields.
@@ -172,12 +178,14 @@ always @ (posedge c0) begin
 
 				PMC_address = {2'b10, PM_address[5:0]}; 
 
+				StBusy = 0 ;				
+								
 //----------------------------------------------------------------------------
 // Apply the replacing strategy: if this block was accessed now and a 
 //    replacement will be necessary next, replace the other block.
 //----------------------------------------------------------------------------
 				
-			end else	if ( (|(mbits3 & GrpDecd)) && StValid[({2'b11,GrpID})] ) begin
+			end else	if ( (|(mbits3 & GrpDecd)) && (StValid[({2'b11,GrpID})] == 1'b1) ) begin
 			
 //----------------------------------------------------------------------------
 // Concatenated group and word address fields.
@@ -185,6 +193,8 @@ always @ (posedge c0) begin
 
 				PMC_address = {2'b11, PM_address[5:0]}; 
 
+				StBusy = 0 ;
+				
 //----------------------------------------------------------------------------
 // Apply the replacing strategy: if this block was accessed now and a 
 //    replacement will be necessary next, replace the other block.
@@ -250,7 +260,7 @@ always @ (posedge c0) begin
 		
 		if (transfer_count == 5'b10001) begin
 		
-			miss = 0; wren = 0; transfer_count = 5'b00000;
+			miss = 0; wren = 0; transfer_count = 5'b00000; StBusy = 0 ;
 			
 				if (replace[GrpID] == 0) begin
 

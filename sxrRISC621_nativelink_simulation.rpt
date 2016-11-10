@@ -1,12 +1,12 @@
 Info: Start Nativelink Simulation process
-Info: NativeLink has detected Verilog design -- Verilog simulation models will be used
+executing command line: ip-make-simscript --nativelink-mode --output-directory=sxrRISC621_iputf_input --spd=/home/sxr4316/ee621/sxrRISC621/sxrRISC621_pll.spd 
 
 ========= EDA Simulation Settings =====================
 
 Sim Mode              :  RTL
 Family                :  cyclonev
-Quartus root          :  /home/sxr4316/altera/quartus/linux64/
-Quartus sim root      :  /home/sxr4316/altera/quartus/eda/sim_lib
+Quartus root          :  /home/sxr4316/.altera/quartus/linux64/
+Quartus sim root      :  /home/sxr4316/.altera/quartus/eda/sim_lib
 Simulation Tool       :  modelsim-altera
 Simulation Language   :  verilog
 Simulation Mode       :  GUI
@@ -17,5 +17,6 @@ Sim dir               :  simulation/modelsim
 =======================================================
 
 Info: Starting NativeLink simulation with ModelSim-Altera software
-Sourced NativeLink script /home/sxr4316/altera/quartus/common/tcl/internal/nativelink/modelsim.tcl
+Sourced NativeLink script /home/sxr4316/.altera/quartus/common/tcl/internal/nativelink/modelsim.tcl
+Warning: File sxrRISC621_run_msim_rtl_verilog.do already exists - backing up current file as sxrRISC621_run_msim_rtl_verilog.do.bak11
 Info: Spawning ModelSim-Altera Simulation software 

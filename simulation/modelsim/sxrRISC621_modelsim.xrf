@@ -23,7 +23,6 @@ source_file = 1, /home/sxr4316/ee621/sxrRISC621/sxrRISC621_crom.v
 source_file = 1, /home/sxr4316/ee621/sxrRISC621/sxrRISC621_cam.v
 source_file = 1, /home/sxr4316/ee621/sxrRISC621/sxrRISC621_grp.v
 source_file = 1, /home/sxr4316/ee621/sxrRISC621/sxrRISC621_cram.v
-source_file = 1, /home/sxr4316/.altera/quartus/libraries/megafunctions/altera_pll.v
 source_file = 1, /home/sxr4316/.altera/quartus/libraries/megafunctions/altsyncram.tdf
 source_file = 1, /home/sxr4316/.altera/quartus/libraries/megafunctions/stratix_ram_block.inc
 source_file = 1, /home/sxr4316/.altera/quartus/libraries/megafunctions/lpm_mux.inc

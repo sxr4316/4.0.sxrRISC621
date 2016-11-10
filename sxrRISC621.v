@@ -96,9 +96,9 @@ wire 			stROMBusy, stRAMBusy;
 
 assign Clock_not = ~Clock_pin;
 
-sxrRISC621_crom  my_romcached   (Resetn_pin, stROMBusy, PC[13:0], 	 Clock_not, PM_out);
+sxrRISC621_crom  my_romcached   (Resetn_pin, stROMBusy, PC[13:0], Clock_not, PM_out);
 
-sxrRISC621_cram  my_ramcached   (Resetn_pin, stRAMBusy, MAeff[13:0], Clock_not, DM_in, WR_DM, DM_out);
+//sxrRISC621_cram  my_ramcached   (Resetn_pin, stRAMBusy, MAeff[13:0], Clock_not, DM_in, WR_DM, DM_out);
 
 sxrRISC621_mult my_mult   (TA, TB, Mul_out);
 
