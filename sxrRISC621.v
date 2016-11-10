@@ -42,9 +42,9 @@ parameter [5:0]  NOP_IC = 6'b000000,   // 0x00
        ROTL_IC = 6'b110000,   // 0x30
        ROTR_IC = 6'b110001,   // 0x31
        RTLC_IC = 6'b110010,   // 0x32
-       RTRC_IC = 6'b110011;   // 0x33
+       RTRC_IC = 6'b110011,   // 0x33
 		 
-		 ADDV_IC	=	6'b111000;   // 0x38
+		 ADDV_IC	=	6'b111000,   // 0x38
 		 SUBV_IC	=	6'b111001;   // 0x39
 
 parameter [3:0]  JU   = 4'h0000,    // 0x0
@@ -61,7 +61,7 @@ parameter [3:0]  JU   = 4'h0000,    // 0x0
 //-- Declare internal signals
 //----------------------------------------------------------------------------
 
-wire     	 Cflg, Vflg CflgA, VflgA, CflgB, VflgB;
+wire     	 Cflg, Vflg, CflgA, VflgA, CflgB, VflgB;
 wire     	 C, Clock_not;
 wire [13:0]  PM_out, DM_out;
 wire [6:0]   AddSub_VecOutA, AddSub_VecOutB;
