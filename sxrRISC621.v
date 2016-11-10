@@ -15,26 +15,26 @@ parameter [1:0]   MC0 = 2'b00, MC1=2'b01, MC2=2'b10, MC3=2'b11;
 parameter [5:0]  NOP_IC = 6'b000000,   // 0x00
 
        LD_IC  = 6'b000001,    // 0x01
-       ST_IC  = 6'b000010,   // 0x02
-       CPY_IC = 6'b000011,   // 0x03
+       ST_IC  = 6'b000010,    // 0x02
+       CPY_IC = 6'b000011,    // 0x03
        SWAP_IC = 6'b000100,   // 0x04
 
-       JMP_IC = 6'b010000,   // 0x10
+       JMP_IC = 6'b010000,    // 0x10
        CALL_IC = 6'b010001,   // 0x11
-       RET_IC = 6'b010010,   // 0x12
+       RET_IC = 6'b010010,    // 0x12
 
-       ADD_IC = 6'b100000,   // 0x20
-       SUB_IC = 6'b100001,   // 0x21
+       ADD_IC = 6'b100000,    // 0x20
+       SUB_IC = 6'b100001,    // 0x21
        ADDC_IC = 6'b100010,   // 0x22
        SUBC_IC = 6'b100011,   // 0x23
-       MUL_IC = 6'b100100,   // 0x24
-       DIV_IC = 6'b100101,   // 0x25
+       MUL_IC = 6'b100100,    // 0x24
+       DIV_IC = 6'b100101,    // 0x25
        MULC_IC = 6'b100110,   // 0x26
        DIVC_IC = 6'b100111,   // 0x27
-       NOT_IC = 6'b101000,   // 0x28
-       AND_IC = 6'b101001,   // 0x29
-       OR_IC  = 6'b101010,   // 0x2A
-       XOR_IC = 6'b101011,   // 0x2B
+       NOT_IC = 6'b101000,    // 0x28
+       AND_IC = 6'b101001,    // 0x29
+       OR_IC  = 6'b101010,    // 0x2A
+       XOR_IC = 6'b101011,    // 0x2B
        SHLL_IC = 6'b101100,   // 0x2C
        SHRL_IC = 6'b101101,   // 0x2D
        SHLA_IC = 6'b101110,   // 0x2E
@@ -43,6 +43,9 @@ parameter [5:0]  NOP_IC = 6'b000000,   // 0x00
        ROTR_IC = 6'b110001,   // 0x31
        RTLC_IC = 6'b110010,   // 0x32
        RTRC_IC = 6'b110011;   // 0x33
+		 
+		 ADDV_IC	=	6'b111000;   // 0x38
+		 SUBV_IC	=	6'b111001;   // 0x39
 
 parameter [3:0]  JU   = 4'h0000,    // 0x0
        JC1  = 4'b1000,    // 0x8
@@ -58,13 +61,14 @@ parameter [3:0]  JU   = 4'h0000,    // 0x0
 //-- Declare internal signals
 //----------------------------------------------------------------------------
 
-wire     Cflg, Vflg ;
-wire     C, Clock_not;
+wire     	 Cflg, Vflg CflgA, VflgA, CflgB, VflgB;
+wire     	 C, Clock_not;
 wire [13:0]  PM_out, DM_out;
+wire [6:0]   AddSub_VecOutA, AddSub_VecOutB;
 wire [13:0]  AddSub_out, DivQuot_out, DivRem_out;
 wire [27:0]  Mul_out;
 
-reg     AddSubDir, WR_DM;
+reg     		 AddSubDir, WR_DM;
 
 reg [7:0]   Display_pin;
 reg [11:0]  TSR, SR;
@@ -103,6 +107,10 @@ sxrRISC621_mult my_mult   (TA, TB, Mul_out);
 sxrRISC621_div  my_div  (TB, TA, DivQuot_out, DivRem_out);
 
 sxrRISC621_addsub my_addsub (AddSubDir, TA, TB, Cflg, Vflg, AddSub_out);
+
+sxrRISC621_vaddsub my_vecaddsubA (AddSubDir, TA[13:7], TB[13:7], CflgA, VflgA, AddSub_VecOutA);
+
+sxrRISC621_vaddsub my_vecaddsubB (AddSubDir, TA[6:0], TB[6:0], CflgB, VflgB, AddSub_VecOutB);
 
 //----------------------------------------------------------------------------
 // Behavioral section of the code.  Assignments are evaluated in order, i.e.
@@ -197,7 +205,7 @@ always@(posedge Clock_pin)
      PC  = DM_out ;
     end
 
-    ADD_IC, SUB_IC, ADDC_IC, SUBC_IC,
+    ADDV_IC, SUBV_IC, ADD_IC, SUB_IC, ADDC_IC, SUBC_IC,
     NOT_IC, AND_IC, OR_IC, XOR_IC, 
     SHLL_IC, SHRL_IC, SHLA_IC, SHRA_IC,
     ROTL_IC, ROTR_IC, RTLC_IC, RTRC_IC: begin
@@ -275,6 +283,30 @@ always@(posedge Clock_pin)
      TSR[10] = TALUout[13]; // Negative
      TSR[11] = Cflg;     // Carry
     end
+	 
+	 ADDV_IC, SUBV_IC: begin
+     TALUout = {AddSub_VecOutA[6:0],AddSub_VecOutB[6:0]};
+     TALUH   = TALUout[13:0];
+     TALUL 	 = 0;     
+     
+	  if (TALUout[13:7] == 0)
+      TSR[8] = 1; // Zero
+     else
+      TSR[8] = 0;
+     TSR[9]  = VflgA;     // Overflow
+     TSR[10] = 0; 		  // Negative
+     TSR[11] = CflgA;      // Carry
+	  
+	  if (TALUout[6:0] == 0)
+      TSR[4] = 1; // Zero
+     else
+      TSR[4] = 0;
+     TSR[5]  = VflgA;     // Overflow
+     TSR[6] = 0; 		  	  // Negative
+     TSR[7] = CflgA;      // Carry
+	  
+    end
+
 
     MUL_IC: begin
      {TALUH, TALUL} = Mul_out;
@@ -646,7 +678,7 @@ always@(posedge Clock_pin)
       TB = {10'b0000000000, IR1[3:0]};
      end
 
-     ADD_IC: begin
+     ADD_IC, ADDV_IC: begin
       AddSubDir = 1'b1;
       if (IR2[7:4]==IR1[7:4])
        TA = TALUH;
@@ -663,7 +695,7 @@ always@(posedge Clock_pin)
        TB = R[IR1[3:0]];
      end
 
-     SUB_IC: begin
+     SUB_IC, SUBV_IC: begin
       AddSubDir = 1'b0;
       if (IR2[7:4]==IR1[7:4])
        TA = TALUH;

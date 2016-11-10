@@ -130,6 +130,8 @@ except IOError:
     keyfile.write("RTRC   33     1\n")
     keyfile.write("CPY    03     2\n")
     keyfile.write("SWAP   04     2\n")
+    keyfile.write("ADDV   38     2\n")
+    keyfile.write("SUBV   39     2\n")
     keyfile.write("ADD    20     2\n")
     keyfile.write("SUB    21     2\n")
     keyfile.write("MUL    24     2\n")
