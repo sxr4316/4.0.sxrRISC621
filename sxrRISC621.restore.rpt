@@ -1,5 +1,5 @@
 Restore Archived Project report for sxrRISC621
-Wed Nov  9 19:16:41 2016
+Wed Nov  9 19:28:08 2016
 Quartus Prime Version 15.1.2 Build 193 02/01/2016 SJ Lite Edition
 
 
@@ -37,7 +37,7 @@ agreement for further details.
 +-------------------------------------------------------------------------+
 ; Restore Archived Project Summary                                        ;
 +---------------------------------+---------------------------------------+
-; Restore Archived Project Status ; Successful - Wed Nov  9 19:16:41 2016 ;
+; Restore Archived Project Status ; Successful - Wed Nov  9 19:28:08 2016 ;
 ; Revision Name                   ; sxrRISC621                            ;
 ; Top-level Entity Name           ; sxrRISC621                            ;
 ; Family                          ; Cyclone IV E                          ;
@@ -47,13 +47,13 @@ agreement for further details.
 +-----------------------------------+
 ; Restore Archived Project Messages ;
 +-----------------------------------+
-Info: Successfully restored '/home/sxr4316/Downloads/sxrRISC621_pipeline_cache.qar' into the '/home/sxr4316/Downloads/sxrRISC621_pipeline_cache_restored/' directory
+Info: Successfully restored '/home/sxr4316/ee621/sxrRISC621.qar' into the '/home/sxr4316/ee621/sxrRISC621/' directory
 Info: Generated report 'sxrRISC621.restore.rpt'
 Info (23030): Evaluation of Tcl script /home/sxr4316/.altera/quartus/common/tcl/apps/qpm/qar.tcl was successful
 Info: Quartus Prime Shell was successful. 0 errors, 0 warnings
     Info: Peak virtual memory: 1201 megabytes
-    Info: Processing ended: Wed Nov  9 19:16:41 2016
-    Info: Elapsed time: 00:00:02
+    Info: Processing ended: Wed Nov  9 19:28:08 2016
+    Info: Elapsed time: 00:00:01
     Info: Total CPU time (on all processors): 00:00:01
 
 
@@ -63,6 +63,8 @@ Info: Quartus Prime Shell was successful. 0 errors, 0 warnings
 ; File Name                          ;
 +------------------------------------+
 ; qar_info.json                      ;
+; ASM/sxrASM.py                      ;
+; ASM/sxrRISC621_rom.asm             ;
 ; assignment_defaults.qdf            ;
 ; sxrRISC621.qpf                     ;
 ; sxrRISC621.qsf                     ;

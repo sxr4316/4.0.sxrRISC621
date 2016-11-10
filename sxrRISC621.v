@@ -144,14 +144,14 @@ always@(posedge Clock_pin)
     case (IR3[13:8])
 
     LD_IC: begin
-     if (MAeff[13:6] != 8'hFF)
+     if (MAeff[13:6] != 8'h3F)
       R[IR3[3:0]] = DM_out;
      else
       R[IR3[3:0]] = 14'h000;     // IO Peripherals to be checked
     end
 
     ST_IC: begin
-     if (MAeff[13:8] != 6'hFF) begin
+     if (MAeff[13:8] != 6'h3F) begin
       DM_in = TALUL;
       WR_DM = 1'b1;
      end
