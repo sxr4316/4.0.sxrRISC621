@@ -77,8 +77,6 @@ reg [13:0]  IR, IR1, IR2, IR3;
 
 reg     StallMC0, StallMC1, StallMC2, StallMC3;
 
-wire 			stROMBusy, stRAMBusy;
-
 //----------------------------------------------------------------------------
 // In this architecture we are using a combination of structural and 
 //  behavioral code.  Care has to be excercised because the values assigned
@@ -96,9 +94,9 @@ wire 			stROMBusy, stRAMBusy;
 
 assign Clock_not = ~Clock_pin;
 
-sxrRISC621_crom  my_romcached   (Resetn_pin, stROMBusy, PC[13:0], Clock_not, PM_out);
+sxrRISC621_rom  my_rom   (PC[13:0], Clock_not, PM_out);
 
-//sxrRISC621_cram  my_ramcached   (Resetn_pin, stRAMBusy, MAeff[13:0], Clock_not, DM_in, WR_DM, DM_out);
+sxrRISC621_ram  my_ram   (MAeff[13:0], Clock_not, DM_in, WR_DM, DM_out);
 
 sxrRISC621_mult my_mult   (TA, TB, Mul_out);
 
@@ -153,7 +151,7 @@ always@(posedge Clock_pin)
     end
 
     ST_IC: begin
-     if (MAeff[13:8] != 6'h3F) begin
+     if (MAeff[13:8] != 6'hFF) begin
       DM_in = TALUL;
       WR_DM = 1'b1;
      end

@@ -56,27 +56,21 @@ module sxrRISC621_cam (we_n, rd_n, din, argin, addrs, dout, mbits);
 //--    memory location associated with it.
 //----------------------------------------------------------------------------
 
-	always @ (argin) begin
+	always @ (argin, cam_mem) begin
 
+	mbits = 4'h0;
 			if (argin == cam_mem[0])
-				mbits[0] = 1;
-			else
-				mbits[0] = 0;
+				mbits[0] = 1'b1;
 			
 			if (argin == cam_mem[1])
-				mbits[1] = 1;
-			else
-				mbits[1] = 0;
+				mbits[1] = 1'b1;
 			
 			if (argin == cam_mem[2])
-				mbits[2] = 1;
-			else
-				mbits[2] = 0;
+				mbits[2] = 1'b1;
 			
 			if (argin == cam_mem[3])
-				mbits[3] = 1;
-			else
-				mbits[3] = 0;
+				mbits[3] = 1'b1;
+			
 	end
 
 endmodule

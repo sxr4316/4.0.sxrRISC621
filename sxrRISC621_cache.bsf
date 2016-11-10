@@ -4,7 +4,7 @@ editor if you plan to continue editing the block that represents it in
 the Block Editor! File corruption is VERY likely to occur.
 */
 /*
-Copyright (C) 1991-2015 Altera Corporation. All rights reserved.
+Copyright (C) 1991-2016 Altera Corporation. All rights reserved.
 Your use of Altera Corporation's design tools, logic functions 
 and other software and tools, and its AMPP partner logic 
 functions, and any output files from any of the foregoing 
@@ -27,8 +27,8 @@ agreement for further details.
 	(port
 		(pt 0 32)
 		(input)
-		(text "data[7..0]" (rect 0 0 94 16)(font "Arial" (font_size 8)))
-		(text "data[7..0]" (rect 4 18 47 31)(font "Arial" (font_size 8)))
+		(text "data[13..0]" (rect 0 0 103 16)(font "Arial" (font_size 8)))
+		(text "data[13..0]" (rect 4 18 53 31)(font "Arial" (font_size 8)))
 		(line (pt 0 32)(pt 88 32)(line_width 3))
 	)
 	(port
@@ -41,8 +41,8 @@ agreement for further details.
 	(port
 		(pt 0 64)
 		(input)
-		(text "address[3..0]" (rect 0 0 122 16)(font "Arial" (font_size 8)))
-		(text "address[3..0]" (rect 4 50 66 63)(font "Arial" (font_size 8)))
+		(text "address[7..0]" (rect 0 0 122 16)(font "Arial" (font_size 8)))
+		(text "address[7..0]" (rect 4 50 66 63)(font "Arial" (font_size 8)))
 		(line (pt 0 64)(pt 88 64)(line_width 3))
 	)
 	(port
@@ -55,13 +55,13 @@ agreement for further details.
 	(port
 		(pt 216 32)
 		(output)
-		(text "q[7..0]" (rect 0 0 66 16)(font "Arial" (font_size 8)))
-		(text "q[7..0]" (rect 183 18 211 31)(font "Arial" (font_size 8)))
+		(text "q[13..0]" (rect 0 0 75 16)(font "Arial" (font_size 8)))
+		(text "q[13..0]" (rect 177 18 211 31)(font "Arial" (font_size 8)))
 		(line (pt 216 32)(pt 136 32)(line_width 3))
 	)
 	(drawing
-		(text "8 bits" (rect 109 23 191 153)(font "Arial" )(vertical))
-		(text "16 words" (rect 120 12 209 167)(font "Arial" )(vertical))
+		(text "14 bits" (rect 109 24 194 159)(font "Arial" )(vertical))
+		(text "256 words" (rect 120 13 212 173)(font "Arial" )(vertical))
 		(text "Block type: AUTO" (rect 48 114 170 239)(font "Arial" ))
 		(line (pt 104 24)(pt 136 24))
 		(line (pt 136 24)(pt 136 96))

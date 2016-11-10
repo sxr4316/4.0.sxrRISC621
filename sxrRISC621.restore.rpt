@@ -1,5 +1,5 @@
 Restore Archived Project report for sxrRISC621
-Wed Nov  2 05:07:24 2016
+Wed Nov  9 19:16:41 2016
 Quartus Prime Version 15.1.2 Build 193 02/01/2016 SJ Lite Edition
 
 
@@ -37,77 +37,69 @@ agreement for further details.
 +-------------------------------------------------------------------------+
 ; Restore Archived Project Summary                                        ;
 +---------------------------------+---------------------------------------+
-; Restore Archived Project Status ; Successful - Wed Nov  2 05:07:24 2016 ;
+; Restore Archived Project Status ; Successful - Wed Nov  9 19:16:41 2016 ;
 ; Revision Name                   ; sxrRISC621                            ;
 ; Top-level Entity Name           ; sxrRISC621                            ;
-; Family                          ; Cyclone V                             ;
+; Family                          ; Cyclone IV E                          ;
 +---------------------------------+---------------------------------------+
 
 
 +-----------------------------------+
 ; Restore Archived Project Messages ;
 +-----------------------------------+
-Info: Successfully restored '/home/sxr4316/Downloads/sxrRISC621.qar' into the '/home/sxr4316/ee621/sxrRISC621/' directory
+Info: Successfully restored '/home/sxr4316/Downloads/sxrRISC621_pipeline_cache.qar' into the '/home/sxr4316/Downloads/sxrRISC621_pipeline_cache_restored/' directory
 Info: Generated report 'sxrRISC621.restore.rpt'
 Info (23030): Evaluation of Tcl script /home/sxr4316/.altera/quartus/common/tcl/apps/qpm/qar.tcl was successful
 Info: Quartus Prime Shell was successful. 0 errors, 0 warnings
     Info: Peak virtual memory: 1201 megabytes
-    Info: Processing ended: Wed Nov  2 05:07:24 2016
+    Info: Processing ended: Wed Nov  9 19:16:41 2016
     Info: Elapsed time: 00:00:02
     Info: Total CPU time (on all processors): 00:00:01
 
 
-+----------------------------------------+
-; Files Restored                         ;
-+----------------------------------------+
-; File Name                              ;
-+----------------------------------------+
-; qar_info.json                          ;
-; assignment_defaults.qdf                ;
-; sxrRISC621.qpf                         ;
-; sxrRISC621.qsf                         ;
-; sxrRISC621.v                           ;
-; sxrRISC621_addsub.bsf                  ;
-; sxrRISC621_addsub.qip                  ;
-; sxrRISC621_addsub.v                    ;
-; sxrRISC621_addsub_bb.v                 ;
-; sxrRISC621_assignment_defaults.qdf     ;
-; sxrRISC621_cache.bsf                   ;
-; sxrRISC621_cache.cmp                   ;
-; sxrRISC621_cache.qip                   ;
-; sxrRISC621_cache.v                     ;
-; sxrRISC621_cache_bb.v                  ;
-; sxrRISC621_cam.v                       ;
-; sxrRISC621_cram.v                      ;
-; sxrRISC621_crom.v                      ;
-; sxrRISC621_div.bsf                     ;
-; sxrRISC621_div.qip                     ;
-; sxrRISC621_div.v                       ;
-; sxrRISC621_div_bb.v                    ;
-; sxrRISC621_grp.v                       ;
-; sxrRISC621_mult.bsf                    ;
-; sxrRISC621_mult.qip                    ;
-; sxrRISC621_mult.v                      ;
-; sxrRISC621_mult_bb.v                   ;
-; sxrRISC621_pll.cmp                     ;
-; sxrRISC621_pll.qip                     ;
-; sxrRISC621_pll.sip                     ;
-; sxrRISC621_pll.spd                     ;
-; sxrRISC621_pll.v                       ;
-; sxrRISC621_pll/sxrRISC621_pll_0002.qip ;
-; sxrRISC621_pll/sxrRISC621_pll_0002.v   ;
-; sxrRISC621_pll_sim/sxrRISC621_pll.vo   ;
-; sxrRISC621_ram.bsf                     ;
-; sxrRISC621_ram.qip                     ;
-; sxrRISC621_ram.v                       ;
-; sxrRISC621_ram_bb.v                    ;
-; sxrRISC621_rom.bsf                     ;
-; sxrRISC621_rom.qip                     ;
-; sxrRISC621_rom.v                       ;
-; sxrRISC621_rom_bb.v                    ;
-; sxrRISC621_tb.v                        ;
-; sxrrisc621_rom.mif                     ;
-+----------------------------------------+
++------------------------------------+
+; Files Restored                     ;
++------------------------------------+
+; File Name                          ;
++------------------------------------+
+; qar_info.json                      ;
+; assignment_defaults.qdf            ;
+; sxrRISC621.qpf                     ;
+; sxrRISC621.qsf                     ;
+; sxrRISC621.v                       ;
+; sxrRISC621_addsub.bsf              ;
+; sxrRISC621_addsub.qip              ;
+; sxrRISC621_addsub.v                ;
+; sxrRISC621_addsub_bb.v             ;
+; sxrRISC621_assignment_defaults.qdf ;
+; sxrRISC621_cache.bsf               ;
+; sxrRISC621_cache.qip               ;
+; sxrRISC621_cache.v                 ;
+; sxrRISC621_cache_bb.v              ;
+; sxrRISC621_cam.v                   ;
+; sxrRISC621_cram.v                  ;
+; sxrRISC621_crom.v                  ;
+; sxrRISC621_div.bsf                 ;
+; sxrRISC621_div.qip                 ;
+; sxrRISC621_div.v                   ;
+; sxrRISC621_div_bb.v                ;
+; sxrRISC621_grp.v                   ;
+; sxrRISC621_mult.bsf                ;
+; sxrRISC621_mult.qip                ;
+; sxrRISC621_mult.v                  ;
+; sxrRISC621_mult_bb.v               ;
+; sxrRISC621_pll.v                   ;
+; sxrRISC621_ram.bsf                 ;
+; sxrRISC621_ram.qip                 ;
+; sxrRISC621_ram.v                   ;
+; sxrRISC621_ram_bb.v                ;
+; sxrRISC621_rom.bsf                 ;
+; sxrRISC621_rom.mif                 ;
+; sxrRISC621_rom.qip                 ;
+; sxrRISC621_rom.v                   ;
+; sxrRISC621_rom_bb.v                ;
+; sxrRISC621_tb.v                    ;
++------------------------------------+
 
 
 +--------------------+

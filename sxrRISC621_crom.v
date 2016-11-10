@@ -1,11 +1,11 @@
-module sxrRISC621_crom	(Resetn, StBusy, PM_address, Clock, PM_out);
+module sxrRISC621_crom	(Resetn, StBusy, PM_address, Clock, PM_out, clk0, clk1, clk2);
 
 //----------------------------------------------------------------------------
 //module input and outputs
 //----------------------------------------------------------------------------
 
 input		wire	[13:0]	PM_address;
-input		wire				Resetn, Clock;
+input		wire				Resetn, Clock, clk0, clk1, clk2;
 output	wire	[13:0]	PM_out;
 output	reg				StBusy;
 
@@ -13,9 +13,10 @@ output	reg				StBusy;
 //structural nets
 //----------------------------------------------------------------------------
 
-wire	[1:0]	mbits0, mbits1, mbits2, mbits3, GrpDecd, PMM_out;
-wire			c0, c1, c2;
-wire	[7:0]	dout0, dout1, dout2, dout3;
+wire	[3:0]		mbits0, mbits1, mbits2, mbits3, GrpDecd;
+wire  [13:0]	PMM_out;
+wire				c0, c1, c2;
+wire	[7:0]		dout0, dout1, dout2, dout3;
 
 //----------------------------------------------------------------------------
 //registered nets
@@ -41,6 +42,10 @@ reg	[7:0] din0, din1, din2, din3;
 reg	[3:0] cam_addrs0, cam_addrs1,cam_addrs2, cam_addrs3;
 reg	[4:0] transfer_count;
 
+wire [7:0] tag;
+
+assign tag = PMM_address[13:6];
+
 //----------------------------------------------------------------------------
 // GrpID is used to capture the group address field
 //----------------------------------------------------------------------------
@@ -59,7 +64,7 @@ assign Reset = ~Resetn;
 // The PLL unit/block generates three clock phases to sequence all events
 //----------------------------------------------------------------------------
 
-	sxrRISC621_pll	rom_pll 	(Clock, Reset, c0, c1, c2);
+	sxrRISC621_pll	rom_pll 	(Clock, c0, c1, c2);
 	
 //----------------------------------------------------------------------------
 // I'm using two separate CAM memories for the two-way TAG identification
@@ -79,14 +84,14 @@ assign Reset = ~Resetn;
 //    clock.
 //----------------------------------------------------------------------------
 
-	sxrRISC621_rom 	my_rom   (PMM_address[13:0], c1, PMM_out);
+	sxrRISC621_rom 	my_rom   (PMM_address[13:0], clk1, PMM_out);
 	
 //----------------------------------------------------------------------------
 // This is the actual cache memory, implemented as a RAM; notice that this
 //    is using the c2 phase of the clock.
 //----------------------------------------------------------------------------
 
-	sxrRISC621_cache	my_rom_cache	(PMC_address, c2, PMM_out, wren, PM_out);
+	sxrRISC621_cache	my_rom_cache	(PMC_address, clk2, PMM_out, wren, PM_out);
 	
 //----------------------------------------------------------------------------
 // This 4to16 decoder identifies the group being accessed
@@ -98,7 +103,7 @@ assign Reset = ~Resetn;
 // Behavioral part of the code = memory subsystem "control unit"
 //----------------------------------------------------------------------------
 
-always @ (posedge c0) begin
+always @ (posedge clk0) begin
 
 	if (Resetn == 0) begin
 
@@ -124,6 +129,8 @@ always @ (posedge c0) begin
 	
 		GrpID = PM_address[5:4];
 		
+		we_n0 = 1; we_n1 = 1; we_n2 = 1; we_n3 = 1;
+		
 //----------------------------------------------------------------------------
 // The HIT if statements
 //----------------------------------------------------------------------------
@@ -133,7 +140,7 @@ always @ (posedge c0) begin
 
 		if (miss == 0) begin
 
-			we_n0 = 1; we_n1 = 1; we_n2 = 1; we_n3 = 1;
+			
 			
 //----------------------------------------------------------------------------
 // The condition logically ANDs each mbit with the coresponding group line;
@@ -149,7 +156,7 @@ always @ (posedge c0) begin
 				PMC_address = {2'b00, PM_address[5:0]}; 
 				
 				StBusy = 0 ;
-
+				
 //----------------------------------------------------------------------------
 // Apply the replacing strategy: if this block was accessed now and a 
 //    replacement will be necessary next, replace the other block.
@@ -178,8 +185,8 @@ always @ (posedge c0) begin
 
 				PMC_address = {2'b10, PM_address[5:0]}; 
 
-				StBusy = 0 ;				
-								
+				StBusy = 0 ;
+				
 //----------------------------------------------------------------------------
 // Apply the replacing strategy: if this block was accessed now and a 
 //    replacement will be necessary next, replace the other block.
@@ -268,23 +275,23 @@ always @ (posedge c0) begin
 					
 					StValid[{2'b00, PM_address[5:4]}] = 1;
 				
-				end if (replace[GrpID] == 1) begin
+				end else if (replace[GrpID] == 1) begin
 
-					din1 = PM_address[13:6]; cam_addrs1 = PM_address[5:4]; we_n0 = 0;
+					din1 = PM_address[13:6]; cam_addrs1 = PM_address[5:4]; we_n1 = 0;
 					
 					StValid[{2'h1, PM_address[5:4]}] = 1;
 				
-				end if (replace[GrpID] == 2) begin
+				end else if (replace[GrpID] == 2) begin
 
-					din2 = PM_address[13:6]; cam_addrs0 = PM_address[5:4]; we_n0 = 0;
+					din2 = PM_address[13:6]; cam_addrs2 = PM_address[5:4]; we_n2 = 0;
 					
 					StValid[{2'h2, PM_address[5:4]}] = 1;
 				
 				end else begin
 				
-					din3 = PM_address[13:6]; cam_addrs1 = PM_address[5:4]; we_n1 = 0;
+					din3 = PM_address[13:6]; cam_addrs3 = PM_address[5:4]; we_n3 = 0;
 					
-					StValid[{2'b11, PM_address[5:4]}] = 1;
+					StValid[{2'h3, PM_address[5:4]}] = 1;
 				
 				end
 		end
